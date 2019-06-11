@@ -191,6 +191,14 @@
             }
         },
         {
+            "Key": "92a4ad64-c763-414b-b890-1c68c7cdfe91",
+            "Value": {
+                "id": "3b806188-265c-4ea9-b6d8-3b016b67c660",
+                "resourcePath": "fonts\\fntHeading\\fntHeading.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "93a16fcf-3c64-4ad3-ba2a-a832aec366af",
             "Value": {
                 "id": "03069e3e-6a3a-4d46-8b5a-b59c97dfa3aa",
@@ -287,6 +295,14 @@
             }
         },
         {
+            "Key": "fb0e1999-5c3f-4ecb-9275-3cc701987858",
+            "Value": {
+                "id": "6ef54d69-9664-48cc-acd9-eb0f16f71578",
+                "resourcePath": "scripts\\im_heading\\im_heading.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fce19e64-d138-40aa-afe0-9cecbf18c3f1",
             "Value": {
                 "id": "39f702f9-37b3-4239-87f3-8431dd6670a5",
@@ -298,6 +314,7 @@
     "script_order": [
         "10d7debe-4571-4702-b874-5f2be32d7c98",
         "6666bfbc-0b6c-434b-83e0-91e1b5e0a8e6",
+        "fb0e1999-5c3f-4ecb-9275-3cc701987858",
         "9f82d46a-b238-408e-ac64-d488fa1a4632",
         "888cc510-e3eb-4e0f-a101-8fca5475ff56",
         "93a16fcf-3c64-4ad3-ba2a-a832aec366af",

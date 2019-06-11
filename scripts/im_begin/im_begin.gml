@@ -4,7 +4,11 @@
 /// @param mouseY
 /// @param mouseState
 
-#macro IM_DEBUG  true
+#macro IM_DEBUG              true
+#macro IM_HEADING_FONT       fntHeading
+#macro IM_LINE_MIN_HEIGHT    20
+#macro IM_LINE_SEPARATION     4
+#macro IM_ELEMENT_SEPARATION  8
 
 #region Internal definitions
 
@@ -55,8 +59,6 @@ im_mouse_over_any = false;
 
 __im_pos_x = __im_start_pos_x;
 __im_pos_y = __im_start_pos_y;
-__im_sep_x = 8;
-__im_sep_y = 4;
 __im_line_height = 0;
 
 var _e = 0;

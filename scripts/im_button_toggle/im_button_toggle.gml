@@ -3,6 +3,8 @@
 /// @param [variableName]
 /// @param [elementName]
 
+var _old_colour = draw_get_colour();
+
 var _string_on    = argument[0];
 var _string_off   = ((argument_count > 1) && (argument[1] != undefined))? argument[1] : _string_on;
 var _variable     = ((argument_count > 2) && is_string(argument[2])    )? argument[2] : undefined;
@@ -20,10 +22,15 @@ var _value     = _element_array[__IM_ELEMENT.VALUE  ];
 var _old_state = _element_array[__IM_ELEMENT.STATE  ];
 var _handled   = _element_array[__IM_ELEMENT.HANDLED];
 
-if (_handled && !_element_array[__IM_ELEMENT.ERRORED])
+if (_handled)
 {
-    show_debug_message("IM: WARNING! Name \"" + _element_name + "\" is being used by two or more elements.");
-    _element_array[@ __IM_ELEMENT.ERRORED] = true;
+    if (!_element_array[__IM_ELEMENT.ERRORED])
+    {
+        show_debug_message("IM: WARNING! Name \"" + _element_name + "\" is being used by two or more elements.");
+        _element_array[@ __IM_ELEMENT.ERRORED] = true;
+    }
+    
+    draw_set_colour(c_gray);
 }
 
 var _new_state = IM_MOUSE.NULL;
@@ -58,7 +65,6 @@ if (_new_state == IM_MOUSE.OVER)
 {
     draw_rectangle(_l, _t, _r, _b, false);
     
-    var _old_colour = draw_get_colour();
     draw_set_colour(make_colour_rgb(255 - colour_get_red(_old_colour), 255 - colour_get_green(_old_colour), 255 - colour_get_blue(_old_colour)));
     draw_rectangle(_l+1, _t+1, _r-1, _b-1, true);
     draw_text(__im_pos_x, __im_pos_y, _string);
@@ -70,7 +76,7 @@ else
     draw_rectangle(_l, _t, _r, _b, true);
 }
 
-__im_pos_x += __im_sep_x + _string_w;
+__im_pos_x += IM_ELEMENT_SEPARATION + _string_w;
 __im_line_height = max(__im_line_height, _string_h);
 
 if (_new_state == IM_MOUSE.CLICK)
@@ -93,4 +99,7 @@ if (_new_state == IM_MOUSE.CLICK)
 
 _element_array[@ __IM_ELEMENT.STATE  ] = _new_state;
 _element_array[@ __IM_ELEMENT.HANDLED] = true;
+
+draw_set_colour(_old_colour);
+
 return _new_state;

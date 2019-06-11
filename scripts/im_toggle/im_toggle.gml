@@ -1,8 +1,14 @@
+/// @param [labelOn]
+/// @param [labelOff]
 /// @param [variableName]
 /// @param [elementName]
 
-var _variable     = ((argument_count > 0) && is_string(argument[0]))? argument[0] : undefined;
-var _element_name = ((argument_count > 1) && is_string(argument[1]))? argument[1] : undefined;
+var _old_colour = draw_get_colour();
+
+var _string_on    = ((argument_count > 0) && is_string(argument[0]))? argument[0] : "";
+var _string_off   = ((argument_count > 1) && is_string(argument[1]))? argument[1] : _string_on;
+var _variable     = ((argument_count > 2) && is_string(argument[2]))? argument[2] : undefined;
+var _element_name = ((argument_count > 3) && is_string(argument[3]))? argument[3] : undefined;
 
 if (!is_string(_element_name)) _element_name = _variable;
 if (_element_name == undefined)
@@ -16,10 +22,15 @@ var _value         = _element_array[__IM_ELEMENT.VALUE  ];
 var _old_state     = _element_array[__IM_ELEMENT.STATE  ];
 var _handled       = _element_array[__IM_ELEMENT.HANDLED];
 
-if (_handled && !_element_array[__IM_ELEMENT.ERRORED])
+if (_handled)
 {
-    show_debug_message("IM: WARNING! Name \"" + _element_name + "\" is being used by two or more elements.");
-    _element_array[@ __IM_ELEMENT.ERRORED] = true;
+    if (!_element_array[__IM_ELEMENT.ERRORED])
+    {
+        show_debug_message("IM: WARNING! Name \"" + _element_name + "\" is being used by two or more elements.");
+        _element_array[@ __IM_ELEMENT.ERRORED] = true;
+    }
+    
+    draw_set_colour(c_gray);
 }
 
 var _new_state = IM_MOUSE.NULL;
@@ -61,7 +72,6 @@ if (_value)
     
     if (_new_state == IM_MOUSE.OVER)
     {
-        var _old_colour = draw_get_colour();
         draw_set_colour(make_colour_rgb(255 - colour_get_red(_old_colour), 255 - colour_get_green(_old_colour), 255 - colour_get_blue(_old_colour)));
         draw_rectangle(_l+3, _t+3, _r-3, _b-3, true);
         draw_set_colour(_old_colour);
@@ -72,8 +82,11 @@ else if (_new_state == IM_MOUSE.OVER)
     draw_rectangle(_l+2, _t+2, _r-2, _b-2, true);
 }
 
-__im_pos_x += __im_sep_x + _string_w;
+__im_pos_x += IM_ELEMENT_SEPARATION + _string_w;
 __im_line_height = max(__im_line_height, _string_h);
+
+var _string = _value? _string_on : _string_off;
+if (_string != "") im_text(_string);
 
 if (!_handled)
 {
@@ -98,5 +111,7 @@ if (!_handled)
     _element_array[@ __IM_ELEMENT.STATE  ] = _new_state;
     _element_array[@ __IM_ELEMENT.HANDLED] = true;
 }
+
+draw_set_colour(_old_colour);
 
 return _new_state;
