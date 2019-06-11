@@ -29,7 +29,7 @@ if (_handled)
     _colour = IM_INACTIVE_COLOUR;
 }
 
-var _new_state = IM_MOUSE.NULL;
+var _new_state = IM_STATE.NULL;
 
 var _element_w = string_width(_string);
 var _element_h = string_height(_string);
@@ -47,14 +47,14 @@ if (!_handled)
         {
             im_mouse_over_any = true;
         
-            _new_state = (_old_state == IM_MOUSE.DOWN)? IM_MOUSE.DOWN : IM_MOUSE.OVER;
-            if (__im_mouse_released && (_old_state == IM_MOUSE.DOWN)) _new_state = IM_MOUSE.CLICK;
-            if (__im_mouse_pressed  && (_old_state == IM_MOUSE.OVER)) _new_state = IM_MOUSE.DOWN;
+            _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
+            if (__im_mouse_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
+            if (__im_mouse_pressed  && (_old_state == IM_STATE.OVER)) _new_state = IM_STATE.DOWN;
         }
     }
 }
 
-if (_new_state == IM_MOUSE.OVER)
+if (_new_state == IM_STATE.OVER)
 {
     draw_rectangle(_l, _t, _r, _b, false);
     

@@ -18,7 +18,7 @@
 #macro __IM_VERSION  "0.0.0"
 #macro __IM_DATE     "2019/06/11"
 
-enum IM_MOUSE
+enum IM_STATE
 {
     NULL  = -2,
     OVER  = -1,
@@ -56,6 +56,9 @@ __im_mouse_y     = argument3;
 __im_mouse_down  = argument4;
 
 __im_auto_element = 0;
+
+__im_string_format_total = -1;
+__im_string_format_dec   = -1;
 
 __im_mouse_pressed  = (!__im_prev_mouse_down &&  __im_mouse_down);
 __im_mouse_released = ( __im_prev_mouse_down && !__im_mouse_down);

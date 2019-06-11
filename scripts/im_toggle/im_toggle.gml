@@ -35,7 +35,7 @@ if (_handled)
     _colour = IM_INACTIVE_COLOUR;
 }
 
-var _new_state = IM_MOUSE.NULL;
+var _new_state = IM_STATE.NULL;
 
 
 
@@ -57,9 +57,9 @@ if (!_handled)
         {
             im_mouse_over_any = true;
         
-            _new_state = (_old_state == IM_MOUSE.DOWN)? IM_MOUSE.DOWN : IM_MOUSE.OVER;
-            if (__im_mouse_released && (_old_state == IM_MOUSE.DOWN)) _new_state = IM_MOUSE.CLICK;
-            if (__im_mouse_pressed  && (_old_state == IM_MOUSE.OVER)) _new_state = IM_MOUSE.DOWN;
+            _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
+            if (__im_mouse_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
+            if (__im_mouse_pressed  && (_old_state == IM_STATE.OVER)) _new_state = IM_STATE.DOWN;
         }
     }
 }
@@ -72,14 +72,14 @@ if (_value)
 {
     draw_rectangle(_l+2, _t+2, _r-2, _b-2, false);
     
-    if (_new_state == IM_MOUSE.OVER)
+    if (_new_state == IM_STATE.OVER)
     {
         draw_set_colour(IM_INVERSE_COLOUR);
         draw_rectangle(_l+3, _t+3, _r-3, _b-3, true);
         draw_set_colour(_colour);
     }
 }
-else if (_new_state == IM_MOUSE.OVER) 
+else if (_new_state == IM_STATE.OVER) 
 {
     draw_rectangle(_l+2, _t+2, _r-2, _b-2, true);
 }
@@ -92,7 +92,7 @@ if (_string != "") im_text(_string);
 
 if (!_handled)
 {
-    if (_new_state == IM_MOUSE.CLICK)
+    if (_new_state == IM_STATE.CLICK)
     {
         _value = !_value;
         _element_array[@ __IM_ELEMENT.VALUE] = _value;

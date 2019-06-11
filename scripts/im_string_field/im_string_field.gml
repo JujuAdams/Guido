@@ -38,7 +38,7 @@ if (_handled)
     _colour = c_gray;
 }
 
-var _new_state = IM_MOUSE.NULL;
+var _new_state = IM_STATE.NULL;
 
 
 
@@ -62,13 +62,13 @@ if (!_handled)
         {
             im_mouse_over_any = true;
         
-            _new_state = (_old_state == IM_MOUSE.DOWN)? IM_MOUSE.DOWN : IM_MOUSE.OVER;
-            if (__im_mouse_released && (_old_state == IM_MOUSE.DOWN)) _new_state = IM_MOUSE.CLICK;
-            if (__im_mouse_pressed  && (_old_state == IM_MOUSE.OVER))
+            _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
+            if (__im_mouse_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
+            if (__im_mouse_pressed  && (_old_state == IM_STATE.OVER))
             {
                 _element_array[@ __IM_ELEMENT.CLICK_X] = __im_mouse_x - _l;
                 _element_array[@ __IM_ELEMENT.CLICK_Y] = __im_mouse_y - _t;
-                _new_state = IM_MOUSE.DOWN;
+                _new_state = IM_STATE.DOWN;
             }
         }
     }
@@ -97,7 +97,7 @@ __im_line_height = max(__im_line_height, _element_h);
 
 if (!_handled)
 {
-    if (_new_state == IM_MOUSE.CLICK)
+    if (_new_state == IM_STATE.CLICK)
     {
         _element_array[@ __IM_ELEMENT.VALUE] = _value;
     
