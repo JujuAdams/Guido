@@ -1,7 +1,7 @@
 im_begin(10, 10, mouse_x, mouse_y, mouse_check_button(mb_left));
-im_heading("Immediate Mode v" + __IM_VERSION + "   " + __IM_DATE);
+im_text("Immediate Mode v" + __IM_VERSION + "   " + __IM_DATE, 1, 1, fHeader);
 im_newline();
-im_heading("@jujuadams");
+im_text("@jujuadams", 1, 1, fHeader);
 im_newline();
 im_newline();
 im_text("Hello!");
