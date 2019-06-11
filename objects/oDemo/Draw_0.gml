@@ -32,4 +32,7 @@ im_text(slider);
 im_newline();
 im_string_field(150, "string field");
 im_text("|||");
+im_sprite(sTest, 0);
+im_sprite(sTest, 0);
+im_text("|||");
 im_end();
