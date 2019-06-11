@@ -151,6 +151,14 @@
             }
         },
         {
+            "Key": "7832093b-e7d4-4606-8a5d-3c656ecd3ada",
+            "Value": {
+                "id": "1038e26f-64aa-4709-bcb6-62a92074b0fe",
+                "resourcePath": "fonts\\fHeader\\fHeader.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "79516fc0-f75b-4d53-a5e8-504240a68a81",
             "Value": {
                 "id": "8d17bccc-2944-4025-9e3c-b2f6c5b0e68c",

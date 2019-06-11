@@ -5,7 +5,7 @@
 /// @param mouseState
 
 #macro IM_DEBUG              true
-#macro IM_HEADING_FONT       -1
+#macro IM_HEADING_FONT       fHeader
 #macro IM_LINE_MIN_HEIGHT    20
 #macro IM_LINE_SEPARATION     4
 #macro IM_ELEMENT_SEPARATION  8
