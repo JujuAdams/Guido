@@ -90,7 +90,7 @@
             "Key": "5a441b5c-b8c6-4091-b715-1e78e09ec0e2",
             "Value": {
                 "id": "8c1869cd-6c85-4817-936a-b687ba70a6fc",
-                "resourcePath": "scripts\\im_ident_get_value\\im_ident_get_value.yy",
+                "resourcePath": "scripts\\im_element_get_value\\im_element_get_value.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -162,7 +162,7 @@
             "Key": "7ef17301-8f5e-4599-b9cb-308c36ce162e",
             "Value": {
                 "id": "914f0ee1-84d2-40d4-aff5-1e80404ccb7f",
-                "resourcePath": "scripts\\__im_ident_find\\__im_ident_find.yy",
+                "resourcePath": "scripts\\__im_element_find\\__im_element_find.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -178,7 +178,7 @@
             "Key": "888cc510-e3eb-4e0f-a101-8fca5475ff56",
             "Value": {
                 "id": "d4a3553a-607f-4a91-b8c2-7326eca9af79",
-                "resourcePath": "scripts\\im_text_toggle\\im_text_toggle.yy",
+                "resourcePath": "scripts\\im_button_toggle\\im_button_toggle.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -234,7 +234,7 @@
             "Key": "b55393e0-eb95-4d18-98ec-7a7599e525bc",
             "Value": {
                 "id": "d33e8b30-d1ed-4185-aa42-630a843acf97",
-                "resourcePath": "scripts\\im_ident_get_state\\im_ident_get_state.yy",
+                "resourcePath": "scripts\\im_element_get_state\\im_element_get_state.yy",
                 "resourceType": "GMScript"
             }
         },

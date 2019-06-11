@@ -1,25 +1,25 @@
-/// @param [variable{string}]
-/// @param [ident{string}]
+/// @param [variableName]
+/// @param [elementName]
 
-var _variable = ((argument_count > 0) && is_string(argument[0]))? argument[0] : undefined;
-var _ident    = ((argument_count > 1) && is_string(argument[1]))? argument[1] : undefined;
+var _variable     = ((argument_count > 0) && is_string(argument[0]))? argument[0] : undefined;
+var _element_name = ((argument_count > 1) && is_string(argument[1]))? argument[1] : undefined;
 
-if (!is_string(_ident)) _ident = _variable;
-if (_ident == undefined)
+if (!is_string(_element_name)) _element_name = _variable;
+if (_element_name == undefined)
 {
-    _ident = "AUTO " + string(__im_autoident) + ", toggle, variable=\"" + string(_variable) + "\"";
-    ++__im_autoident;
+    _element_name = "AUTO " + string(__im_auto_element) + ", toggle, variable=\"" + string(_variable) + "\"";
+    ++__im_auto_element;
 }
 
-var _ident_array = __im_ident_find(_ident, false);
-var _value     = _ident_array[__IM_IDENT_DATA.VALUE  ];
-var _old_state = _ident_array[__IM_IDENT_DATA.STATE  ];
-var _handled   = _ident_array[__IM_IDENT_DATA.HANDLED];
+var _element_array = __im_element_find(_element_name, false);
+var _value         = _element_array[__IM_ELEMENT.VALUE  ];
+var _old_state     = _element_array[__IM_ELEMENT.STATE  ];
+var _handled       = _element_array[__IM_ELEMENT.HANDLED];
 
-if (_handled && !_ident_array[__IM_IDENT_DATA.ERRORED])
+if (_handled && !_element_array[__IM_ELEMENT.ERRORED])
 {
-    show_debug_message("IM: WARNING! Ident \"" + _ident + "\" is being used by two or more elements.");
-    _ident_array[@ __IM_IDENT_DATA.ERRORED] = true;
+    show_debug_message("IM: WARNING! Name \"" + _element_name + "\" is being used by two or more elements.");
+    _element_array[@ __IM_ELEMENT.ERRORED] = true;
 }
 
 var _new_state = IM_MOUSE.NULL;
@@ -80,7 +80,7 @@ if (!_handled)
     if (_new_state == IM_MOUSE.CLICK)
     {
         _value = !_value;
-        _ident_array[@ __IM_IDENT_DATA.VALUE] = _value;
+        _element_array[@ __IM_ELEMENT.VALUE] = _value;
     
         if (is_string(_variable))
         {
@@ -95,8 +95,8 @@ if (!_handled)
         }
     }
     
-    _ident_array[@ __IM_IDENT_DATA.STATE  ] = _new_state;
-    _ident_array[@ __IM_IDENT_DATA.HANDLED] = true;
+    _element_array[@ __IM_ELEMENT.STATE  ] = _new_state;
+    _element_array[@ __IM_ELEMENT.HANDLED] = true;
 }
 
 return _new_state;

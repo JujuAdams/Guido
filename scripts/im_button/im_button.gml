@@ -1,17 +1,17 @@
 /// @param string
-/// @param [ident{string}]
+/// @param [elementName]
 
-var _string = argument[0];
-var _ident  = (argument_count > 1)? argument[1] : undefined;
+var _string        = argument[0];
+var _element_array = (argument_count > 1)? argument[1] : undefined;
 
-if (_ident == undefined)
+if (_element_array == undefined)
 {
-    _ident = "AUTO " + string(__im_autoident) + ", button, string=\"" + _string + "\"";
-    ++__im_autoident;
+    _element_array = "AUTO " + string(__im_auto_element) + ", button, string=\"" + _string + "\"";
+    ++__im_auto_element;
 }
 
-var _ident_array = __im_ident_find(_ident, false);
-var _old_state = _ident_array[__IM_IDENT_DATA.STATE];
+var _element_array = __im_element_find(_element_array, false);
+var _old_state = _element_array[__IM_ELEMENT.STATE];
 var _new_state = IM_MOUSE.NULL;
 
 var _string_w = string_width(_string);
@@ -53,5 +53,5 @@ else
 __im_pos_x += __im_sep_x + _string_w;
 __im_line_height = max(__im_line_height, _string_h);
 
-_ident_array[@ __IM_IDENT_DATA.STATE] = _new_state;
+_element_array[@ __IM_ELEMENT.STATE] = _new_state;
 return _new_state;
