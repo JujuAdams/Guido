@@ -11,7 +11,6 @@ if (im_button("Button 1 again", "button 1")) show_debug_message("!!!");
 im_newline();
 im_newline();
 im_button_toggle("floating ON :)", "floating off :(");
-im_button_toggle("element ON :)", "element off :(", undefined, "element");
 im_button_toggle("instance ON :)", "instance off :(", "instance_variable");
 im_button_toggle("global ON :)", "global off :(", "global.global_variable");
 im_newline();
