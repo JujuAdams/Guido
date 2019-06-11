@@ -1,8 +1,8 @@
 {
-    "id": "7ef17301-8f5e-4599-b9cb-308c36ce162e",
+    "id": "888cc510-e3eb-4e0f-a101-8fca5475ff56",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "__im_ident_get",
+    "name": "im_text_toggle",
     "IsCompatibility": false,
     "IsDnD": false
 }

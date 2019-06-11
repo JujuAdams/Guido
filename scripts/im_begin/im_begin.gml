@@ -8,6 +8,9 @@
 
 #region Internal definitions
 
+#macro __IM_VERSION  "0.0.0"
+#macro __IM_DATE     "2019/06/11"
+
 enum IM_MOUSE
 {
     NULL  = -2,
@@ -21,6 +24,8 @@ enum __IM_IDENT_DATA
     IDENT,
     STATE,
     VALUE,
+    HANDLED,
+    ERRORED,
     __SIZE
 }
 
@@ -28,7 +33,7 @@ enum __IM_IDENT_DATA
 
 if (!variable_instance_exists(id, "__im_mouse_down"))
 {
-    if (IM_DEBUG) show_debug_message("IM: Initialising for " + string(id) + " (" + object_get_name(object_index) + ")");
+    if (IM_DEBUG) show_debug_message("IM: Initialising for " + string(id) + " (" + object_get_name(object_index) + ")    (v" + __IM_VERSION + ", " + __IM_DATE + ")");
     __im_mouse_down = false;
     __im_ident_data = [];
 }
@@ -50,6 +55,14 @@ im_mouse_over_any = false;
 
 __im_pos_x = __im_start_pos_x;
 __im_pos_y = __im_start_pos_y;
-__im_sep_x = 10;
-__im_sep_y = 10;
+__im_sep_x = 8;
+__im_sep_y = 4;
 __im_line_height = 0;
+
+var _e = 0;
+repeat(array_length_1d(__im_ident_data))
+{
+    var _array = __im_ident_data[_e];
+    _array[@ __IM_IDENT_DATA.HANDLED] = false;
+    ++_e;
+}

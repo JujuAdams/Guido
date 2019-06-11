@@ -87,6 +87,14 @@
             }
         },
         {
+            "Key": "5a441b5c-b8c6-4091-b715-1e78e09ec0e2",
+            "Value": {
+                "id": "8c1869cd-6c85-4817-936a-b687ba70a6fc",
+                "resourcePath": "scripts\\im_ident_get_value\\im_ident_get_value.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "5ae7d156-ee8d-4df5-9e74-14c18297243b",
             "Value": {
                 "id": "f9d6a7e6-38c2-42e4-86b2-e7775efc10b6",
@@ -154,7 +162,7 @@
             "Key": "7ef17301-8f5e-4599-b9cb-308c36ce162e",
             "Value": {
                 "id": "914f0ee1-84d2-40d4-aff5-1e80404ccb7f",
-                "resourcePath": "scripts\\__im_ident_get\\__im_ident_get.yy",
+                "resourcePath": "scripts\\__im_ident_find\\__im_ident_find.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -167,11 +175,27 @@
             }
         },
         {
+            "Key": "888cc510-e3eb-4e0f-a101-8fca5475ff56",
+            "Value": {
+                "id": "d4a3553a-607f-4a91-b8c2-7326eca9af79",
+                "resourcePath": "scripts\\im_text_toggle\\im_text_toggle.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "91c6ab53-cc9e-439c-8782-60ee405e6d80",
             "Value": {
                 "id": "6943441e-6e4e-4f2a-bf21-de00c6d6ecd7",
                 "resourcePath": "views\\91c6ab53-cc9e-439c-8782-60ee405e6d80.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "93a16fcf-3c64-4ad3-ba2a-a832aec366af",
+            "Value": {
+                "id": "03069e3e-6a3a-4d46-8b5a-b59c97dfa3aa",
+                "resourcePath": "scripts\\im_toggle\\im_toggle.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -204,6 +228,14 @@
                 "id": "805085cd-e453-4c6b-aad2-d27526e9199a",
                 "resourcePath": "options\\linux\\options_linux.yy",
                 "resourceType": "GMLinuxOptions"
+            }
+        },
+        {
+            "Key": "b55393e0-eb95-4d18-98ec-7a7599e525bc",
+            "Value": {
+                "id": "d33e8b30-d1ed-4185-aa42-630a843acf97",
+                "resourcePath": "scripts\\im_ident_get_state\\im_ident_get_state.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -267,8 +299,12 @@
         "10d7debe-4571-4702-b874-5f2be32d7c98",
         "6666bfbc-0b6c-434b-83e0-91e1b5e0a8e6",
         "9f82d46a-b238-408e-ac64-d488fa1a4632",
+        "888cc510-e3eb-4e0f-a101-8fca5475ff56",
+        "93a16fcf-3c64-4ad3-ba2a-a832aec366af",
         "e93ec4b7-e9c5-4071-b0a1-50e39e755255",
         "5ae7d156-ee8d-4df5-9e74-14c18297243b",
+        "b55393e0-eb95-4d18-98ec-7a7599e525bc",
+        "5a441b5c-b8c6-4091-b715-1e78e09ec0e2",
         "7ef17301-8f5e-4599-b9cb-308c36ce162e"
     ],
     "tutorial": ""
