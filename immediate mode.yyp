@@ -327,6 +327,14 @@
             }
         },
         {
+            "Key": "e8bf87eb-fbef-4837-bb58-91e5a21bdf60",
+            "Value": {
+                "id": "cda19842-7d70-40c3-8bfa-e79df47a0208",
+                "resourcePath": "scripts\\im_radio\\im_radio.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e93ec4b7-e9c5-4071-b0a1-50e39e755255",
             "Value": {
                 "id": "85fa42a4-49e9-43ba-8d67-a0d42e166779",
@@ -374,13 +382,14 @@
         "9f82d46a-b238-408e-ac64-d488fa1a4632",
         "888cc510-e3eb-4e0f-a101-8fca5475ff56",
         "93a16fcf-3c64-4ad3-ba2a-a832aec366af",
+        "e8bf87eb-fbef-4837-bb58-91e5a21bdf60",
         "f2169231-6180-4e7d-a3ad-7d705501e401",
         "cdd08a7a-42e5-44a7-a07e-bfb2401d26dd",
         "e45d8a56-45b2-4907-bf61-6778465494c2",
-        "1b2d309c-006a-4861-b9fb-5cb6060d09e2",
         "7054d2a8-54d2-47d2-99ae-7db4da0787f4",
         "b622ab1a-8f19-4766-92df-9d38f81580ac",
         "5e2867e7-600b-4f5b-a660-f925a3118aac",
+        "1b2d309c-006a-4861-b9fb-5cb6060d09e2",
         "e93ec4b7-e9c5-4071-b0a1-50e39e755255",
         "b55393e0-eb95-4d18-98ec-7a7599e525bc",
         "5a441b5c-b8c6-4091-b715-1e78e09ec0e2",

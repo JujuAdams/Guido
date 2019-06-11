@@ -31,6 +31,7 @@ var _element_array = __im_element_find(_element_name, false);
 var _value         = _element_array[__IM_ELEMENT.VALUE  ];
 var _old_state     = _element_array[__IM_ELEMENT.STATE  ];
 var _handled       = _element_array[__IM_ELEMENT.HANDLED];
+var _new_state     = _old_state;
 
 if (_handled)
 {
@@ -43,8 +44,6 @@ if (_handled)
     draw_set_colour(IM_INACTIVE_COLOUR);
     _colour = c_gray;
 }
-
-var _new_state = IM_STATE.NULL;
 
 
 
@@ -69,6 +68,7 @@ if (!_handled)
         if (!im_mouse_over_any)
         {
             im_mouse_over_any = true;
+            _element_array[@ __IM_ELEMENT.OVER] = true;
         
             _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
             if (__im_mouse_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
@@ -84,6 +84,7 @@ if (!_handled)
     if (__im_mouse_down && (_old_state == IM_STATE.DOWN))
     {
         _new_state = IM_STATE.DOWN;
+        _element_array[@ __IM_ELEMENT.OVER] = true;
         
         _l = clamp(__im_mouse_x - _element_array[__IM_ELEMENT.CLICK_X], _min_x, _max_x);
         _pc = clamp((_l - _min_x) / (_max_x - _min_x), 0, 1);

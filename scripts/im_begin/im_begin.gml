@@ -28,12 +28,21 @@ enum IM_STATE
 enum __IM_ELEMENT
 {
     NAME,
+    OVER,
     STATE,
     VALUE,
     HANDLED,
     ERRORED,
     CLICK_X,
     CLICK_Y,
+    __SIZE
+}
+
+enum __IM_RADIO
+{
+    NAME,
+    COUNT,
+    VALUE,
     __SIZE
 }
 
@@ -44,6 +53,7 @@ if (!variable_instance_exists(id, "__im_mouse_down"))
     if (IM_DEBUG) show_debug_message("IM: Initialising for " + string(id) + " (" + object_get_name(object_index) + ")    (v" + __IM_VERSION + ", " + __IM_DATE + ")");
     __im_mouse_down = false;
     __im_element_data = [];
+    __im_radio_data = [];
 }
 
 __im_prev_mouse_down = __im_mouse_down;
@@ -54,7 +64,8 @@ __im_mouse_x     = argument2;
 __im_mouse_y     = argument3;
 __im_mouse_down  = argument4;
 
-__im_auto_element = 0;
+__im_auto_element   = 0;
+im_auto_radio_group = 0;
 
 __im_string_format_total = -1;
 __im_string_format_dec   = -1;
@@ -72,6 +83,15 @@ var _e = 0;
 repeat(array_length_1d(__im_element_data))
 {
     var _array = __im_element_data[_e];
+    _array[@ __IM_ELEMENT.OVER   ] = false;
     _array[@ __IM_ELEMENT.HANDLED] = false;
     ++_e;
+}
+
+var _g = 0;
+repeat(array_length_1d(__im_radio_data))
+{
+    var _group_array = __im_radio_data[_g];
+    _group_array[@ __IM_RADIO.COUNT] = 0;
+    ++_g;
 }
