@@ -75,15 +75,24 @@ if (!_handled)
 }
 
 
+
 draw_rectangle(_l, _t, _r, _b, true);
-draw_set_halign(fa_right);
-draw_text(_r, _t, _string);
-draw_set_halign(fa_left);
+draw_text(_l, _t, _string);
 
 
 
-__im_pos_x += IM_ELEMENT_SEPARATION + _element_w;
+if (_label != "")
+{
+    __im_pos_x += 4 + _element_w;
+    im_text(_label);
+}
+else
+{
+    __im_pos_x += IM_ELEMENT_SEPARATION + _element_w;
+}
+
 __im_line_height = max(__im_line_height, _element_h);
+
 
 
 if (!_handled)
