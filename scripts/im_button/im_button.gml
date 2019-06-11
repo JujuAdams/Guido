@@ -2,6 +2,7 @@
 /// @param [elementName]
 
 var _old_colour = draw_get_colour();
+var _colour     = draw_get_colour();
 
 var _string       = argument[0];
 var _element_name = (argument_count > 1)? argument[1] : undefined;
@@ -24,18 +25,19 @@ if (_handled)
         _element_array[@ __IM_ELEMENT.ERRORED] = true;
     }
     
-    draw_set_colour(c_gray);
+    draw_set_colour(IM_INACTIVE_COLOUR);
+    _colour = IM_INACTIVE_COLOUR;
 }
 
 var _new_state = IM_MOUSE.NULL;
 
-var _string_w = string_width(_string);
-var _string_h = string_height(_string);
+var _element_w = string_width(_string);
+var _element_h = string_height(_string);
 
 var _l = __im_pos_x - 2;
 var _t = __im_pos_y - 2;
-var _r = __im_pos_x + _string_w + 2;
-var _b = __im_pos_y + _string_h + 2;
+var _r = __im_pos_x + _element_w + 2;
+var _b = __im_pos_y + _element_h + 2;
 
 if (!_handled)
 {
@@ -56,10 +58,10 @@ if (_new_state == IM_MOUSE.OVER)
 {
     draw_rectangle(_l, _t, _r, _b, false);
     
-    draw_set_colour(make_colour_rgb(255 - colour_get_red(_old_colour), 255 - colour_get_green(_old_colour), 255 - colour_get_blue(_old_colour)));
+    draw_set_colour(IM_INVERSE_COLOUR);
     draw_rectangle(_l+1, _t+1, _r-1, _b-1, true);
     draw_text(__im_pos_x, __im_pos_y, _string);
-    draw_set_colour(_old_colour);
+    draw_set_colour(_colour);
 }
 else
 {
@@ -67,8 +69,8 @@ else
     draw_rectangle(_l, _t, _r, _b, true);
 }
 
-__im_pos_x += IM_ELEMENT_SEPARATION + _string_w;
-__im_line_height = max(__im_line_height, _string_h);
+__im_pos_x += IM_ELEMENT_SEPARATION + _element_w;
+__im_line_height = max(__im_line_height, _element_h);
 
 if (!_handled)
 {

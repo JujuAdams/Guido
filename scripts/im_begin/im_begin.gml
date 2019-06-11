@@ -5,10 +5,13 @@
 /// @param mouseState
 
 #macro IM_DEBUG              true
-#macro IM_HEADING_FONT       fntHeading
+#macro IM_HEADING_FONT       -1
 #macro IM_LINE_MIN_HEIGHT    20
 #macro IM_LINE_SEPARATION     4
 #macro IM_ELEMENT_SEPARATION  8
+
+#macro IM_INVERSE_COLOUR     c_black
+#macro IM_INACTIVE_COLOUR    c_gray
 
 #region Internal definitions
 
@@ -30,6 +33,8 @@ enum __IM_ELEMENT
     VALUE,
     HANDLED,
     ERRORED,
+    CLICK_X,
+    CLICK_Y,
     __SIZE
 }
 

@@ -4,6 +4,7 @@
 /// @param [elementName]
 
 var _old_colour = draw_get_colour();
+var _colour     = draw_get_colour();
 
 var _string_on    = ((argument_count > 0) && is_string(argument[0]))? argument[0] : "";
 var _string_off   = ((argument_count > 1) && is_string(argument[1]))? argument[1] : _string_on;
@@ -30,20 +31,21 @@ if (_handled)
         _element_array[@ __IM_ELEMENT.ERRORED] = true;
     }
     
-    draw_set_colour(c_gray);
+    draw_set_colour(IM_INACTIVE_COLOUR);
+    _colour = IM_INACTIVE_COLOUR;
 }
 
 var _new_state = IM_MOUSE.NULL;
 
 
 
-var _string_w = 24;
-var _string_h = 24;
+var _element_w = 24;
+var _element_h = 24;
 
 var _l = __im_pos_x;
 var _t = __im_pos_y;
-var _r = __im_pos_x + _string_w;
-var _b = __im_pos_y + _string_h;
+var _r = __im_pos_x + _element_w;
+var _b = __im_pos_y + _element_h;
 
 
 
@@ -72,9 +74,9 @@ if (_value)
     
     if (_new_state == IM_MOUSE.OVER)
     {
-        draw_set_colour(make_colour_rgb(255 - colour_get_red(_old_colour), 255 - colour_get_green(_old_colour), 255 - colour_get_blue(_old_colour)));
+        draw_set_colour(IM_INVERSE_COLOUR);
         draw_rectangle(_l+3, _t+3, _r-3, _b-3, true);
-        draw_set_colour(_old_colour);
+        draw_set_colour(_colour);
     }
 }
 else if (_new_state == IM_MOUSE.OVER) 
@@ -82,8 +84,8 @@ else if (_new_state == IM_MOUSE.OVER)
     draw_rectangle(_l+2, _t+2, _r-2, _b-2, true);
 }
 
-__im_pos_x += IM_ELEMENT_SEPARATION + _string_w;
-__im_line_height = max(__im_line_height, _string_h);
+__im_pos_x += IM_ELEMENT_SEPARATION + _element_w;
+__im_line_height = max(__im_line_height, _element_h);
 
 var _string = _value? _string_on : _string_off;
 if (_string != "") im_text(_string);

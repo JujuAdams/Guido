@@ -24,6 +24,8 @@ if (_e >= _length)
     _array[@ __IM_ELEMENT.STATE  ] = -1;
     _array[@ __IM_ELEMENT.HANDLED] = false;
     _array[@ __IM_ELEMENT.ERRORED] = false;
+    _array[@ __IM_ELEMENT.CLICK_X] = 0;
+    _array[@ __IM_ELEMENT.CLICK_Y] = 0;
     
     __im_element_data[_length] = _array;
 }
