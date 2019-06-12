@@ -20,5 +20,5 @@ repeat(argument_count)
 
 draw_text(guido_x, guido_y, _string);
 
-guido_x += GUIDO_ELEMENT_SEPARATION + string_width(_string);
+guido_x += GUIDO_WIDGET_SEPARATION + string_width(_string);
 __guido_line_height = max(__guido_line_height, string_height(_string));

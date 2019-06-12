@@ -18,7 +18,7 @@ if (!sprite_exists(_sprite)) exit;
 
 draw_sprite_ext(_sprite, _image, guido_x + _xscale*sprite_get_xoffset(_sprite), guido_y + _yscale*sprite_get_yoffset(_sprite), _xscale, _yscale, _angle, _colour, _alpha);
 
-guido_x += GUIDO_ELEMENT_SEPARATION + _xscale*sprite_get_width(_sprite);
+guido_x += GUIDO_WIDGET_SEPARATION + _xscale*sprite_get_width(_sprite);
 __guido_line_height = max(__guido_line_height, _yscale*sprite_get_height(_sprite));
 
 guido_prev_name  = undefined;

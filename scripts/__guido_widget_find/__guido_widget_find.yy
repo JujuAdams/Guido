@@ -1,8 +1,8 @@
 {
-    "id": "5a441b5c-b8c6-4091-b715-1e78e09ec0e2",
+    "id": "7ef17301-8f5e-4599-b9cb-308c36ce162e",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "guido_element_get_value",
+    "name": "__guido_widget_find",
     "IsCompatibility": false,
     "IsDnD": false
 }

@@ -14,7 +14,7 @@ if (!surface_exists(_surface)) exit;
 
 draw_surface_ext(_surface, guido_x, guido_y, _xscale, _yscale, 0, _colour, _alpha);
 
-guido_x += GUIDO_ELEMENT_SEPARATION + _xscale*surface_get_width(_surface);
+guido_x += GUIDO_WIDGET_SEPARATION + _xscale*surface_get_width(_surface);
 __guido_line_height = max(__guido_line_height, _yscale*surface_get_height(_surface));
 
 guido_prev_name  = undefined;

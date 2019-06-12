@@ -4,7 +4,7 @@
 /// @param cellHeight{px}
 /// @param [drawGrid]
 /// @param [variableName]
-/// @param [elementName]
+/// @param [widgetName]
 
 var _width        = argument[0];
 var _height       = argument[1];
@@ -12,39 +12,39 @@ var _cell_width   = argument[2];
 var _cell_height  = argument[3];
 var _draw_grid    = ((argument_count > 4) && (is_real(argument[4]) || is_bool(argument[4])))? argument[4] : true;
 var _variable     = ((argument_count > 5) && is_string(argument[5]))? argument[5] : undefined;
-var _element_name = ((argument_count > 6) && is_string(argument[6]))? argument[6] : undefined;
+var _widget_name = ((argument_count > 6) && is_string(argument[6]))? argument[6] : undefined;
 
 
-//Get element data
-if (!is_string(_element_name)) _element_name = _variable;
-if (_element_name == undefined)
+//Get widget data
+if (!is_string(_widget_name)) _widget_name = _variable;
+if (_widget_name == undefined)
 {
-    _element_name = "AUTO " + string(__guido_auto_element) + ", button grid";
-    ++__guido_auto_element;
+    _widget_name = "AUTO " + string(__guido_auto_widget) + ", button grid";
+    ++__guido_auto_widget;
 }
 
-var _element_array = __guido_element_find(_element_name, false);
-var _old_state = _element_array[__GUIDO_ELEMENT.STATE];
+var _widget_array = __guido_widget_find(_widget_name, false);
+var _old_state = _widget_array[__GUIDO_WIDGET.STATE];
 var _new_state = GUIDO_STATE.NULL;
 var _value     = [undefined, undefined];
 
 
-//Position element
-var _element_w = _width*_cell_width;
-var _element_h = _height*_cell_height;
+//Position widget
+var _widget_w = _width*_cell_width;
+var _widget_h = _height*_cell_height;
 
 var _l = guido_x;
 var _t = guido_y;
-var _r = guido_x + _element_w;
-var _b = guido_y + _element_h;
+var _r = guido_x + _widget_w;
+var _b = guido_y + _widget_h;
 
 
 //Handle cursor interaction
 if (point_in_rectangle(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b))
 {
-    if (!is_string(guido_cursor_over_element))
+    if (!is_string(guido_cursor_over_widget))
     {
-        guido_cursor_over_element = _element_name;
+        guido_cursor_over_widget = _widget_name;
         
         _new_state = (_old_state == GUIDO_STATE.DOWN)? GUIDO_STATE.DOWN : GUIDO_STATE.OVER;
         if (__guido_cursor_released && (_old_state == GUIDO_STATE.DOWN)) _new_state = GUIDO_STATE.CLICK;
@@ -80,16 +80,16 @@ if (_draw_grid)
 
 
 //Update IM state
-guido_x += GUIDO_ELEMENT_SEPARATION + _width*_cell_width;
+guido_x += GUIDO_WIDGET_SEPARATION + _width*_cell_width;
 __guido_line_height = max(__guido_line_height, _height*_cell_height);
 
 
-//Update element state
-if (_element_array[__GUIDO_ELEMENT.NEW_STATE] == GUIDO_STATE.NULL) _element_array[@ __GUIDO_ELEMENT.NEW_STATE] = _new_state;
+//Update widget state
+if (_widget_array[__GUIDO_WIDGET.NEW_STATE] == GUIDO_STATE.NULL) _widget_array[@ __GUIDO_WIDGET.NEW_STATE] = _new_state;
 
 
 //Pass on values to local variables
-guido_prev_name  = _element_name;
+guido_prev_name  = _widget_name;
 guido_prev_state = _new_state;
 guido_prev_value = _value;
 
