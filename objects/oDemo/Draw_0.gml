@@ -49,4 +49,5 @@ im_newline();
 im_radio("Option 3", "radio_option");
 im_newline();
 im_text("Option selected = " + string(radio_option));
+if (im_button_grid(10, 8, 16, 16)) show_message(im_prev_value);
 im_end();

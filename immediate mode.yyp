@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "171fedf8-3c84-4101-8a73-6b37230d47fd",
+            "Value": {
+                "id": "7f300e9e-3a6a-43bb-a51f-3c2a90702fac",
+                "resourcePath": "scripts\\im_button_grid\\im_button_grid.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "1a5a7d5c-044d-43bf-b0d8-1090d2130869",
             "Value": {
                 "id": "56ab5f59-2ee5-4884-87c5-7c1cdc3f8e17",
@@ -420,6 +428,7 @@
         "5ae7d156-ee8d-4df5-9e74-14c18297243b",
         "6666bfbc-0b6c-434b-83e0-91e1b5e0a8e6",
         "9f82d46a-b238-408e-ac64-d488fa1a4632",
+        "171fedf8-3c84-4101-8a73-6b37230d47fd",
         "b905cc77-6bc7-464a-8ee3-7fe0cf8c8cef",
         "93a16fcf-3c64-4ad3-ba2a-a832aec366af",
         "888cc510-e3eb-4e0f-a101-8fca5475ff56",

@@ -9,7 +9,7 @@ var _variable     = ((argument_count > 2) && is_string(argument[2]))? argument[2
 var _element_name = ((argument_count > 3) && is_string(argument[3]))? argument[3] : undefined;
 
 
-
+//Get element data
 if (!is_string(_element_name)) _element_name = _variable;
 if (_element_name == undefined)
 {
@@ -23,7 +23,7 @@ var _old_state = _element_array[__IM_ELEMENT.STATE];
 var _new_state = IM_STATE.NULL;
 
 
-
+//Position element
 var _element_w = 24;
 var _element_h = 24;
 
@@ -33,7 +33,7 @@ var _r = im_x + _element_w;
 var _b = im_y + _element_h;
 
 
-
+//Handle cursor interaction
 if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
 {
     if (!is_string(im_cursor_over_element))
@@ -47,7 +47,7 @@ if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
 }
 
 
-
+//Draw
 draw_rectangle(_l, _t, _r, _b, true);
 
 if (_value)
@@ -74,7 +74,7 @@ var _string = _value? _string_on : _string_off;
 if (_string != "") im_text(_string);
 
 
-
+//Update IM state
 if (_new_state == IM_STATE.CLICK)
 {
     _value = !_value;
