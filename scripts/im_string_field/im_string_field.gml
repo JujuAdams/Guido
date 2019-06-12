@@ -119,8 +119,21 @@ if (__im_focus == _element_name)
 
 if ((__im_focus != _element_name) && _element_array[__IM_ELEMENT.FIELD_FOCUS])
 {
-    _element_array[@ __IM_ELEMENT.FIELD_FOCUS] = false;
+    _value = _field_string;
+    _element_array[@ __IM_ELEMENT.FIELD_FOCUS ] = false;
     _element_array[@ __IM_ELEMENT.FIELD_STRING] = _field_string;
+    
+    if (is_string(_variable))
+    {
+        if (string_copy(_variable, 1, 7) == "global.")
+        {
+            variable_global_set(string_delete(_variable, 1, 7), _value);
+        }
+        else
+        {
+            variable_instance_set(id, _variable, _value);
+        }
+    }
 }
 
 

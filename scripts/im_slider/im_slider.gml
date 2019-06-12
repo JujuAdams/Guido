@@ -135,7 +135,7 @@ if (!_handled)
     if (_new_state == IM_STATE.DOWN)
     {
         _element_array[@ __IM_ELEMENT.VALUE] = _value;
-    
+        
         if (is_string(_variable))
         {
             if (string_copy(_variable, 1, 7) == "global.")

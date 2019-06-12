@@ -26,15 +26,27 @@ if (_element_name == undefined)
 var _element_array = __im_element_find(_element_name, false);
 if (_element_array[__IM_ELEMENT.NEW])
 {
-    _element_array[@ __IM_ELEMENT.VALUE] = 0;
+    _element_array[@ __IM_ELEMENT.VALUE] = _min;
     
     if ((__im_string_format_total >= 0) && (__im_string_format_dec >= 0))
     {
-        _element_array[@ __IM_ELEMENT.FIELD_STRING] = string_format(0, __im_string_format_total, __im_string_format_dec);
+        _element_array[@ __IM_ELEMENT.FIELD_STRING] = string_format(_min, __im_string_format_total, __im_string_format_dec);
     }
     else
     {
-        _element_array[@ __IM_ELEMENT.FIELD_STRING] = "0";
+        _element_array[@ __IM_ELEMENT.FIELD_STRING] = string(_min);
+    }
+    
+    if (is_string(_variable))
+    {
+        if (string_copy(_variable, 1, 7) == "global.")
+        {
+            variable_global_set(string_delete(_variable, 1, 7), _min);
+        }
+        else
+        {
+            variable_instance_set(id, _variable, _min);
+        }
     }
 }
 
@@ -121,6 +133,21 @@ if ((__im_focus != _element_name) && _element_array[__IM_ELEMENT.FIELD_FOCUS])
     _element_array[@ __IM_ELEMENT.FIELD_FOCUS] = false;
     _value = real(_field_string);
     
+    var _pc = clamp((_value - _min) / (_max - _min), 0, 1);
+    if (_pc <= 0)
+    {
+        _value = _min;
+    }
+    else if (_pc >= 1)
+    {
+        _value = _max;
+    }
+    else
+    {
+        _value = _pc*(_max - _min) + _min;
+        _value = _unit*round(_value/_unit);
+    }
+    
     if ((__im_string_format_total >= 0) && (__im_string_format_dec >= 0))
     {
         _field_string = string_format(_value, __im_string_format_total, __im_string_format_dec);
@@ -130,6 +157,19 @@ if ((__im_focus != _element_name) && _element_array[__IM_ELEMENT.FIELD_FOCUS])
         _field_string = string(_value);
     }
     
+    if (is_string(_variable))
+    {
+        if (string_copy(_variable, 1, 7) == "global.")
+        {
+            variable_global_set(string_delete(_variable, 1, 7), _value);
+        }
+        else
+        {
+            variable_instance_set(id, _variable, _value);
+        }
+    }
+    
+    _element_array[@ __IM_ELEMENT.VALUE       ] = _value;
     _element_array[@ __IM_ELEMENT.FIELD_STRING] = _field_string;
 }
 

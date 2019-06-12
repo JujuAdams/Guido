@@ -114,7 +114,7 @@
             "Key": "5e2867e7-600b-4f5b-a660-f925a3118aac",
             "Value": {
                 "id": "b73c5780-e970-4b67-81aa-1059a745abd9",
-                "resourcePath": "scripts\\im_string_format\\im_string_format.yy",
+                "resourcePath": "scripts\\im_set_string_format\\im_set_string_format.yy",
                 "resourceType": "GMScript"
             }
         },
