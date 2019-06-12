@@ -210,7 +210,7 @@
             "Key": "888cc510-e3eb-4e0f-a101-8fca5475ff56",
             "Value": {
                 "id": "d4a3553a-607f-4a91-b8c2-7326eca9af79",
-                "resourcePath": "scripts\\im_button_toggle\\im_button_toggle.yy",
+                "resourcePath": "scripts\\im_toggle_text\\im_toggle_text.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -380,8 +380,8 @@
         "5ae7d156-ee8d-4df5-9e74-14c18297243b",
         "6666bfbc-0b6c-434b-83e0-91e1b5e0a8e6",
         "9f82d46a-b238-408e-ac64-d488fa1a4632",
-        "888cc510-e3eb-4e0f-a101-8fca5475ff56",
         "93a16fcf-3c64-4ad3-ba2a-a832aec366af",
+        "888cc510-e3eb-4e0f-a101-8fca5475ff56",
         "e8bf87eb-fbef-4837-bb58-91e5a21bdf60",
         "f2169231-6180-4e7d-a3ad-7d705501e401",
         "cdd08a7a-42e5-44a7-a07e-bfb2401d26dd",
