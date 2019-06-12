@@ -28,8 +28,8 @@ if (_element_array[__IM_ELEMENT.NEW])
     if (__im_variable_exists(_variable)) _value = __im_limit_real(__im_variable_get(_variable), _min, _max, _unit);
     
     _element_array[@ __IM_ELEMENT.VALUE       ] = _value;
-    _element_array[@ __IM_ELEMENT.FIELD_STRING] = im_string_format(_min);
-    __im_variable_set(_variable, _min);
+    _element_array[@ __IM_ELEMENT.FIELD_STRING] = im_string_format(_value);
+    __im_variable_set(_variable, _value);
 }
 
 var _value        = _element_array[__IM_ELEMENT.VALUE       ];

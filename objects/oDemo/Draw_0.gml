@@ -29,7 +29,7 @@ im_newline();
 im_text("global = " + string(global.global_variable));
 im_newline();
 im_newline();
-im_slider(5.5, 20.9, 1.0, 200, "", "slider");
+im_slider(5.5, 20.9, 1.0, 200, "slider");
 im_set_string_format(1, 1);
 im_text(im_prev_value);
 im_newline();
