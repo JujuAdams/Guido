@@ -127,14 +127,6 @@
             }
         },
         {
-            "Key": "4c1196b5-45b8-484f-b164-c0ae3f62f0f6",
-            "Value": {
-                "id": "bdc9dcbc-24da-4ce0-90e4-011ddf30ade6",
-                "resourcePath": "scripts\\im_text_ext\\im_text_ext.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "52e8388c-8d59-4d37-a616-3d689d9b22a8",
             "Value": {
                 "id": "38cbb430-0d86-41b4-9e05-7916ddfe59d2",
@@ -475,7 +467,6 @@
         "10d7debe-4571-4702-b874-5f2be32d7c98",
         "5ae7d156-ee8d-4df5-9e74-14c18297243b",
         "6666bfbc-0b6c-434b-83e0-91e1b5e0a8e6",
-        "4c1196b5-45b8-484f-b164-c0ae3f62f0f6",
         "9f82d46a-b238-408e-ac64-d488fa1a4632",
         "171fedf8-3c84-4101-8a73-6b37230d47fd",
         "b905cc77-6bc7-464a-8ee3-7fe0cf8c8cef",
