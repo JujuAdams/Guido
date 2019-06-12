@@ -22,6 +22,11 @@ if (_element_name == undefined)
 }
 
 var _element_array = __im_element_find(_element_name, false);
+if (_element_array[__IM_ELEMENT.NEW])
+{
+    if (__im_variable_exists(_variable)) _element_array[@ __IM_ELEMENT.VALUE] = __im_variable_get(_variable);
+}
+
 var _value     = _element_array[__IM_ELEMENT.VALUE];
 var _old_state = _element_array[__IM_ELEMENT.STATE];
 var _new_state = IM_STATE.NULL;

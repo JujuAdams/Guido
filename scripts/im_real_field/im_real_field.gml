@@ -24,7 +24,10 @@ if (_element_name == undefined)
 var _element_array = __im_element_find(_element_name, false);
 if (_element_array[__IM_ELEMENT.NEW])
 {
-    _element_array[@ __IM_ELEMENT.VALUE       ] = _min;
+    var _value = _min;
+    if (__im_variable_exists(_variable)) _value = __im_limit_real(__im_variable_get(_variable), _min, _max, _unit);
+    
+    _element_array[@ __IM_ELEMENT.VALUE       ] = _value;
     _element_array[@ __IM_ELEMENT.FIELD_STRING] = im_string_format(_min);
     __im_variable_set(_variable, _min);
 }

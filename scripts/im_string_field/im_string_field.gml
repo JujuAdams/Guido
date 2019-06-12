@@ -18,7 +18,15 @@ if (_element_name == undefined)
 }
 
 var _element_array = __im_element_find(_element_name, false);
-if (_element_array[__IM_ELEMENT.NEW]) _element_array[@ __IM_ELEMENT.VALUE] = "";
+if (_element_array[__IM_ELEMENT.NEW])
+{
+    var _value = "";
+    if (__im_variable_exists(_variable)) _value = im_string_format(__im_variable_get(_variable));
+    
+    _element_array[@ __IM_ELEMENT.VALUE       ] = _value;
+    _element_array[@ __IM_ELEMENT.FIELD_STRING] = _value;
+    __im_variable_set(_variable, _value);
+}
 
 var _value        = _element_array[__IM_ELEMENT.VALUE       ];
 var _old_state    = _element_array[__IM_ELEMENT.STATE       ];
