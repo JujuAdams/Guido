@@ -10,7 +10,7 @@ var _width        = argument[0];
 var _height       = argument[1];
 var _cell_width   = argument[2];
 var _cell_height  = argument[3];
-var _draw_grid    = ((argument_count > 4) && is_string(argument[4]))? argument[4] : true;
+var _draw_grid    = ((argument_count > 4) && (is_real(argument[4]) || is_bool(argument[4])))? argument[4] : true;
 var _variable     = ((argument_count > 5) && is_string(argument[5]))? argument[5] : undefined;
 var _element_name = ((argument_count > 6) && is_string(argument[6]))? argument[6] : undefined;
 
