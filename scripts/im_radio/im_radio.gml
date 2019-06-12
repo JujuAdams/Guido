@@ -11,8 +11,11 @@ var _element_name = ((argument_count > 2) && is_string(argument[2]))? argument[2
 if (!is_string(_element_name)) _element_name = _variable;
 if (_element_name == undefined)
 {
-    _element_name = "AUTO " + string(__im_auto_element) + ", radio, variable=\"" + string(_variable) + "\"";
-    ++__im_auto_element;
+    show_error("Radio buttons must be given either a variable or an element name.\n ", false);
+    im_prev_name  = undefined;
+    im_prev_state = undefined;
+    im_prev_value = undefined;
+    return IM_STATE.NULL;
 }
 
 var _element_array = __im_element_find(_element_name, false);
