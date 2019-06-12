@@ -30,8 +30,8 @@
 
 #region Internal definitions
 
-#macro __IM_VERSION  "0.0.0"
-#macro __IM_DATE     "2019/06/11"
+#macro __IM_VERSION  "1.0.0"
+#macro __IM_DATE     "2019/06/12"
 
 enum IM_STATE
 {
