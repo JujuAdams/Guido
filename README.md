@@ -14,3 +14,9 @@ Has the following widgets:
 8) Real-valued input field (inc. min/max limits and base units)
 9) String input field
 10) 2D button grid
+
+Guido can also natively display:
+1) Text
+2) Wrapped text (using draw_text_ext)
+3) Sprites
+4) Surfaces
