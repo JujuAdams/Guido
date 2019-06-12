@@ -49,6 +49,7 @@ enum __IM_ELEMENT
     NAME,
     OVER,
     STATE,
+    NEW_STATE,
     VALUE,
     HANDLED,
     ERRORED,
@@ -111,8 +112,11 @@ var _e = 0;
 repeat(array_length_1d(__im_element_data))
 {
     var _array = __im_element_data[_e];
-    _array[@ __IM_ELEMENT.OVER   ] = false;
-    _array[@ __IM_ELEMENT.HANDLED] = false;
+    _array[@ __IM_ELEMENT.NEW      ] = false;
+    _array[@ __IM_ELEMENT.OVER     ] = false;
+    _array[@ __IM_ELEMENT.STATE    ] = _array[__IM_ELEMENT.NEW_STATE];
+    _array[@ __IM_ELEMENT.NEW_STATE] = IM_STATE.NULL;
+    _array[@ __IM_ELEMENT.HANDLED  ] = false;
     ++_e;
 }
 
