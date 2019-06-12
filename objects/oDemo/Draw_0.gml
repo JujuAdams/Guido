@@ -9,11 +9,11 @@ if (guido_hyperlink("@jujuadams")) url_open("http://www.twitter.com/JujuAdams");
 guido_newline();
 guido_newline();
 draw_set_font(fTab);
-guido_radio_text("Welcome", "tab");
+guido_tab("Welcome", "tab");
 guido_spacer(20);
-guido_radio_text("Buttons", "tab");
+guido_tab("Buttons", "tab");
 guido_spacer(20);
-guido_radio_text("Other Input", "tab");
+guido_tab("Other Input", "tab");
 guido_divider(1000);
 draw_set_font(-1);
 guido_newline();
@@ -48,9 +48,9 @@ switch(tab)
         guido_text("2) Toggle buttons");
         guido_newline();
         guido_spacer(40);
-        guido_toggle("Toggle on :)", "Toggle off :(");
+        guido_checkbox("Toggle on :)", "Toggle off :(");
         guido_spacer(20);
-        guido_toggle_text("Toggle on :)", "Toggle off :(");
+        guido_toggle("Toggle on :)", "Toggle off :(");
         guido_newline();
         guido_newline();
         
@@ -67,13 +67,13 @@ switch(tab)
         guido_newline();
         guido_newline();
         guido_spacer(40);
-        guido_radio_text("Option 1", undefined, "radio group 1");
+        guido_tab("Option 1", undefined, "radio group 1");
         guido_newline();
         guido_spacer(40);
-        guido_radio_text("Option 2", undefined, "radio group 1");
+        guido_tab("Option 2", undefined, "radio group 1");
         guido_newline();
         guido_spacer(40);
-        guido_radio_text("Option 3", undefined, "radio group 1");
+        guido_tab("Option 3", undefined, "radio group 1");
         guido_newline();
         guido_newline();
         

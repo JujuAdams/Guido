@@ -1,8 +1,8 @@
 {
-    "id": "888cc510-e3eb-4e0f-a101-8fca5475ff56",
+    "id": "93a16fcf-3c64-4ad3-ba2a-a832aec366af",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "guido_toggle_text",
+    "name": "guido_checkbox",
     "IsCompatibility": false,
     "IsDnD": false
 }

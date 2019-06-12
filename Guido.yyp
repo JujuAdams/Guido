@@ -50,7 +50,7 @@
             "Key": "1705fa85-9736-463b-8116-71058696453d",
             "Value": {
                 "id": "6dd1ae0c-d81c-4d23-a958-6a2eaa55891e",
-                "resourcePath": "scripts\\guido_radio_text\\guido_radio_text.yy",
+                "resourcePath": "scripts\\guido_tab\\guido_tab.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -282,7 +282,7 @@
             "Key": "888cc510-e3eb-4e0f-a101-8fca5475ff56",
             "Value": {
                 "id": "d4a3553a-607f-4a91-b8c2-7326eca9af79",
-                "resourcePath": "scripts\\guido_toggle_text\\guido_toggle_text.yy",
+                "resourcePath": "scripts\\guido_toggle\\guido_toggle.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -298,7 +298,7 @@
             "Key": "93a16fcf-3c64-4ad3-ba2a-a832aec366af",
             "Value": {
                 "id": "03069e3e-6a3a-4d46-8b5a-b59c97dfa3aa",
-                "resourcePath": "scripts\\guido_toggle\\guido_toggle.yy",
+                "resourcePath": "scripts\\guido_checkbox\\guido_checkbox.yy",
                 "resourceType": "GMScript"
             }
         },
