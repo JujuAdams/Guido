@@ -45,6 +45,7 @@ enum IM_STATE
 
 enum __IM_ELEMENT
 {
+    NEW,
     NAME,
     OVER,
     STATE,
@@ -55,6 +56,7 @@ enum __IM_ELEMENT
     CLICK_Y,
     FIELD_POS,
     FIELD_STRING,
+    FIELD_FOCUS,
     __SIZE
 }
 

@@ -1,4 +1,4 @@
-/// @param string
+/// @param value
 /// @param [xScale]
 /// @param [yScale]
 /// @param [font]
@@ -7,6 +7,15 @@ var _string = argument[0];
 var _xscale = ((argument_count > 1) && (argument[1] != undefined))? argument[1] : 1;
 var _yscale = ((argument_count > 2) && (argument[2] != undefined))? argument[2] : 1;
 var _font   = ((argument_count > 3) && (argument[3] != undefined))? argument[3] : undefined;
+
+if (is_real(_string))
+{
+    _string = string_format(_string, __im_string_format_dec, __im_string_format_total);
+}
+else
+{
+    _string = string(_string);
+}
 
 if (_font != undefined)
 {

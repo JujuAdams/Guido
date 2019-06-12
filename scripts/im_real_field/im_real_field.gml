@@ -19,30 +19,35 @@ var _element_name = ((argument_count > 5) && is_string(argument[5]))? argument[5
 if (!is_string(_element_name)) _element_name = _variable;
 if (_element_name == undefined)
 {
-    _element_name = "AUTO " + string(__im_auto_element) + ", toggle, variable=\"" + string(_variable) + "\"";
+    _element_name = "AUTO " + string(__im_auto_element) + ", real field, variable=\"" + string(_variable) + "\"";
     ++__im_auto_element;
 }
 
 var _element_array = __im_element_find(_element_name, false);
-var _value         = _element_array[__IM_ELEMENT.VALUE  ];
-var _old_state     = _element_array[__IM_ELEMENT.STATE  ];
-var _handled       = _element_array[__IM_ELEMENT.HANDLED];
+if (_element_array[__IM_ELEMENT.NEW])
+{
+    _element_array[@ __IM_ELEMENT.VALUE] = 0;
+    
+    if ((__im_string_format_total >= 0) && (__im_string_format_dec >= 0))
+    {
+        _element_array[@ __IM_ELEMENT.FIELD_STRING] = string_format(0, __im_string_format_total, __im_string_format_dec);
+    }
+    else
+    {
+        _element_array[@ __IM_ELEMENT.FIELD_STRING] = "0";
+    }
+}
+
+var _value         = _element_array[__IM_ELEMENT.VALUE       ];
+var _old_state     = _element_array[__IM_ELEMENT.STATE       ];
+var _handled       = _element_array[__IM_ELEMENT.HANDLED     ];
+var _field_string  = _element_array[__IM_ELEMENT.FIELD_STRING];
 var _new_state     = _old_state;
 
 
 
-
-if ((__im_string_format_total >= 0) && (__im_string_format_dec >= 0))
-{
-    var _string = string_format(_value, __im_string_format_total, __im_string_format_dec);
-}
-else
-{
-    var _string = string(_value);
-}
-
 var _element_w = _length;
-var _element_h = string_height(_string);
+var _element_h = (_field_string == "")? string_height(" ") : string_height(_field_string);
 
 var _l = im_x;
 var _t = im_y;
@@ -64,40 +69,81 @@ if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
     }
 }
 
+if (_new_state == IM_STATE.CLICK)
+{
+    _element_array[@ __IM_ELEMENT.FIELD_POS] = 0;
+}
+
+if (__im_focus == _element_name)
+{
+    _element_array[@ __IM_ELEMENT.FIELD_FOCUS] = true;
+    var _field_pos = string_length(_field_string) - _element_array[__IM_ELEMENT.FIELD_POS];
+    
+    if (keyboard_check_pressed(vk_anykey) && (ord(keyboard_lastchar) >= 32))
+    {
+        _field_string = string_insert(keyboard_lastchar, _field_string, _field_pos+1);
+        keyboard_lastchar = "";
+        _element_array[@ __IM_ELEMENT.FIELD_STRING] = _field_string;
+    }
+    
+    if (keyboard_check_pressed(vk_backspace))
+    {
+        _field_string = string_delete(_field_string, _field_pos, 1);
+        _element_array[@ __IM_ELEMENT.FIELD_STRING] = _field_string;
+    }
+    
+    if (keyboard_check_pressed(vk_delete))
+    {
+        _field_string = string_delete(_field_string, _field_pos+1, 1);
+        _element_array[@ __IM_ELEMENT.FIELD_STRING] = _field_string;
+        
+        _field_pos = min(_field_pos + 1, string_length(_field_string));
+        _element_array[@ __IM_ELEMENT.FIELD_POS] = string_length(_field_string) - _field_pos;
+    }
+    
+    if (keyboard_check_pressed(vk_right))
+    {
+        _field_pos = min(_field_pos + 1, string_length(_field_string));
+        _element_array[@ __IM_ELEMENT.FIELD_POS] = string_length(_field_string) - _field_pos;
+    }
+    
+    if (keyboard_check_pressed(vk_left))
+    {
+        _field_pos = max(_field_pos - 1, 0);
+        _element_array[@ __IM_ELEMENT.FIELD_POS] = string_length(_field_string) - _field_pos;
+    }
+    
+    if (keyboard_check_released(vk_enter)) __im_focus = undefined;
+}
+
+if ((__im_focus != _element_name) && _element_array[__IM_ELEMENT.FIELD_FOCUS])
+{
+    _element_array[@ __IM_ELEMENT.FIELD_FOCUS] = false;
+    _value = real(_field_string);
+    
+    if ((__im_string_format_total >= 0) && (__im_string_format_dec >= 0))
+    {
+        _field_string = string_format(_value, __im_string_format_total, __im_string_format_dec);
+    }
+    else
+    {
+        _field_string = string(_value);
+    }
+    
+    _element_array[@ __IM_ELEMENT.FIELD_STRING] = _field_string;
+}
+
 
 
 draw_rectangle(_l, _t, _r, _b, true);
 
 if (__im_focus == _element_name)
 {
-    if (keyboard_check_pressed(vk_anykey) && (ord(keyboard_lastchar) >= 32))
-    {
-        _string += keyboard_lastchar;
-        keyboard_lastchar = "";
-        _value = real(_string);
-        _string = string(_value);
-        _element_array[@ __IM_ELEMENT.VALUE] = _value;
-    }
-    
-    if (keyboard_check_pressed(vk_backspace))
-    {
-        _string = string_delete(_string, string_length(_string), 1);
-        if (_string == "") _string = "0";
-        _value = real(_string);
-        _string = string(_value);
-        _element_array[@ __IM_ELEMENT.VALUE] = _value;
-    }
-    
-    if (keyboard_check_released(vk_enter))
-    {
-        __im_focus = undefined;
-    }
-    
     draw_rectangle(_l+2, _t+2, _r-2, _b-2, false);
     
     draw_set_colour(IM_INVERSE_COLOUR);
     draw_set_halign(fa_right);
-    draw_text(_r-2, _t, _string + "|");
+    draw_text(_r-2, _t, string_insert(((current_time mod 300) < 200)? "|" : " ", _field_string, _field_pos+1));
     draw_set_halign(fa_left);
     draw_set_colour(_old_colour);
 }
@@ -107,14 +153,14 @@ else if (_new_state == IM_STATE.OVER)
     
     draw_set_colour(IM_INVERSE_COLOUR);
     draw_set_halign(fa_right);
-    draw_text(_r-2, _t, _string);
+    draw_text(_r-2, _t, _field_string);
     draw_set_halign(fa_left);
     draw_set_colour(_old_colour);
 }
 else
 {
     draw_set_halign(fa_right);
-    draw_text(_r-2, _t, _string);
+    draw_text(_r-2, _t, _field_string);
     draw_set_halign(fa_left);
 }
 

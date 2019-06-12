@@ -2,7 +2,6 @@
 /// @param max
 /// @param unit
 /// @param length
-/// @param [label]
 /// @param [variableName]
 /// @param [elementName]
 
@@ -13,12 +12,8 @@ var _min          = argument[0];
 var _max          = argument[1];
 var _unit         = argument[2];
 var _length       = argument[3];
-var _label        = ((argument_count > 4) && is_string(argument[4]))? argument[4] : undefined;
-var _variable     = ((argument_count > 5) && is_string(argument[5]))? argument[5] : undefined;
-var _element_name = ((argument_count > 6) && is_string(argument[6]))? argument[6] : undefined;
-
-if (!is_string(_label)) _label = _variable;
-if (!is_string(_label)) _label = "";
+var _variable     = ((argument_count > 4) && is_string(argument[4]))? argument[4] : undefined;
+var _element_name = ((argument_count > 5) && is_string(argument[5]))? argument[5] : undefined;
 
 if (!is_string(_element_name)) _element_name = _variable;
 if (_element_name == undefined)
@@ -133,16 +128,6 @@ if (_new_state == IM_STATE.OVER)
 im_x = _max_x + IM_ELEMENT_SEPARATION;
 __im_line_height = max(__im_line_height, _element_h);
 
-if ((__im_string_format_total >= 0) && (__im_string_format_dec >= 0))
-{
-    var _string_value = string_format(_value, __im_string_format_total, __im_string_format_dec);
-}
-else
-{
-    var _string_value = string(_value);
-}
-
-im_text((_label != "")? (_label + ": " + _string_value) : _string_value);
 
 
 if (!_handled)
