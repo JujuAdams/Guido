@@ -24,7 +24,6 @@ if (_element_array[__IM_ELEMENT.NEW]) _element_array[@ __IM_ELEMENT.VALUE] = "";
 
 var _value         = _element_array[__IM_ELEMENT.VALUE       ];
 var _old_state     = _element_array[__IM_ELEMENT.STATE       ];
-var _handled       = _element_array[__IM_ELEMENT.HANDLED     ];
 var _field_string  = _element_array[__IM_ELEMENT.FIELD_STRING];
 var _new_state     = _old_state;
 

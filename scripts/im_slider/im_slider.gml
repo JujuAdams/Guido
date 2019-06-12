@@ -6,7 +6,6 @@
 /// @param [elementName]
 
 var _old_colour = draw_get_colour();
-var _colour     = draw_get_colour();
 
 var _min          = argument[0];
 var _max          = argument[1];
@@ -23,22 +22,9 @@ if (_element_name == undefined)
 }
 
 var _element_array = __im_element_find(_element_name, false);
-var _value         = _element_array[__IM_ELEMENT.VALUE  ];
-var _old_state     = _element_array[__IM_ELEMENT.STATE  ];
-var _handled       = _element_array[__IM_ELEMENT.HANDLED];
+var _value         = _element_array[__IM_ELEMENT.VALUE];
+var _old_state     = _element_array[__IM_ELEMENT.STATE];
 var _new_state     = _old_state;
-
-if (_handled)
-{
-    if (!_element_array[__IM_ELEMENT.ERRORED])
-    {
-        show_debug_message("IM: WARNING! Name \"" + _element_name + "\" is being used by two or more elements.");
-        _element_array[@ __IM_ELEMENT.ERRORED] = true;
-    }
-    
-    draw_set_colour(IM_INACTIVE_COLOUR);
-    _colour = c_gray;
-}
 
 
 
@@ -56,53 +42,37 @@ var _b = _t + _element_h;
 
 
 
-if (!_handled)
+
+if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
 {
-    if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
+    if (!is_string(im_cursor_over_element))
     {
-        if (!is_string(im_cursor_over_element))
-        {
-            im_cursor_over_element = _element_name;
-            _element_array[@ __IM_ELEMENT.OVER] = true;
-        
-            _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
-            if (__im_cursor_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
-            if (__im_cursor_pressed  && (_old_state == IM_STATE.OVER))
-            {
-                _element_array[@ __IM_ELEMENT.CLICK_X] = __im_cursor_x - _l;
-                _element_array[@ __IM_ELEMENT.CLICK_Y] = __im_cursor_y - _t;
-                _new_state = IM_STATE.DOWN;
-            }
-        }
-    }
-    
-    if (__im_cursor_down && (_old_state == IM_STATE.DOWN))
-    {
-        _new_state = IM_STATE.DOWN;
+        im_cursor_over_element = _element_name;
         _element_array[@ __IM_ELEMENT.OVER] = true;
         
-        _l = clamp(__im_cursor_x - _element_array[__IM_ELEMENT.CLICK_X], _min_x, _max_x);
-        _pc = clamp((_l - _min_x) / (_max_x - _min_x), 0, 1);
-        
-        if (_pc <= 0.0)
+        _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
+        if (__im_cursor_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
+        if (__im_cursor_pressed  && (_old_state == IM_STATE.OVER))
         {
-            _value = _min;
+            _element_array[@ __IM_ELEMENT.CLICK_X] = __im_cursor_x - _l;
+            _element_array[@ __IM_ELEMENT.CLICK_Y] = __im_cursor_y - _t;
+            _new_state = IM_STATE.DOWN;
         }
-        else if (_pc >= 1.0)
-        {
-            _value = _max;
-        }
-        else
-        {
-            _value = lerp(_min, _max, _pc);
-            if (_unit > 0) _value = _unit*round(_value / _unit);
-            _value = clamp(_value, _min, _max);
-        }
-        
-        _pc = clamp((_value - _min) / (_max - _min), 0, 1);
-        _l = lerp(_min_x, _max_x, _pc);
-        _r = _l + _element_w;
     }
+}
+
+if (__im_cursor_down && (_old_state == IM_STATE.DOWN))
+{
+    _new_state = IM_STATE.DOWN;
+    _element_array[@ __IM_ELEMENT.OVER] = true;
+        
+    _l = clamp(__im_cursor_x - _element_array[__IM_ELEMENT.CLICK_X], _min_x, _max_x);
+    _value = lerp(_min, _max, (_l - _min_x) / (_max_x - _min_x));
+    _value = __im_limit_real(_value, _min, _max, _unit);
+    _pc = clamp((_value - _min) / (_max - _min), 0, 1);
+        
+    _l = lerp(_min_x, _max_x, _pc);
+    _r = _l + _element_w;
 }
 
 _l = floor(_l);
@@ -117,7 +87,7 @@ draw_line(_max_x, _t, _max_x, _b);
 
 draw_set_colour(IM_INVERSE_COLOUR);
 draw_rectangle(_l, _t, _r, _b, false);
-draw_set_colour(_colour);
+draw_set_colour(_old_colour);
 draw_rectangle(_l, _t, _r, _b, true);
 
 if (_new_state == IM_STATE.OVER) 
@@ -130,28 +100,27 @@ __im_line_height = max(__im_line_height, _element_h);
 
 
 
-if (!_handled)
+if (_new_state == IM_STATE.DOWN)
 {
-    if (_new_state == IM_STATE.DOWN)
-    {
-        _element_array[@ __IM_ELEMENT.VALUE] = _value;
+    _element_array[@ __IM_ELEMENT.VALUE] = _value;
         
-        if (is_string(_variable))
+    if (is_string(_variable))
+    {
+        if (string_copy(_variable, 1, 7) == "global.")
         {
-            if (string_copy(_variable, 1, 7) == "global.")
-            {
-                variable_global_set(string_delete(_variable, 1, 7), _value);
-            }
-            else
-            {
-                variable_instance_set(id, _variable, _value);
-            }
+            variable_global_set(string_delete(_variable, 1, 7), _value);
+        }
+        else
+        {
+            variable_instance_set(id, _variable, _value);
         }
     }
-    
-    _element_array[@ __IM_ELEMENT.STATE  ] = _new_state;
-    _element_array[@ __IM_ELEMENT.HANDLED] = true;
 }
+
+_element_array[@ __IM_ELEMENT.STATE  ] = _new_state;
+_element_array[@ __IM_ELEMENT.HANDLED] = true;
+
+
 
 draw_set_colour(_old_colour);
 im_prev_name  = _element_name;

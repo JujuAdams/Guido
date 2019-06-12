@@ -19,9 +19,8 @@ if (_element_name == undefined)
 }
 
 var _element_array = __im_element_find(_element_name, false);
-var _value         = _element_array[__IM_ELEMENT.VALUE  ];
-var _old_state     = _element_array[__IM_ELEMENT.STATE  ];
-var _handled       = _element_array[__IM_ELEMENT.HANDLED];
+var _value         = _element_array[__IM_ELEMENT.VALUE];
+var _old_state     = _element_array[__IM_ELEMENT.STATE];
 var _new_state     = _old_state;
 
 

@@ -52,7 +52,6 @@ if (_element_array[__IM_ELEMENT.NEW])
 
 var _value         = _element_array[__IM_ELEMENT.VALUE       ];
 var _old_state     = _element_array[__IM_ELEMENT.STATE       ];
-var _handled       = _element_array[__IM_ELEMENT.HANDLED     ];
 var _field_string  = _element_array[__IM_ELEMENT.FIELD_STRING];
 var _new_state     = _old_state;
 
@@ -132,21 +131,7 @@ if ((__im_focus != _element_name) && _element_array[__IM_ELEMENT.FIELD_FOCUS])
 {
     _element_array[@ __IM_ELEMENT.FIELD_FOCUS] = false;
     _value = real(_field_string);
-    
-    var _pc = clamp((_value - _min) / (_max - _min), 0, 1);
-    if (_pc <= 0)
-    {
-        _value = _min;
-    }
-    else if (_pc >= 1)
-    {
-        _value = _max;
-    }
-    else
-    {
-        _value = _pc*(_max - _min) + _min;
-        _value = _unit*round(_value/_unit);
-    }
+    _value = __im_limit_real(_value, _min, _max, _unit);
     
     if ((__im_string_format_total >= 0) && (__im_string_format_dec >= 0))
     {
