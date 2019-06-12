@@ -54,7 +54,7 @@ switch(tab)
         guido_newline();
         guido_newline();
         
-        guido_text("3) Radio buttons");
+        guido_text("3) Multiple choice buttons");
         guido_newline();
         guido_spacer(40);
         guido_radio("Option 1", undefined, "radio group 0");
