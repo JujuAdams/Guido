@@ -5,8 +5,6 @@
 /// @param [variableName]
 /// @param [elementName]
 
-var _old_colour = draw_get_colour();
-
 var _min          = argument[0];
 var _max          = argument[1];
 var _unit         = argument[2];
@@ -14,6 +12,8 @@ var _length       = argument[3];
 var _variable     = ((argument_count > 4) && is_string(argument[4]))? argument[4] : undefined;
 var _element_name = ((argument_count > 5) && is_string(argument[5]))? argument[5] : undefined;
 
+
+//Find element data
 if (!is_string(_element_name)) _element_name = _variable;
 if (_element_name == undefined)
 {
@@ -22,12 +22,12 @@ if (_element_name == undefined)
 }
 
 var _element_array = __im_element_find(_element_name, false);
-var _value         = _element_array[__IM_ELEMENT.VALUE];
-var _old_state     = _element_array[__IM_ELEMENT.STATE];
-var _new_state     = _old_state;
+var _value     = _element_array[__IM_ELEMENT.VALUE];
+var _old_state = _element_array[__IM_ELEMENT.STATE];
+var _new_state = IM_STATE.NULL;
 
 
-
+//Position element
 var _element_w = 24;
 var _element_h = 24;
 
@@ -41,8 +41,7 @@ var _r = _l + _element_w;
 var _b = _t + _element_h;
 
 
-
-
+//Handle cursor interaction
 if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
 {
     if (!is_string(im_cursor_over_element))
@@ -79,12 +78,13 @@ _l = floor(_l);
 _r = floor(_r);
 
 
-
+//Draw
 _max_x += _element_w;
 draw_line(_min_x, _t, _min_x, _b);
 draw_line(_min_x, 0.5*(_t + _b), _max_x, 0.5*(_t + _b));
 draw_line(_max_x, _t, _max_x, _b);
 
+var _old_colour = draw_get_colour();
 draw_set_colour(IM_INVERSE_COLOUR);
 draw_rectangle(_l, _t, _r, _b, false);
 draw_set_colour(_old_colour);
@@ -95,34 +95,25 @@ if (_new_state == IM_STATE.OVER)
     draw_rectangle(_l+2, _t+2, _r-2, _b-2, false);
 }
 
+
+//Update IM state
 im_x = _max_x + IM_ELEMENT_SEPARATION;
 __im_line_height = max(__im_line_height, _element_h);
 
 
-
+//Update element and group
 if (_new_state == IM_STATE.DOWN)
 {
     _element_array[@ __IM_ELEMENT.VALUE] = _value;
-        
-    if (is_string(_variable))
-    {
-        if (string_copy(_variable, 1, 7) == "global.")
-        {
-            variable_global_set(string_delete(_variable, 1, 7), _value);
-        }
-        else
-        {
-            variable_instance_set(id, _variable, _value);
-        }
-    }
+    __im_set_variable(_variable, _value);
 }
 
-_element_array[@ __IM_ELEMENT.STATE  ] = _new_state;
-_element_array[@ __IM_ELEMENT.HANDLED] = true;
+
+//Update element state
+if (_element_array[__IM_ELEMENT.NEW_STATE] == IM_STATE.NULL) _element_array[@ __IM_ELEMENT.NEW_STATE] = _new_state;
 
 
-
-draw_set_colour(_old_colour);
+//Reset draw state
 im_prev_name  = _element_name;
 im_prev_state = _new_state;
 im_prev_value = _value;

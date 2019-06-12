@@ -3,9 +3,6 @@
 /// @param [variableName]
 /// @param [elementName]
 
-var _old_colour = draw_get_colour();
-var _colour     = draw_get_colour();
-
 var _string       = argument[0];
 var _group_name   = ((argument_count > 1) && is_string(argument[1]))? argument[1] : undefined;
 var _variable     = ((argument_count > 2) && is_string(argument[2]))? argument[2] : undefined;
@@ -24,7 +21,7 @@ var _g = 0;
 repeat(_length)
 {
     var _group_array = __im_radio_data[_g];
-    if (_group_array[__IM_ELEMENT.NAME] == _group_name) break;
+    if (_group_array[__IM_RADIO.NAME] == _group_name) break;
     ++_g;
 }
 
@@ -56,23 +53,9 @@ if (_element_name == undefined)
 }
 
 var _element_array = __im_element_find(_element_name, false);
-var _value         = _element_array[__IM_ELEMENT.VALUE  ];
-var _old_state     = _element_array[__IM_ELEMENT.STATE  ];
-var _handled       = _element_array[__IM_ELEMENT.HANDLED];
-
-if (_handled)
-{
-    if (!_element_array[__IM_ELEMENT.ERRORED])
-    {
-        show_debug_message("IM: WARNING! Name \"" + _element_name + "\" is being used by two or more elements.");
-        _element_array[@ __IM_ELEMENT.ERRORED] = true;
-    }
-    
-    draw_set_colour(IM_INACTIVE_COLOUR);
-    _colour = IM_INACTIVE_COLOUR;
-}
-
-var _new_state = _old_state;
+var _value     = _element_array[__IM_ELEMENT.VALUE];
+var _old_state = _element_array[__IM_ELEMENT.STATE];
+var _new_state = IM_STATE.NULL;
 
 
 //Position element
@@ -86,19 +69,15 @@ var _b = im_y + _element_h;
 
 
 //Handle cursor interaction
-if (!_handled)
+if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
 {
-    if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
+    if (!is_string(im_cursor_over_element))
     {
-        if (!is_string(im_cursor_over_element))
-        {
-            im_cursor_over_element = _element_name;
-            _element_array[@ __IM_ELEMENT.OVER] = true;
+        im_cursor_over_element = _element_name;
         
-            _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
-            if (__im_cursor_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
-            if (__im_cursor_pressed  && (_old_state == IM_STATE.OVER)) _new_state = IM_STATE.DOWN;
-        }
+        _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
+        if (__im_cursor_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
+        if (__im_cursor_pressed  && (_old_state == IM_STATE.OVER)) _new_state = IM_STATE.DOWN;
     }
 }
 
@@ -115,9 +94,10 @@ if (_group_count-1 == _group_value)
     
     if (_new_state == IM_STATE.OVER)
     {
+        var _old_colour = draw_get_colour();
         draw_set_colour(IM_INVERSE_COLOUR);
         draw_circle(_xc, _yc, _radius-4, true);
-        draw_set_colour(_colour);
+        draw_set_colour(_old_colour);
     }
 }
 else if (_new_state == IM_STATE.OVER) 
@@ -136,32 +116,29 @@ if (_string != "") im_text(_string);
 
 
 //Update element and group
-if (!_handled)
+if (_new_state == IM_STATE.CLICK)
 {
-    if (_new_state == IM_STATE.CLICK)
-    {
-        _group_array[@ __IM_RADIO.VALUE] = _group_count-1;
+    _group_array[@ __IM_RADIO.VALUE] = _group_count-1;
     
-        if (is_string(_variable))
+    if (is_string(_variable))
+    {
+        if (string_copy(_variable, 1, 7) == "global.")
         {
-            if (string_copy(_variable, 1, 7) == "global.")
-            {
-                variable_global_set(string_delete(_variable, 1, 7), _group_count-1);
-            }
-            else
-            {
-                variable_instance_set(id, _variable, _group_count-1);
-            }
+            variable_global_set(string_delete(_variable, 1, 7), _group_count-1);
+        }
+        else
+        {
+            variable_instance_set(id, _variable, _group_count-1);
         }
     }
-    
-    _element_array[@ __IM_ELEMENT.STATE  ] = _new_state;
-    _element_array[@ __IM_ELEMENT.HANDLED] = true;
 }
 
 
+//Update element state
+if (_element_array[__IM_ELEMENT.NEW_STATE] == IM_STATE.NULL) _element_array[@ __IM_ELEMENT.NEW_STATE] = _new_state;
+
+
 //Reset draw state
-draw_set_colour(_old_colour);
 im_prev_name  = _element_name;
 im_prev_state = _new_state;
 im_prev_value = _value;
