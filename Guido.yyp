@@ -34,7 +34,7 @@
             "Key": "03f7159f-683a-4242-b0a4-b2727c066e0f",
             "Value": {
                 "id": "1f19bfbe-13f4-44d1-80cf-477d16d6e4ad",
-                "resourcePath": "scripts\\im_string_format\\im_string_format.yy",
+                "resourcePath": "scripts\\guido_string_format\\guido_string_format.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -42,7 +42,7 @@
             "Key": "10d7debe-4571-4702-b874-5f2be32d7c98",
             "Value": {
                 "id": "8f3b0e38-366a-4fca-805f-29659cb865f4",
-                "resourcePath": "scripts\\im_begin\\im_begin.yy",
+                "resourcePath": "scripts\\guido_begin\\guido_begin.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -50,7 +50,7 @@
             "Key": "1705fa85-9736-463b-8116-71058696453d",
             "Value": {
                 "id": "6dd1ae0c-d81c-4d23-a958-6a2eaa55891e",
-                "resourcePath": "scripts\\im_radio_text\\im_radio_text.yy",
+                "resourcePath": "scripts\\guido_radio_text\\guido_radio_text.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -58,7 +58,7 @@
             "Key": "171fedf8-3c84-4101-8a73-6b37230d47fd",
             "Value": {
                 "id": "7f300e9e-3a6a-43bb-a51f-3c2a90702fac",
-                "resourcePath": "scripts\\im_button_grid\\im_button_grid.yy",
+                "resourcePath": "scripts\\guido_button_grid\\guido_button_grid.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -74,7 +74,7 @@
             "Key": "1b2d309c-006a-4861-b9fb-5cb6060d09e2",
             "Value": {
                 "id": "cc105d2b-5954-4820-a8e6-6ed999303b95",
-                "resourcePath": "scripts\\im_spacer\\im_spacer.yy",
+                "resourcePath": "scripts\\guido_spacer\\guido_spacer.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -146,7 +146,7 @@
             "Key": "547e2a74-1b49-49e5-b69f-f6a81d6800b3",
             "Value": {
                 "id": "4e5283e2-724e-4e8c-9118-2f4e7376e94d",
-                "resourcePath": "scripts\\__im_variable_get\\__im_variable_get.yy",
+                "resourcePath": "scripts\\__guido_variable_get\\__guido_variable_get.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -154,7 +154,7 @@
             "Key": "5a441b5c-b8c6-4091-b715-1e78e09ec0e2",
             "Value": {
                 "id": "8c1869cd-6c85-4817-936a-b687ba70a6fc",
-                "resourcePath": "scripts\\im_element_get_value\\im_element_get_value.yy",
+                "resourcePath": "scripts\\guido_element_get_value\\guido_element_get_value.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -162,7 +162,7 @@
             "Key": "5ae7d156-ee8d-4df5-9e74-14c18297243b",
             "Value": {
                 "id": "f9d6a7e6-38c2-42e4-86b2-e7775efc10b6",
-                "resourcePath": "scripts\\im_end\\im_end.yy",
+                "resourcePath": "scripts\\guido_end\\guido_end.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -170,7 +170,7 @@
             "Key": "5e2867e7-600b-4f5b-a660-f925a3118aac",
             "Value": {
                 "id": "b73c5780-e970-4b67-81aa-1059a745abd9",
-                "resourcePath": "scripts\\im_set_string_format\\im_set_string_format.yy",
+                "resourcePath": "scripts\\guido_set_string_format\\guido_set_string_format.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -178,7 +178,7 @@
             "Key": "6666bfbc-0b6c-434b-83e0-91e1b5e0a8e6",
             "Value": {
                 "id": "2570491f-d981-45b5-bde8-9dbc906e9fc5",
-                "resourcePath": "scripts\\im_text\\im_text.yy",
+                "resourcePath": "scripts\\guido_text\\guido_text.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -186,7 +186,7 @@
             "Key": "66db924e-2908-4f65-9b28-3052c3eba581",
             "Value": {
                 "id": "c2313e65-43ac-4e11-8455-a936e9111f9a",
-                "resourcePath": "scripts\\__im_variable_set\\__im_variable_set.yy",
+                "resourcePath": "scripts\\__guido_variable_set\\__guido_variable_set.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -194,7 +194,7 @@
             "Key": "6f09f438-4bc0-4fb0-8cb6-020ed8d81f6f",
             "Value": {
                 "id": "40279b09-deff-472b-9087-5645782ed1b9",
-                "resourcePath": "scripts\\im_text_ext\\im_text_ext.yy",
+                "resourcePath": "scripts\\guido_text_ext\\guido_text_ext.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -202,7 +202,7 @@
             "Key": "7054d2a8-54d2-47d2-99ae-7db4da0787f4",
             "Value": {
                 "id": "0931b782-720d-4de2-9986-341efca10721",
-                "resourcePath": "scripts\\im_real_field\\im_real_field.yy",
+                "resourcePath": "scripts\\guido_real_field\\guido_real_field.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -266,7 +266,7 @@
             "Key": "7ef17301-8f5e-4599-b9cb-308c36ce162e",
             "Value": {
                 "id": "914f0ee1-84d2-40d4-aff5-1e80404ccb7f",
-                "resourcePath": "scripts\\__im_element_find\\__im_element_find.yy",
+                "resourcePath": "scripts\\__guido_element_find\\__guido_element_find.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -282,7 +282,7 @@
             "Key": "888cc510-e3eb-4e0f-a101-8fca5475ff56",
             "Value": {
                 "id": "d4a3553a-607f-4a91-b8c2-7326eca9af79",
-                "resourcePath": "scripts\\im_toggle_text\\im_toggle_text.yy",
+                "resourcePath": "scripts\\guido_toggle_text\\guido_toggle_text.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -298,7 +298,7 @@
             "Key": "93a16fcf-3c64-4ad3-ba2a-a832aec366af",
             "Value": {
                 "id": "03069e3e-6a3a-4d46-8b5a-b59c97dfa3aa",
-                "resourcePath": "scripts\\im_toggle\\im_toggle.yy",
+                "resourcePath": "scripts\\guido_toggle\\guido_toggle.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -306,7 +306,7 @@
             "Key": "9f82d46a-b238-408e-ac64-d488fa1a4632",
             "Value": {
                 "id": "2756c6bd-91e2-4c11-a2ba-e5ae90a32429",
-                "resourcePath": "scripts\\im_button\\im_button.yy",
+                "resourcePath": "scripts\\guido_button\\guido_button.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -314,7 +314,7 @@
             "Key": "a313f614-e9e8-4798-bfca-8fabfb63eb61",
             "Value": {
                 "id": "e7e8ced7-679e-46cd-9168-feef416dae79",
-                "resourcePath": "scripts\\__im_variable_exists\\__im_variable_exists.yy",
+                "resourcePath": "scripts\\__guido_variable_exists\\__guido_variable_exists.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -346,7 +346,7 @@
             "Key": "b5382a98-7172-4dc1-ad87-55f5ebc21baf",
             "Value": {
                 "id": "6f41e2c5-e542-4bea-ae9b-1a562b28999b",
-                "resourcePath": "scripts\\im_divider\\im_divider.yy",
+                "resourcePath": "scripts\\guido_divider\\guido_divider.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -354,7 +354,7 @@
             "Key": "b55393e0-eb95-4d18-98ec-7a7599e525bc",
             "Value": {
                 "id": "d33e8b30-d1ed-4185-aa42-630a843acf97",
-                "resourcePath": "scripts\\im_element_get_state\\im_element_get_state.yy",
+                "resourcePath": "scripts\\guido_element_get_state\\guido_element_get_state.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -362,7 +362,7 @@
             "Key": "b622ab1a-8f19-4766-92df-9d38f81580ac",
             "Value": {
                 "id": "5bf9aaa5-5f1c-455c-a238-1ba2b654c361",
-                "resourcePath": "scripts\\im_string_field\\im_string_field.yy",
+                "resourcePath": "scripts\\guido_string_field\\guido_string_field.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -370,7 +370,7 @@
             "Key": "b905cc77-6bc7-464a-8ee3-7fe0cf8c8cef",
             "Value": {
                 "id": "039c9fbc-af59-487b-938e-af75c7d6120c",
-                "resourcePath": "scripts\\im_hyperlink\\im_hyperlink.yy",
+                "resourcePath": "scripts\\guido_hyperlink\\guido_hyperlink.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -386,7 +386,7 @@
             "Key": "cc1ebd85-e53a-4054-a807-442990dd9d2f",
             "Value": {
                 "id": "9346c5c8-c683-48b7-9474-624796453658",
-                "resourcePath": "scripts\\__im_limit_real\\__im_limit_real.yy",
+                "resourcePath": "scripts\\__guido_limit_real\\__guido_limit_real.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -402,7 +402,7 @@
             "Key": "cdd08a7a-42e5-44a7-a07e-bfb2401d26dd",
             "Value": {
                 "id": "64aa343d-e603-4232-ad08-80e3805ae65d",
-                "resourcePath": "scripts\\im_sprite\\im_sprite.yy",
+                "resourcePath": "scripts\\guido_sprite\\guido_sprite.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -418,7 +418,7 @@
             "Key": "e45d8a56-45b2-4907-bf61-6778465494c2",
             "Value": {
                 "id": "275b5fb9-99a9-4f8a-aa6d-a52d347ec078",
-                "resourcePath": "scripts\\im_surface\\im_surface.yy",
+                "resourcePath": "scripts\\guido_surface\\guido_surface.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -442,7 +442,7 @@
             "Key": "e8bf87eb-fbef-4837-bb58-91e5a21bdf60",
             "Value": {
                 "id": "cda19842-7d70-40c3-8bfa-e79df47a0208",
-                "resourcePath": "scripts\\im_radio\\im_radio.yy",
+                "resourcePath": "scripts\\guido_radio\\guido_radio.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -450,7 +450,7 @@
             "Key": "e93ec4b7-e9c5-4071-b0a1-50e39e755255",
             "Value": {
                 "id": "85fa42a4-49e9-43ba-8d67-a0d42e166779",
-                "resourcePath": "scripts\\im_newline\\im_newline.yy",
+                "resourcePath": "scripts\\guido_newline\\guido_newline.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -466,7 +466,7 @@
             "Key": "f2169231-6180-4e7d-a3ad-7d705501e401",
             "Value": {
                 "id": "d5005cca-567a-46c1-9866-0b76a427247b",
-                "resourcePath": "scripts\\im_slider\\im_slider.yy",
+                "resourcePath": "scripts\\guido_slider\\guido_slider.yy",
                 "resourceType": "GMScript"
             }
         },

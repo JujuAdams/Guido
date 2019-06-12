@@ -13,7 +13,7 @@
         "289c5c8a-3f10-4f7a-862f-7dc6adbf7595"
     ],
     "filterType": "GMScript",
-    "folderName": "Immediate Mode",
+    "folderName": "Guido",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
