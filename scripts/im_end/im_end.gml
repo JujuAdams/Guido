@@ -7,7 +7,7 @@ repeat(array_length_1d(__im_element_data))
     ++_e;
 }
 
-if (__im_cursor_released)
+if (__im_cursor_pressed)
 {
     __im_focus = im_cursor_over_element;
 }
