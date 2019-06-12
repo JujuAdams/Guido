@@ -22,7 +22,7 @@
 //      CLICK =  1    //The user has clicked and released on the element
 //  }
 
-#macro IM_DEBUG              true
+#macro IM_DEBUG              false
 #macro IM_LINE_MIN_HEIGHT    20
 #macro IM_LINE_SEPARATION     4
 #macro IM_ELEMENT_SEPARATION  8

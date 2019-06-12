@@ -3,13 +3,12 @@
 /// @param [variableName]
 /// @param [elementName]
 
-var _old_colour = draw_get_colour();
-var _colour     = draw_get_colour();
-
 var _string_on    = ((argument_count > 0) && is_string(argument[0]))? argument[0] : "";
 var _string_off   = ((argument_count > 1) && is_string(argument[1]))? argument[1] : _string_on;
 var _variable     = ((argument_count > 2) && is_string(argument[2]))? argument[2] : undefined;
 var _element_name = ((argument_count > 3) && is_string(argument[3]))? argument[3] : undefined;
+
+
 
 if (!is_string(_element_name)) _element_name = _variable;
 if (_element_name == undefined)
@@ -57,9 +56,10 @@ if (_value)
     
     if (_new_state == IM_STATE.OVER)
     {
+        var _old_colour = draw_get_colour();
         draw_set_colour(IM_INVERSE_COLOUR);
         draw_rectangle(_l+3, _t+3, _r-3, _b-3, true);
-        draw_set_colour(_colour);
+        draw_set_colour(_old_colour);
     }
 }
 else if (_new_state == IM_STATE.OVER) 
