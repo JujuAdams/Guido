@@ -19,9 +19,9 @@ if (_element_name == undefined)
 }
 
 var _element_array = __im_element_find(_element_name, false);
-var _value         = _element_array[__IM_ELEMENT.VALUE];
-var _old_state     = _element_array[__IM_ELEMENT.STATE];
-var _new_state     = _old_state;
+var _value     = _element_array[__IM_ELEMENT.VALUE];
+var _old_state = _element_array[__IM_ELEMENT.STATE];
+var _new_state = IM_STATE.NULL;
 
 
 
@@ -40,7 +40,6 @@ if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
     if (!is_string(im_cursor_over_element))
     {
         im_cursor_over_element = _element_name;
-        _element_array[@ __IM_ELEMENT.OVER] = true;
         
         _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
         if (__im_cursor_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
@@ -80,28 +79,15 @@ if (_new_state == IM_STATE.CLICK)
 {
     _value = !_value;
     _element_array[@ __IM_ELEMENT.VALUE] = _value;
-    
-    if (is_string(_variable))
-    {
-        if (string_copy(_variable, 1, 7) == "global.")
-        {
-            variable_global_set(string_delete(_variable, 1, 7), _value);
-        }
-        else
-        {
-            variable_instance_set(id, _variable, _value);
-        }
-    }
+    __im_set_variable(_variable, _value);
 }
-    
-    
-    
-_element_array[@ __IM_ELEMENT.STATE  ] = _new_state;
-_element_array[@ __IM_ELEMENT.HANDLED] = true;
 
 
+//Update element state
+if (_element_array[__IM_ELEMENT.NEW_STATE] == IM_STATE.NULL) _element_array[@ __IM_ELEMENT.NEW_STATE] = _new_state;
 
-draw_set_colour(_old_colour);
+
+//Pass on values to local variables
 im_prev_name  = _element_name;
 im_prev_state = _new_state;
 im_prev_value = _value;
