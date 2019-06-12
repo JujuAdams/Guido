@@ -23,12 +23,10 @@
 //  }
 
 #macro IM_DEBUG              false
+#macro IM_INVERSE_COLOUR     c_black
 #macro IM_LINE_MIN_HEIGHT    20
 #macro IM_LINE_SEPARATION     4
 #macro IM_ELEMENT_SEPARATION  8
-
-#macro IM_INVERSE_COLOUR     c_black
-#macro IM_INACTIVE_COLOUR    c_gray
 
 #region Internal definitions
 
@@ -47,7 +45,6 @@ enum __IM_ELEMENT
 {
     NEW,
     NAME,
-    OVER,
     STATE,
     NEW_STATE,
     VALUE,
