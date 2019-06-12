@@ -83,7 +83,7 @@ if (_string != "") im_text(_string);
 if (_new_state == IM_STATE.CLICK)
 {
     _element_array[@ __IM_ELEMENT.VALUE] = _group_count;
-    __im_set_variable(_variable, _group_count);
+    __im_variable_set(_variable, _group_count);
 }
 
 

@@ -71,7 +71,7 @@ if (_new_state == IM_STATE.CLICK)
 {
     _value = !_value;
     _element_array[@ __IM_ELEMENT.VALUE] = _value;
-    __im_set_variable(_variable, _value);
+    __im_variable_set(_variable, _value);
 }
 
 

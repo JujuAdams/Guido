@@ -135,6 +135,14 @@
             }
         },
         {
+            "Key": "547e2a74-1b49-49e5-b69f-f6a81d6800b3",
+            "Value": {
+                "id": "4e5283e2-724e-4e8c-9118-2f4e7376e94d",
+                "resourcePath": "scripts\\__im_variable_get\\__im_variable_get.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "5a441b5c-b8c6-4091-b715-1e78e09ec0e2",
             "Value": {
                 "id": "8c1869cd-6c85-4817-936a-b687ba70a6fc",
@@ -170,7 +178,7 @@
             "Key": "66db924e-2908-4f65-9b28-3052c3eba581",
             "Value": {
                 "id": "c2313e65-43ac-4e11-8455-a936e9111f9a",
-                "resourcePath": "scripts\\__im_set_variable\\__im_set_variable.yy",
+                "resourcePath": "scripts\\__im_variable_set\\__im_variable_set.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -283,6 +291,14 @@
             "Value": {
                 "id": "2756c6bd-91e2-4c11-a2ba-e5ae90a32429",
                 "resourcePath": "scripts\\im_button\\im_button.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a313f614-e9e8-4798-bfca-8fabfb63eb61",
+            "Value": {
+                "id": "e7e8ced7-679e-46cd-9168-feef416dae79",
+                "resourcePath": "scripts\\__im_variable_exists\\__im_variable_exists.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -471,7 +487,9 @@
         "5a441b5c-b8c6-4091-b715-1e78e09ec0e2",
         "7ef17301-8f5e-4599-b9cb-308c36ce162e",
         "cc1ebd85-e53a-4054-a807-442990dd9d2f",
-        "66db924e-2908-4f65-9b28-3052c3eba581"
+        "66db924e-2908-4f65-9b28-3052c3eba581",
+        "547e2a74-1b49-49e5-b69f-f6a81d6800b3",
+        "a313f614-e9e8-4798-bfca-8fabfb63eb61"
     ],
     "tutorial": ""
 }

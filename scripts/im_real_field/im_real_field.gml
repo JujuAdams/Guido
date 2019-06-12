@@ -26,7 +26,7 @@ if (_element_array[__IM_ELEMENT.NEW])
 {
     _element_array[@ __IM_ELEMENT.VALUE       ] = _min;
     _element_array[@ __IM_ELEMENT.FIELD_STRING] = im_string_format(_min);
-    __im_set_variable(_variable, _min);
+    __im_variable_set(_variable, _min);
 }
 
 var _value        = _element_array[__IM_ELEMENT.VALUE       ];
@@ -111,7 +111,7 @@ if ((__im_focus != _element_name) && _element_array[__IM_ELEMENT.FIELD_FOCUS])
     _value = real(_field_string);
     _value = __im_limit_real(_value, _min, _max, _unit);
     _field_string = im_string_format(_value);
-    __im_set_variable(_variable, _value);
+    __im_variable_set(_variable, _value);
     
     _element_array[@ __IM_ELEMENT.VALUE       ] = _value;
     _element_array[@ __IM_ELEMENT.FIELD_STRING] = _field_string;

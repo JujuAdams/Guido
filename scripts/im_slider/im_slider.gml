@@ -103,7 +103,7 @@ __im_line_height = max(__im_line_height, _element_h);
 if (_new_state == IM_STATE.DOWN)
 {
     _element_array[@ __IM_ELEMENT.VALUE] = _value;
-    __im_set_variable(_variable, _value);
+    __im_variable_set(_variable, _value);
 }
 
 

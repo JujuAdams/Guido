@@ -118,7 +118,7 @@ if ((__im_focus != _element_name) && _element_array[__IM_ELEMENT.FIELD_FOCUS])
     _value = _field_string;
     _element_array[@ __IM_ELEMENT.FIELD_FOCUS ] = false;
     _element_array[@ __IM_ELEMENT.FIELD_STRING] = _field_string;
-    __im_set_variable(_variable, _value);
+    __im_variable_set(_variable, _value);
 }
 
 
