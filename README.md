@@ -15,6 +15,7 @@ Has the following widgets:
 9) String input field
 10) 2D button grid
 
+
 Guido can also natively display:
 1) Text
 2) Wrapped text (using draw_text_ext)
