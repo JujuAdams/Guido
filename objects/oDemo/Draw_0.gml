@@ -1,7 +1,9 @@
 im_begin(10, 10, mouse_x, mouse_y, mouse_check_button(mb_left));
 im_text("Immediate Mode v" + __IM_VERSION + "   " + __IM_DATE, 1, 1, fHeader);
 im_newline();
-im_text("@jujuadams", 1, 1, fHeader);
+draw_set_font(fHeader);
+if (im_hyperlink("@jujuadams")) url_open("http://www.twitter.com/JujuAdams");
+draw_set_font(-1);
 im_newline();
 im_newline();
 im_text("Hello!");
