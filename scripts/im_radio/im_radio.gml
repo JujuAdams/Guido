@@ -1,51 +1,14 @@
 /// @param label
-/// @param [radioGroupName]
 /// @param [variableName]
 /// @param [elementName]
 
 var _string       = argument[0];
-var _group_name   = ((argument_count > 1) && is_string(argument[1]))? argument[1] : undefined;
-var _variable     = ((argument_count > 2) && is_string(argument[2]))? argument[2] : undefined;
-var _element_name = ((argument_count > 3) && is_string(argument[3]))? argument[3] : undefined;
-
-
-//Find radio group data
-if (_group_name == undefined)
-{
-    ++im_auto_radio_group;
-    _group_name = "AUTO radiogroup " + string(im_auto_radio_group);
-}
-
-var _length = array_length_1d(__im_radio_data);
-var _g = 0;
-repeat(_length)
-{
-    var _group_array = __im_radio_data[_g];
-    if (_group_array[__IM_RADIO.NAME] == _group_name) break;
-    ++_g;
-}
-
-if (_g >= _length)
-{
-    if (IM_DEBUG) show_debug_message("IM: Making new radio group \"" + string(_group_name) + "\"");
-    
-    var _group_array = array_create(__IM_ELEMENT.__SIZE);
-    _group_array[@ __IM_RADIO.NAME ] = _group_name;
-    _group_array[@ __IM_RADIO.COUNT] = 1;
-    _group_array[@ __IM_RADIO.VALUE] = 0;
-    
-    __im_radio_data[_length] = _group_array;
-}
-else
-{
-    _group_array[@ __IM_RADIO.COUNT]++;
-}
-
-var _group_count = _group_array[__IM_RADIO.COUNT];
-var _group_value = _group_array[__IM_RADIO.VALUE];
+var _variable     = ((argument_count > 1) && is_string(argument[1]))? argument[1] : undefined;
+var _element_name = ((argument_count > 2) && is_string(argument[2]))? argument[2] : undefined;
 
 
 //Find element data
+if (!is_string(_element_name)) _element_name = _variable;
 if (_element_name == undefined)
 {
     _element_name = "AUTO " + string(__im_auto_element) + ", radio, variable=\"" + string(_variable) + "\"";
@@ -53,9 +16,10 @@ if (_element_name == undefined)
 }
 
 var _element_array = __im_element_find(_element_name, false);
-var _value     = _element_array[__IM_ELEMENT.VALUE];
-var _old_state = _element_array[__IM_ELEMENT.STATE];
-var _new_state = IM_STATE.NULL;
+var _value       = _element_array[__IM_ELEMENT.VALUE];
+var _old_state   = _element_array[__IM_ELEMENT.STATE];
+var _group_count = _element_array[__IM_ELEMENT.COUNT];
+var _new_state   = IM_STATE.NULL;
 
 
 //Position element
@@ -88,7 +52,7 @@ var _yc     = mean(_t, _b);
 var _radius = 0.5*(_r - _l);
 draw_circle(_xc, _yc, _radius, true);
 
-if (_group_count-1 == _group_value)
+if (_group_count == _value)
 {
     draw_circle(_xc, _yc, _radius-2, false);
     
@@ -118,24 +82,14 @@ if (_string != "") im_text(_string);
 //Update element and group
 if (_new_state == IM_STATE.CLICK)
 {
-    _group_array[@ __IM_RADIO.VALUE] = _group_count-1;
-    
-    if (is_string(_variable))
-    {
-        if (string_copy(_variable, 1, 7) == "global.")
-        {
-            variable_global_set(string_delete(_variable, 1, 7), _group_count-1);
-        }
-        else
-        {
-            variable_instance_set(id, _variable, _group_count-1);
-        }
-    }
+    _element_array[@ __IM_ELEMENT.VALUE] = _group_count;
+    __im_set_variable(_variable, _group_count);
 }
 
 
 //Update element state
 if (_element_array[__IM_ELEMENT.NEW_STATE] == IM_STATE.NULL) _element_array[@ __IM_ELEMENT.NEW_STATE] = _new_state;
+_element_array[@ __IM_ELEMENT.COUNT]++;
 
 
 //Reset draw state

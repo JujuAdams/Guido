@@ -48,19 +48,12 @@ enum __IM_ELEMENT
     STATE,
     NEW_STATE,
     VALUE,
+    COUNT,
     CLICK_X,
     CLICK_Y,
     FIELD_POS,
     FIELD_STRING,
     FIELD_FOCUS,
-    __SIZE
-}
-
-enum __IM_RADIO
-{
-    NAME,
-    COUNT,
-    VALUE,
     __SIZE
 }
 
@@ -72,7 +65,6 @@ if (!variable_instance_exists(id, "__im_cursor_down"))
     __im_cursor_down  = false;
     __im_focus        = undefined;
     __im_element_data = [];
-    __im_radio_data   = [];
 }
 
 __im_prev_cursor_down = __im_cursor_down;
@@ -92,8 +84,7 @@ im_prev_name  = undefined;
 im_prev_state = undefined;
 im_prev_value = undefined;
 
-__im_auto_element   = 0;
-im_auto_radio_group = 0;
+__im_auto_element = 0;
 
 __im_string_format_total = -1;
 __im_string_format_dec   = -1;
@@ -110,13 +101,6 @@ repeat(array_length_1d(__im_element_data))
     _array[@ __IM_ELEMENT.NEW      ] = false;
     _array[@ __IM_ELEMENT.STATE    ] = _array[__IM_ELEMENT.NEW_STATE];
     _array[@ __IM_ELEMENT.NEW_STATE] = IM_STATE.NULL;
+    _array[@ __IM_ELEMENT.COUNT    ] = 0;
     ++_e;
-}
-
-var _g = 0;
-repeat(array_length_1d(__im_radio_data))
-{
-    var _group_array = __im_radio_data[_g];
-    _group_array[@ __IM_RADIO.COUNT] = 0;
-    ++_g;
 }
