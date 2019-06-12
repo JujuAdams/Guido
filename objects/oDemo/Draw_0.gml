@@ -1,4 +1,7 @@
 im_begin(10, 10, mouse_x, mouse_y, mouse_check_button(mb_left));
+
+#region Header
+
 draw_set_font(fHeader);
 im_text("Immediate Mode v" + __IM_VERSION + "   " + __IM_DATE);
 im_newline();
@@ -8,24 +11,31 @@ im_newline();
 draw_set_font(fTab);
 im_radio_text("Welcome", "tab");
 im_spacer(20);
-im_radio_text("Buttons and Toggles", "tab");
-im_newline();
+im_radio_text("Buttons", "tab");
+im_spacer(20);
+im_radio_text("Other Input", "tab");
+im_divider(1000);
 draw_set_font(-1);
 im_newline();
+
+#endregion
 
 switch(tab)
 {
     case 0:
-        im_text("Welcome to @jujuadams' immediate mode GUI library.");
+        im_text_ext("\"Immediate mode\" is a GUI design pattern that's very simple to use for basic GUI layouts. This particular library is inspired by the venerable ImGUI, but heavily modified to suit the programming practices of GameMaker developers. This entire demo is written in a single block of code using straight-forward scripts.", -1, 1000);
         im_newline();
         im_newline();
-        im_text_ext("\"Immediate mode\" is a GUI design pattern that's very simple to use for basic GUI layouts. This entire demo is written in a single block of code using straight-forward scripts.", -1, 1000);
+        im_text_ext("This library is designed with debug tools in mind. Its various UI elements (also called \"widgets\") should cover the vast majority of backend tool use cases.", -1, 1000);
     break;
     
     case 1:
+        #region Buttons
+        
         im_text("This library offers lots of different kinds of buttons.");
         im_newline();
         im_newline();
+        
         im_text("1) Momentary buttons");
         im_newline();
         im_spacer(40);
@@ -34,6 +44,7 @@ switch(tab)
         im_hyperlink("And hyperlinks too");
         im_newline();
         im_newline();
+        
         im_text("2) Toggle buttons");
         im_newline();
         im_spacer(40);
@@ -42,74 +53,69 @@ switch(tab)
         im_toggle_text("Toggle on :)", "Toggle off :(");
         im_newline();
         im_newline();
+        
         im_text("3) Radio buttons");
         im_newline();
         im_spacer(40);
-        im_radio("Option");
-        im_spacer(20);
-        im_toggle_text("Toggle on :)", "Toggle off :(");
+        im_radio("Option 1", undefined, "radio group 0");
         im_newline();
+        im_spacer(40);
+        im_radio("Option 2", undefined, "radio group 0");
+        im_newline();
+        im_spacer(40);
+        im_radio("Option 3", undefined, "radio group 0");
+        im_newline();
+        im_newline();
+        im_spacer(40);
+        im_radio_text("Option 1", undefined, "radio group 1");
+        im_newline();
+        im_spacer(40);
+        im_radio_text("Option 2", undefined, "radio group 1");
+        im_newline();
+        im_spacer(40);
+        im_radio_text("Option 3", undefined, "radio group 1");
+        im_newline();
+        im_newline();
+        
+        #endregion
+    break;
+    
+    case 2:
+        #region Other Input
+        
+        im_text("There are other GUI elements on offer too:");
+        im_newline();
+        im_newline();
+        
+        im_text("1) Sliders");
+        im_newline();
+        im_spacer(40);
+        im_slider(0, 69, 0, 200);
+        im_text("Slider value = ", im_prev_value);
+        im_newline();
+        im_spacer(40);
+        im_slider(7, 42, 3, 200);
+        im_text("Slider value = ", im_prev_value);
+        im_newline();
+        im_newline();
+        
+        im_text("2) Real-valued and string input fields");
+        im_newline();
+        im_spacer(40);
+        im_real_field(20, 30, 0, 150);
+        im_newline();
+        im_spacer(40);
+        im_string_field(150);
+        im_newline();
+        im_newline();
+        
+        im_text("3) Button grids");
+        im_newline();
+        im_spacer(40);
+        im_button_grid(11, 9, 16, 12);
+        
+        #endregion
     break;
 }
 
 im_end();
-
-//im_begin(10, 10, mouse_x, mouse_y, mouse_check_button(mb_left));
-//im_text("Immediate Mode v" + __IM_VERSION + "   " + __IM_DATE, 1, 1, fHeader);
-//im_newline();
-//draw_set_font(fHeader);
-//if (im_hyperlink("@jujuadams")) url_open("http://www.twitter.com/JujuAdams");
-//draw_set_font(-1);
-//im_newline();
-//im_newline();
-//im_text("Hello!");
-//if (im_button("Button 1", "button 1"))  show_debug_message("left");
-//if (im_button("")) show_debug_message("!!!");
-//im_text("Button 2");
-//if (im_button("Button 1 again", "button 1")) show_debug_message("right");
-//if (im_element_get_state("button 1")) show_debug_message("!!!");
-//im_radio_text("Tab 1!", "tab");
-//im_radio_text("Tab 2!", "tab");
-//im_radio_text("Tab 3!", "tab");
-//im_newline();
-//im_newline();
-//im_toggle_text("floating ON :)", "floating off :(");
-//im_toggle_text("instance ON :)", "instance off :(", "instance_variable");
-//im_toggle_text("instance ON :)", "instance off :(", "instance_variable");
-//im_toggle_text("global ON :)", "global off :(", "global.global_variable");
-//im_newline();
-//im_toggle("element", undefined, undefined, "element");
-//im_toggle("element", undefined, undefined, "element");
-//im_newline();
-//im_text("element = " + string(im_element_get_value("element")));
-//im_newline();
-//im_text("instance = " + string(instance_variable));
-//im_newline();
-//im_text("global = " + string(global.global_variable));
-//im_newline();
-//im_newline();
-//im_slider(5.5, 20.9, 1.0, 200, "slider");
-//im_set_string_format(1, 1);
-//im_text(im_prev_value);
-//im_newline();
-//im_real_field(5.5, 20.9, 1.0, 150, "real_field");
-//im_text("= " + string(real_field));
-//im_newline();
-//im_string_field(150, true, "string_field");
-//im_text("= \"" + string_field + "\"");
-//im_newline();
-//im_sprite(sTest, 0);
-//im_sprite(sTest, 0);
-//im_newline();
-//im_radio("Option 1", "radio_option");
-//im_newline();
-//im_radio("Option 2", "radio_option");
-//im_newline();
-//im_radio("Option 3", "radio_option");
-//im_newline();
-//im_text("Option selected = " + string(radio_option));
-//im_newline();
-//im_toggle("Show grid", undefined, "show_grid");
-//im_newline();
-//if (im_button_grid(10, 8, 16, 16, show_grid)) show_message(im_prev_value);
-//im_end();

@@ -1,10 +1,10 @@
 /// @param length
-/// @param allowNewline
+/// @param [allowNewline]
 /// @param [variableName]
 /// @param [elementName]
 
 var _length        = argument[0];
-var _allow_newline = argument[1];
+var _allow_newline = ((argument_count > 2) && (is_real(argument[2]) || is_bool(argument[2])))? argument[2] : false;
 var _variable      = ((argument_count > 2) && is_string(argument[2]))? argument[2] : undefined;
 var _element_name  = ((argument_count > 3) && is_string(argument[3]))? argument[3] : undefined;
 
