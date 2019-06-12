@@ -69,9 +69,8 @@ im_x += IM_ELEMENT_SEPARATION + _element_w;
 __im_line_height = max(__im_line_height, _element_h);
 
 
-//Update element
+//Update element state
 if (_element_array[__IM_ELEMENT.NEW_STATE] == IM_STATE.NULL) _element_array[@ __IM_ELEMENT.NEW_STATE] = _new_state;
-_element_array[@ __IM_ELEMENT.HANDLED  ] = true;
 
 
 //Pass on values to local variables

@@ -1,8 +1,6 @@
 /// @param string
 /// @param [elementName]
 
-var _old_colour = draw_get_colour();
-
 var _string       = argument[0];
 var _element_name = (argument_count > 1)? argument[1] : undefined;
 
@@ -24,7 +22,7 @@ if (_element_name == undefined)
 
 var _element_array = __im_element_find(_element_name, false);
 var _old_state     = _element_array[__IM_ELEMENT.STATE];
-var _new_state     = _old_state;
+var _new_state     = IM_STATE.NULL;
 
 
 //Position element
@@ -62,6 +60,7 @@ if (_new_state == IM_STATE.OVER)
 {
     draw_rectangle(_l-1, _t, _r+2, _b, false);
     
+    var _old_colour = draw_get_colour();
     draw_set_colour(IM_INVERSE_COLOUR);
     draw_text(_l, _t, _string);
     draw_line_width(_l, _b, _r, _b, 2);
@@ -79,13 +78,11 @@ im_x += IM_ELEMENT_SEPARATION + _element_w;
 __im_line_height = max(__im_line_height, _element_h);
 
 
-//Update element
-_element_array[@ __IM_ELEMENT.STATE  ] = _new_state;
-_element_array[@ __IM_ELEMENT.HANDLED] = true;
+//Update element state
+if (_element_array[__IM_ELEMENT.NEW_STATE] == IM_STATE.NULL) _element_array[@ __IM_ELEMENT.NEW_STATE] = _new_state;
 
 
-//Reset draw state
-draw_set_colour(_old_colour);
+//Pass on values to local variables
 im_prev_name  = _element_name;
 im_prev_state = _new_state;
 im_prev_value = undefined;
