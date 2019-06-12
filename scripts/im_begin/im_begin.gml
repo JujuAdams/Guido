@@ -51,8 +51,6 @@ enum __IM_ELEMENT
     STATE,
     NEW_STATE,
     VALUE,
-    HANDLED,
-    ERRORED,
     CLICK_X,
     CLICK_Y,
     FIELD_POS,
@@ -74,10 +72,10 @@ enum __IM_RADIO
 if (!variable_instance_exists(id, "__im_cursor_down"))
 {
     if (IM_DEBUG) show_debug_message("IM: Initialising for " + string(id) + " (" + object_get_name(object_index) + ")    (v" + __IM_VERSION + ", " + __IM_DATE + ")");
-    __im_cursor_down = false;
-    __im_focus = undefined;
+    __im_cursor_down  = false;
+    __im_focus        = undefined;
     __im_element_data = [];
-    __im_radio_data = [];
+    __im_radio_data   = [];
 }
 
 __im_prev_cursor_down = __im_cursor_down;
@@ -113,10 +111,8 @@ repeat(array_length_1d(__im_element_data))
 {
     var _array = __im_element_data[_e];
     _array[@ __IM_ELEMENT.NEW      ] = false;
-    _array[@ __IM_ELEMENT.OVER     ] = false;
     _array[@ __IM_ELEMENT.STATE    ] = _array[__IM_ELEMENT.NEW_STATE];
     _array[@ __IM_ELEMENT.NEW_STATE] = IM_STATE.NULL;
-    _array[@ __IM_ELEMENT.HANDLED  ] = false;
     ++_e;
 }
 
