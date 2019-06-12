@@ -1,8 +1,8 @@
 {
-    "id": "160c2eea-b4d8-4db4-904a-f2b24c5a3143",
+    "id": "9da8b5f0-65a6-4e88-aa0b-12b2bb590717",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "im_button",
+    "name": "im_set_position",
     "IsCompatibility": false,
     "IsDnD": false
 }
