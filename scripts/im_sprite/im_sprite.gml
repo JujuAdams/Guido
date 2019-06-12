@@ -16,7 +16,11 @@ var _alpha  = ((argument_count > 6) && (argument[6] != undefined))? argument[6] 
 
 if (!sprite_exists(_sprite)) exit;
 
-draw_sprite_ext(_sprite, _image, __im_pos_x + _xscale*sprite_get_xoffset(_sprite), __im_pos_y + _yscale*sprite_get_yoffset(_sprite), _xscale, _yscale, _angle, _colour, _alpha);
+draw_sprite_ext(_sprite, _image, im_x + _xscale*sprite_get_xoffset(_sprite), im_y + _yscale*sprite_get_yoffset(_sprite), _xscale, _yscale, _angle, _colour, _alpha);
 
-__im_pos_x += IM_ELEMENT_SEPARATION + _xscale*sprite_get_width(_sprite);
+im_x += IM_ELEMENT_SEPARATION + _xscale*sprite_get_width(_sprite);
 __im_line_height = max(__im_line_height, _yscale*sprite_get_height(_sprite));
+
+im_prev_name  = undefined;
+im_prev_state = undefined;
+im_prev_value = undefined;

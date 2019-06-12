@@ -14,9 +14,9 @@ if (_font != undefined)
     draw_set_font(_font);
 }
 
-draw_text_transformed(__im_pos_x, __im_pos_y, _string, _xscale, _yscale, 0);
+draw_text_transformed(im_x, im_y, _string, _xscale, _yscale, 0);
 
-__im_pos_x += IM_ELEMENT_SEPARATION + _xscale*string_width(_string);
+im_x += IM_ELEMENT_SEPARATION + _xscale*string_width(_string);
 __im_line_height = max(__im_line_height, _yscale*string_height(_string));
 
 if (_font != undefined) draw_set_font(_old_font);

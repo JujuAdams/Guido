@@ -12,7 +12,11 @@ var _alpha  = ((argument_count > 5) && (argument[5] != undefined))? argument[5] 
 
 if (!surface_exists(_surface)) exit;
 
-draw_surface_ext(_surface, __im_pos_x, __im_pos_y, _xscale, _yscale, 0, _colour, _alpha);
+draw_surface_ext(_surface, im_x, im_y, _xscale, _yscale, 0, _colour, _alpha);
 
-__im_pos_x += IM_ELEMENT_SEPARATION + _xscale*surface_get_width(_surface);
+im_x += IM_ELEMENT_SEPARATION + _xscale*surface_get_width(_surface);
 __im_line_height = max(__im_line_height, _yscale*surface_get_height(_surface));
+
+im_prev_name  = undefined;
+im_prev_state = undefined;
+im_prev_value = undefined;

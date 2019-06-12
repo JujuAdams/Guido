@@ -29,23 +29,23 @@ var _new_state     = _old_state;
 var _element_w = 24;
 var _element_h = 24;
 
-var _l = __im_pos_x;
-var _t = __im_pos_y;
-var _r = __im_pos_x + _element_w;
-var _b = __im_pos_y + _element_h;
+var _l = im_x;
+var _t = im_y;
+var _r = im_x + _element_w;
+var _b = im_y + _element_h;
 
 
 
-if (point_in_rectangle(__im_mouse_x, __im_mouse_y, _l, _t, _r, _b))
+if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
 {
-    if (!im_mouse_over_any)
+    if (!im_cursor_over_any)
     {
-        im_mouse_over_any = true;
+        im_cursor_over_any = true;
         _element_array[@ __IM_ELEMENT.OVER] = true;
         
         _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
-        if (__im_mouse_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
-        if (__im_mouse_pressed  && (_old_state == IM_STATE.OVER)) _new_state = IM_STATE.DOWN;
+        if (__im_cursor_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
+        if (__im_cursor_pressed  && (_old_state == IM_STATE.OVER)) _new_state = IM_STATE.DOWN;
     }
 }
 
@@ -69,7 +69,7 @@ else if (_new_state == IM_STATE.OVER)
     draw_rectangle(_l+2, _t+2, _r-2, _b-2, true);
 }
 
-__im_pos_x += IM_ELEMENT_SEPARATION + _element_w;
+im_x += IM_ELEMENT_SEPARATION + _element_w;
 __im_line_height = max(__im_line_height, _element_h);
 
 var _string = _value? _string_on : _string_off;
@@ -103,5 +103,8 @@ _element_array[@ __IM_ELEMENT.HANDLED] = true;
 
 
 draw_set_colour(_old_colour);
+im_prev_name  = _element_name;
+im_prev_state = _new_state;
+im_prev_value = _value;
 
 return _new_state;

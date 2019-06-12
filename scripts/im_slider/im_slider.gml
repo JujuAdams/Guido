@@ -50,12 +50,12 @@ if (_handled)
 var _element_w = 24;
 var _element_h = 24;
 
-var _min_x = __im_pos_x;
-var _max_x = __im_pos_x + _length - _element_w;
+var _min_x = im_x;
+var _max_x = im_x + _length - _element_w;
 
 var _pc = clamp((_value - _min) / (_max - _min), 0, 1);
 var _l = lerp(_min_x, _max_x, _pc);
-var _t = __im_pos_y;
+var _t = im_y;
 var _r = _l + _element_w;
 var _b = _t + _element_h;
 
@@ -63,30 +63,30 @@ var _b = _t + _element_h;
 
 if (!_handled)
 {
-    if (point_in_rectangle(__im_mouse_x, __im_mouse_y, _l, _t, _r, _b))
+    if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
     {
-        if (!im_mouse_over_any)
+        if (!im_cursor_over_any)
         {
-            im_mouse_over_any = true;
+            im_cursor_over_any = true;
             _element_array[@ __IM_ELEMENT.OVER] = true;
         
             _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
-            if (__im_mouse_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
-            if (__im_mouse_pressed  && (_old_state == IM_STATE.OVER))
+            if (__im_cursor_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
+            if (__im_cursor_pressed  && (_old_state == IM_STATE.OVER))
             {
-                _element_array[@ __IM_ELEMENT.CLICK_X] = __im_mouse_x - _l;
-                _element_array[@ __IM_ELEMENT.CLICK_Y] = __im_mouse_y - _t;
+                _element_array[@ __IM_ELEMENT.CLICK_X] = __im_cursor_x - _l;
+                _element_array[@ __IM_ELEMENT.CLICK_Y] = __im_cursor_y - _t;
                 _new_state = IM_STATE.DOWN;
             }
         }
     }
     
-    if (__im_mouse_down && (_old_state == IM_STATE.DOWN))
+    if (__im_cursor_down && (_old_state == IM_STATE.DOWN))
     {
         _new_state = IM_STATE.DOWN;
         _element_array[@ __IM_ELEMENT.OVER] = true;
         
-        _l = clamp(__im_mouse_x - _element_array[__IM_ELEMENT.CLICK_X], _min_x, _max_x);
+        _l = clamp(__im_cursor_x - _element_array[__IM_ELEMENT.CLICK_X], _min_x, _max_x);
         _pc = clamp((_l - _min_x) / (_max_x - _min_x), 0, 1);
         
         if (_pc <= 0.0)
@@ -130,7 +130,7 @@ if (_new_state == IM_STATE.OVER)
     draw_rectangle(_l+2, _t+2, _r-2, _b-2, false);
 }
 
-__im_pos_x = _max_x + IM_ELEMENT_SEPARATION;
+im_x = _max_x + IM_ELEMENT_SEPARATION;
 __im_line_height = max(__im_line_height, _element_h);
 
 if ((__im_string_format_total >= 0) && (__im_string_format_dec >= 0))
@@ -169,5 +169,8 @@ if (!_handled)
 }
 
 draw_set_colour(_old_colour);
+im_prev_name  = _element_name;
+im_prev_state = _new_state;
+im_prev_value = _value;
 
 return _new_state;

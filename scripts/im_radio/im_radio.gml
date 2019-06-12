@@ -79,52 +79,55 @@ var _new_state = _old_state;
 var _element_w = 24;
 var _element_h = 24;
 
-var _l = __im_pos_x;
-var _t = __im_pos_y;
-var _r = __im_pos_x + _element_w;
-var _b = __im_pos_y + _element_h;
+var _l = im_x;
+var _t = im_y;
+var _r = im_x + _element_w;
+var _b = im_y + _element_h;
 
 
-//Handle mouse interaction
+//Handle cursor interaction
 if (!_handled)
 {
-    if (point_in_rectangle(__im_mouse_x, __im_mouse_y, _l, _t, _r, _b))
+    if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
     {
-        if (!im_mouse_over_any)
+        if (!im_cursor_over_any)
         {
-            im_mouse_over_any = true;
+            im_cursor_over_any = true;
             _element_array[@ __IM_ELEMENT.OVER] = true;
         
             _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;
-            if (__im_mouse_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
-            if (__im_mouse_pressed  && (_old_state == IM_STATE.OVER)) _new_state = IM_STATE.DOWN;
+            if (__im_cursor_released && (_old_state == IM_STATE.DOWN)) _new_state = IM_STATE.CLICK;
+            if (__im_cursor_pressed  && (_old_state == IM_STATE.OVER)) _new_state = IM_STATE.DOWN;
         }
     }
 }
 
 
 //Draw
-draw_rectangle(_l, _t, _r, _b, true);
+var _xc     = mean(_l, _r);
+var _yc     = mean(_t, _b);
+var _radius = 0.5*(_r - _l);
+draw_circle(_xc, _yc, _radius, true);
 
 if (_group_count-1 == _group_value)
 {
-    draw_rectangle(_l+2, _t+2, _r-2, _b-2, false);
+    draw_circle(_xc, _yc, _radius-2, false);
     
     if (_new_state == IM_STATE.OVER)
     {
         draw_set_colour(IM_INVERSE_COLOUR);
-        draw_rectangle(_l+3, _t+3, _r-3, _b-3, true);
+        draw_circle(_xc, _yc, _radius-4, true);
         draw_set_colour(_colour);
     }
 }
 else if (_new_state == IM_STATE.OVER) 
 {
-    draw_rectangle(_l+2, _t+2, _r-2, _b-2, true);
+    draw_circle(_xc, _yc, _radius-2, true);
 }
 
 
 //Update IM state
-__im_pos_x += IM_ELEMENT_SEPARATION + _element_w;
+im_x += IM_ELEMENT_SEPARATION + _element_w;
 __im_line_height = max(__im_line_height, _element_h);
 
 
@@ -159,5 +162,8 @@ if (!_handled)
 
 //Reset draw state
 draw_set_colour(_old_colour);
+im_prev_name  = _element_name;
+im_prev_state = _new_state;
+im_prev_value = _value;
 
 return _new_state;
