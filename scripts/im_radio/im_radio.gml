@@ -60,14 +60,6 @@ draw_circle(_xc, _yc, _radius, true);
 if (_group_count == _value)
 {
     draw_circle(_xc, _yc, _radius-2, false);
-    
-    if (_new_state == IM_STATE.OVER)
-    {
-        var _old_colour = draw_get_colour();
-        draw_set_colour(IM_INVERSE_COLOUR);
-        draw_circle(_xc, _yc, _radius-4, true);
-        draw_set_colour(_old_colour);
-    }
 }
 else if (_new_state == IM_STATE.OVER) 
 {

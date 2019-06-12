@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "1705fa85-9736-463b-8116-71058696453d",
+            "Value": {
+                "id": "6dd1ae0c-d81c-4d23-a958-6a2eaa55891e",
+                "resourcePath": "scripts\\im_radio_text\\im_radio_text.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "171fedf8-3c84-4101-8a73-6b37230d47fd",
             "Value": {
                 "id": "7f300e9e-3a6a-43bb-a51f-3c2a90702fac",
@@ -474,6 +482,7 @@
         "93a16fcf-3c64-4ad3-ba2a-a832aec366af",
         "888cc510-e3eb-4e0f-a101-8fca5475ff56",
         "e8bf87eb-fbef-4837-bb58-91e5a21bdf60",
+        "1705fa85-9736-463b-8116-71058696453d",
         "f2169231-6180-4e7d-a3ad-7d705501e401",
         "cdd08a7a-42e5-44a7-a07e-bfb2401d26dd",
         "e45d8a56-45b2-4907-bf61-6778465494c2",
