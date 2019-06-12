@@ -112,7 +112,7 @@ switch(tab)
         guido_text("3) Button grids");
         guido_newline();
         guido_spacer(40);
-        guido_button_grid(11, 9, 16, 12);
+        guido_grid(11, 9, 16, 12);
         
         #endregion
     break;

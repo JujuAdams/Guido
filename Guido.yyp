@@ -58,7 +58,7 @@
             "Key": "171fedf8-3c84-4101-8a73-6b37230d47fd",
             "Value": {
                 "id": "7f300e9e-3a6a-43bb-a51f-3c2a90702fac",
-                "resourcePath": "scripts\\guido_button_grid\\guido_button_grid.yy",
+                "resourcePath": "scripts\\guido_grid\\guido_grid.yy",
                 "resourceType": "GMScript"
             }
         },
