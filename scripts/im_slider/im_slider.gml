@@ -65,9 +65,9 @@ if (!_handled)
 {
     if (point_in_rectangle(__im_cursor_x, __im_cursor_y, _l, _t, _r, _b))
     {
-        if (!im_cursor_over_any)
+        if (!is_string(im_cursor_over_element))
         {
-            im_cursor_over_any = true;
+            im_cursor_over_element = _element_name;
             _element_array[@ __IM_ELEMENT.OVER] = true;
         
             _new_state = (_old_state == IM_STATE.DOWN)? IM_STATE.DOWN : IM_STATE.OVER;

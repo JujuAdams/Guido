@@ -28,7 +28,7 @@ im_newline();
 im_newline();
 im_slider(5.5, 20.9, 1.0, 200, "", "slider");
 im_newline();
-im_real_field(5.5, 20.9, 1.0, 150, "real field", "slider");
+im_real_field(5.5, 20.9, 1.0, 150);
 im_text("|||");
 im_newline();
 im_text(slider);

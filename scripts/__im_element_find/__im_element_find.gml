@@ -20,12 +20,14 @@ if (_e >= _length)
     if (IM_DEBUG) show_debug_message("IM: Making new element for \"" + string(_element_name) + "\"");
     
     var _array = array_create(__IM_ELEMENT.__SIZE);
-    _array[@ __IM_ELEMENT.NAME   ] = _element_name;
-    _array[@ __IM_ELEMENT.STATE  ] = -1;
-    _array[@ __IM_ELEMENT.HANDLED] = false;
-    _array[@ __IM_ELEMENT.ERRORED] = false;
-    _array[@ __IM_ELEMENT.CLICK_X] = 0;
-    _array[@ __IM_ELEMENT.CLICK_Y] = 0;
+    _array[@ __IM_ELEMENT.NAME        ] = _element_name;
+    _array[@ __IM_ELEMENT.STATE       ] = -1;
+    _array[@ __IM_ELEMENT.HANDLED     ] = false;
+    _array[@ __IM_ELEMENT.ERRORED     ] = false;
+    _array[@ __IM_ELEMENT.CLICK_X     ] = 0;
+    _array[@ __IM_ELEMENT.CLICK_Y     ] = 0;
+    _array[@ __IM_ELEMENT.FIELD_POS   ] = 0;
+    _array[@ __IM_ELEMENT.FIELD_STRING] = "";
     
     __im_element_data[_length] = _array;
 }

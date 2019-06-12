@@ -6,12 +6,12 @@
 
 //  Public variables:
 //
-//  im_x                  {real}    Current draw position
-//  im_y                  {real}    
-//  im_cursor_over_any    {bool}    Whether the cursor is over any interactible elements
-//  im_prev_name  {string}  Name of the last element created
-//  im_prev_state {real}    State of the last element created (see below)
-//  im_prev_value {real}    Value of the last element created
+//  im_x                   {real}    Current draw position
+//  im_y                   {real}    
+//  im_cursor_over_element {bool}    What element the cursor is over (<undefined> if over no element)
+//  im_prev_name           {string}  Name of the last element created
+//  im_prev_state          {real}    State of the last element created (see below)
+//  im_prev_value          {real}    Value of the last element created
 //
 //  States stored in <im_prev_state> are as follows:
 //  enum IM_STATE
@@ -53,6 +53,8 @@ enum __IM_ELEMENT
     ERRORED,
     CLICK_X,
     CLICK_Y,
+    FIELD_POS,
+    FIELD_STRING,
     __SIZE
 }
 
@@ -70,6 +72,7 @@ if (!variable_instance_exists(id, "__im_cursor_down"))
 {
     if (IM_DEBUG) show_debug_message("IM: Initialising for " + string(id) + " (" + object_get_name(object_index) + ")    (v" + __IM_VERSION + ", " + __IM_DATE + ")");
     __im_cursor_down = false;
+    __im_focus = undefined;
     __im_element_data = [];
     __im_radio_data = [];
 }
@@ -86,7 +89,7 @@ im_x = __im_start_pos_x;
 im_y = __im_start_pos_y;
 __im_line_height = 0;
 
-im_cursor_over_any    = false;
+im_cursor_over_element = undefined;
 im_prev_name  = undefined;
 im_prev_state = undefined;
 im_prev_value = undefined;
