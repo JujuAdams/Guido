@@ -10,7 +10,7 @@ var _font   = ((argument_count > 3) && (argument[3] != undefined))? argument[3] 
 
 if (is_real(_string))
 {
-    _string = string_format(_string, __im_string_format_dec, __im_string_format_total);
+    _string = im_string_format(_string);
 }
 else
 {

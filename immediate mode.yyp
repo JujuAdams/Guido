@@ -31,6 +31,14 @@
     },
     "resources": [
         {
+            "Key": "03f7159f-683a-4242-b0a4-b2727c066e0f",
+            "Value": {
+                "id": "1f19bfbe-13f4-44d1-80cf-477d16d6e4ad",
+                "resourcePath": "scripts\\im_string_format\\im_string_format.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "10d7debe-4571-4702-b874-5f2be32d7c98",
             "Value": {
                 "id": "8f3b0e38-366a-4fca-805f-29659cb865f4",
@@ -422,6 +430,7 @@
         "7054d2a8-54d2-47d2-99ae-7db4da0787f4",
         "b622ab1a-8f19-4766-92df-9d38f81580ac",
         "5e2867e7-600b-4f5b-a660-f925a3118aac",
+        "03f7159f-683a-4242-b0a4-b2727c066e0f",
         "1b2d309c-006a-4861-b9fb-5cb6060d09e2",
         "e93ec4b7-e9c5-4071-b0a1-50e39e755255",
         "b55393e0-eb95-4d18-98ec-7a7599e525bc",
