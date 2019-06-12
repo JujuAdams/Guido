@@ -1,31 +1,24 @@
 /// @param value
-/// @param [xScale]
-/// @param [yScale]
-/// @param [font]
+/// @param [value...]
 
-var _string = argument[0];
-var _xscale = ((argument_count > 1) && (argument[1] != undefined))? argument[1] : 1;
-var _yscale = ((argument_count > 2) && (argument[2] != undefined))? argument[2] : 1;
-var _font   = ((argument_count > 3) && (argument[3] != undefined))? argument[3] : undefined;
+var _string = "";
 
-if (is_real(_string))
+var _i = 0;
+repeat(argument_count)
 {
-    _string = im_string_format(_string);
-}
-else
-{
-    _string = string(_string);
-}
-
-if (_font != undefined)
-{
-    var _old_font = draw_get_font();
-    draw_set_font(_font);
+    if (is_real(argument[_i]))
+    {
+        _string += im_string_format(argument[_i]);
+    }
+    else
+    {
+        _string += string(argument[_i]);
+    }
+    
+    ++_i;
 }
 
-draw_text_transformed(im_x, im_y, _string, _xscale, _yscale, 0);
+draw_text(im_x, im_y, _string);
 
-im_x += IM_ELEMENT_SEPARATION + _xscale*string_width(_string);
-__im_line_height = max(__im_line_height, _yscale*string_height(_string));
-
-if (_font != undefined) draw_set_font(_old_font);
+im_x += IM_ELEMENT_SEPARATION + string_width(_string);
+__im_line_height = max(__im_line_height, string_height(_string));
