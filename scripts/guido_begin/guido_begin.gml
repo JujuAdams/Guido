@@ -8,10 +8,10 @@
 //
 //  guido_x                   {real}    Current draw position
 //  guido_y                   {real}    
-//  guido_cursor_over_widget {bool}    What widget the cursor is over (<undefined> if over no widget)
-//  guido_prev_name           {string}  Name of the last widget created
-//  guido_prev_state          {real}    State of the last widget created (see below)
-//  guido_prev_value          {real}    Value of the last widget created
+//  guido_cursor_over_widget  {bool}    What widget the cursor is over (<undefined> if over no widget)
+//  guido_prev_name           {string}  Name of the last widget processed
+//  guido_prev_state          {real}    State of the last widget processed (see below)
+//  guido_prev_value          {real}    Value of the last widget processed
 //
 //  States stored in <guido_prev_state> are as follows:
 //  enum GUIDO_STATE
@@ -35,10 +35,11 @@
 
 enum GUIDO_STATE
 {
-    NULL  = -2,
-    OVER  = -1,
-    DOWN  =  0,
-    CLICK =  1
+    NULL     = -3,
+    OVER     = -2,
+    PRESSED  = -1,
+    DOWN     =  0,
+    RELEASED =  1
 }
 
 enum __GUIDO_WIDGET
