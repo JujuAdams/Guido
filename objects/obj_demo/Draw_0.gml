@@ -1,5 +1,6 @@
 draw_set_colour($CCEBFF);
 draw_set_font(fnt_body);
+guido_set_negative_colour($12123D);
 
 guido_begin(10, 10, mouse_x, mouse_y, mouse_check_button(mb_left));
 

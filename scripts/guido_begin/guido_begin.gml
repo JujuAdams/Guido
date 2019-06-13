@@ -26,7 +26,6 @@
 //  }
 
 #macro GUIDO_DEBUG              false
-#macro GUIDO_INVERSE_COLOUR     c_black
 #macro GUIDO_LINE_MIN_HEIGHT    20
 #macro GUIDO_LINE_SEPARATION    8
 #macro GUIDO_WIDGET_SEPARATION  8
@@ -115,6 +114,12 @@ if (!variable_instance_exists(id, "__guido_initialised") || !__guido_initialised
     guido_set_skin(guido_grid        ,   spr_guido_grid    ,   2, 2,   61, 61);
     
     guido_set_string_format(-1, -1);
+    
+    if (!variable_instance_exists(id, "__guido_negative_colour"))
+    {
+        var _colour = draw_get_colour();
+        guido_set_negative_colour(make_colour_rgb(255 - colour_get_red(_colour), 255 - colour_get_green(_colour), 255 - colour_get_blue(_colour)));
+    }
 }
 
 guido_xstart     = argument0;

@@ -10,7 +10,15 @@ var _string = "";
 var _i = 2;
 repeat(argument_count - 2)
 {
-    _string += string(argument[_i]);
+    if (is_real(argument[_i]))
+    {
+        _string += string_format_guido(argument[_i]);
+    }
+    else
+    {
+        _string += string(argument[_i]);
+    }
+    
     ++_i;
 }
 

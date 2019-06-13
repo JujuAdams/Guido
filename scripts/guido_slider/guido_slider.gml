@@ -93,9 +93,9 @@ _r = floor(_r);
 
 //Draw
 _max_x += _widget_w;
-draw_line(_min_x, _t, _min_x, _b);
-draw_line(_min_x, 0.5*(_t + _b), _max_x, 0.5*(_t + _b));
-draw_line(_max_x, _t, _max_x, _b);
+draw_line(_min_x-1, _t, _min_x-1, _b-1);
+draw_line(_min_x-1, (_t + _b) div 2, _max_x, (_t + _b) div 2);
+draw_line(_max_x, _t, _max_x, _b-1);
 
 draw_sprite(_format_sprite, _new_state - GUIDO_STATE.NULL, _l, _t);
 

@@ -49,7 +49,7 @@ if (_new_state == GUIDO_STATE.OVER)
     draw_rectangle(_l-1, _t, _r+2, _b, false);
     
     var _old_colour = draw_get_colour();
-    draw_set_colour(GUIDO_INVERSE_COLOUR);
+    draw_set_colour(__guido_negative_colour);
     draw_text(_l, _t, _string);
     draw_line_width(_l, _b, _r, _b, 2);
     draw_set_colour(_old_colour);

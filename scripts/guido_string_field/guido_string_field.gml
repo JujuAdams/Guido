@@ -141,7 +141,7 @@ guido_draw_9slice(_format_sprite, (_force_over? GUIDO_STATE.RELEASED : _new_stat
 if (__guido_focus == _widget_name && (_new_state <= GUIDO_STATE.OVER))
 {
     var _old_colour = draw_get_colour();
-    draw_set_colour(GUIDO_INVERSE_COLOUR);
+    draw_set_colour(__guido_negative_colour);
     
     var _string_part = string_copy(_field_string, 1, _field_pos);
     var _string_part_width = string_width(_string_part);
@@ -161,7 +161,7 @@ if (__guido_focus == _widget_name && (_new_state <= GUIDO_STATE.OVER))
 else if (_new_state == GUIDO_STATE.OVER)
 {
     var _old_colour = draw_get_colour();
-    draw_set_colour(GUIDO_INVERSE_COLOUR);
+    draw_set_colour(__guido_negative_colour);
     draw_text(_text_l, _text_t, _field_string);
     draw_set_colour(_old_colour);
 }

@@ -50,7 +50,7 @@ guido_draw_9slice(_format_sprite, _new_state - GUIDO_STATE.NULL,
 if (_new_state == GUIDO_STATE.OVER)
 {
     var _old_colour = draw_get_colour();
-    draw_set_colour(GUIDO_INVERSE_COLOUR);
+    draw_set_colour(__guido_negative_colour);
     draw_text(_l + _format_centre_l + 1, _t + _format_centre_t, _string);
     draw_set_colour(_old_colour);
 }

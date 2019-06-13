@@ -407,6 +407,14 @@
             }
         },
         {
+            "Key": "a01ca5ac-5ef1-4f1f-a93f-79e58328d55b",
+            "Value": {
+                "id": "2e9233f8-5307-4fc2-bf5f-075105435d35",
+                "resourcePath": "scripts\\guido_set_negative_colour\\guido_set_negative_colour.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "a1daca3b-2128-4377-a78d-fb68ef520f77",
             "Value": {
                 "id": "d74f8bd4-5fc3-4986-bce3-d954d899f012",
@@ -631,6 +639,7 @@
         "b55393e0-eb95-4d18-98ec-7a7599e525bc",
         "5a441b5c-b8c6-4091-b715-1e78e09ec0e2",
         "4f43cb1d-d811-4b0c-ad61-5b438355b87b",
+        "a01ca5ac-5ef1-4f1f-a93f-79e58328d55b",
         "5e2867e7-600b-4f5b-a660-f925a3118aac",
         "03f7159f-683a-4242-b0a4-b2727c066e0f",
         "7ef17301-8f5e-4599-b9cb-308c36ce162e",
