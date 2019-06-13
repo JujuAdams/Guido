@@ -138,9 +138,12 @@ guido_prev_value = undefined;
 __guido_line_height = 0;
 __guido_auto_widget = 0;
 
+__guido_layer            = 0;
+__guido_layer_array      = array_create(1);
+__guido_layer_array[@ 0] = array_create(0);
 
 
-
+//Iterate over all the widgets and update them
 var _e = 0;
 repeat(array_length_1d(__guido_widget_data))
 {

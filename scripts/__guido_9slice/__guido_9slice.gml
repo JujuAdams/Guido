@@ -22,8 +22,8 @@ var _in_x2    = argument8;
 var _in_y2    = argument9;
 var _stretch  = argument10;
 
-var _colour   = c_white;
-var _alpha    = 1.0;
+var _colour = c_white;
+var _alpha  = 1.0;
 
 var _sprite_w = sprite_get_width( _sprite);
 var _sprite_h = sprite_get_height(_sprite);
