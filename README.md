@@ -1,7 +1,7 @@
 <h1 align="center">Guido 2.0.0</h1>
 <h3 align="left">@jujuadams</h3>
 
-Simple debug-quality immediate mode GUI framework with reskinnable widgets.
+Simple immediate mode GUI framework with reskinnable widgets.
 
 <p align="center"><img src="https://raw.githubusercontent.com/JujuAdams/Guido/master/PREVIEW.png" style="display:block; margin:auto; width:300px"></p>
 
