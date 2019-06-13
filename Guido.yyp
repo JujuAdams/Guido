@@ -106,7 +106,7 @@
             "Key": "25b37a88-4826-40c9-a38f-65e399ce5aea",
             "Value": {
                 "id": "6cf8b190-05dc-4402-8fb0-94a5eb0ec406",
-                "resourcePath": "fonts\\fTab\\fTab.yy",
+                "resourcePath": "fonts\\fnt_tab\\fnt_tab.yy",
                 "resourceType": "GMFont"
             }
         },
@@ -210,7 +210,7 @@
             "Key": "7229dd8d-1fb8-4a7e-b04a-1274f223fcc2",
             "Value": {
                 "id": "63b33a25-ba46-414b-aa71-344e61a20e59",
-                "resourcePath": "rooms\\rMain\\rMain.yy",
+                "resourcePath": "rooms\\rm_main\\rm_main.yy",
                 "resourceType": "GMRoom"
             }
         },
@@ -242,7 +242,7 @@
             "Key": "7832093b-e7d4-4606-8a5d-3c656ecd3ada",
             "Value": {
                 "id": "1038e26f-64aa-4709-bcb6-62a92074b0fe",
-                "resourcePath": "fonts\\fHeader\\fHeader.yy",
+                "resourcePath": "fonts\\fnt_header\\fnt_header.yy",
                 "resourceType": "GMFont"
             }
         },
@@ -410,7 +410,7 @@
             "Key": "cddc05b1-1ac5-46f1-9e20-6bf26bdb4674",
             "Value": {
                 "id": "7d5512ab-e0e7-49c3-a703-a402ed952e4e",
-                "resourcePath": "objects\\oDemo\\oDemo.yy",
+                "resourcePath": "objects\\obj_demo\\obj_demo.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -428,14 +428,6 @@
                 "id": "62b1f4b9-7144-4aaa-b472-867de09cefa1",
                 "resourcePath": "views\\e5392628-8d64-406a-a4b9-37c014cf7c0f.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "e53cd1ee-9b25-46c4-a0cf-d57cc321848b",
-            "Value": {
-                "id": "13e535c1-d6f5-472d-af88-58b1c33683c7",
-                "resourcePath": "sprites\\sTest\\sTest.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -504,11 +496,11 @@
         "7054d2a8-54d2-47d2-99ae-7db4da0787f4",
         "b622ab1a-8f19-4766-92df-9d38f81580ac",
         "171fedf8-3c84-4101-8a73-6b37230d47fd",
+        "b5382a98-7172-4dc1-ad87-55f5ebc21baf",
         "5e2867e7-600b-4f5b-a660-f925a3118aac",
         "03f7159f-683a-4242-b0a4-b2727c066e0f",
         "1b2d309c-006a-4861-b9fb-5cb6060d09e2",
         "e93ec4b7-e9c5-4071-b0a1-50e39e755255",
-        "b5382a98-7172-4dc1-ad87-55f5ebc21baf",
         "b55393e0-eb95-4d18-98ec-7a7599e525bc",
         "5a441b5c-b8c6-4091-b715-1e78e09ec0e2",
         "7ef17301-8f5e-4599-b9cb-308c36ce162e",
