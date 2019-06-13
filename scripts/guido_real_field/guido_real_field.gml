@@ -38,8 +38,8 @@ var _field_string = _widget_array[__GUIDO_WIDGET.FIELD_STRING];
 
 
 //Position widget
-var _widget_w = max(_length, __guido_format_real_field_centre_l + sprite_get_width( spr_guido_toggle) - __guido_format_real_field_centre_r);
-var _widget_h = __guido_format_real_field_centre_t + sprite_get_height(spr_guido_toggle) - __guido_format_real_field_centre_b + string_height(_field_string + " ");
+var _widget_w = max(_length, __guido_format_real_field_centre_l + sprite_get_width(__guido_format_real_field_sprite) - __guido_format_real_field_centre_r);
+var _widget_h = __guido_format_real_field_centre_t + sprite_get_height(__guido_format_real_field_sprite) - __guido_format_real_field_centre_b + string_height(_field_string + " ");
 
 var _l = guido_x;
 var _t = guido_y;
@@ -112,7 +112,7 @@ if ((__guido_focus != _widget_name) && _widget_array[__GUIDO_WIDGET.FIELD_FOCUS]
 
 //Draw
 var _force_over = ((_new_state == GUIDO_STATE.NULL) && (__guido_focus == _widget_name));
-__guido_9slice(spr_guido_button, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
+__guido_9slice(__guido_format_real_field_sprite, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
                __guido_format_real_field_centre_l,
                __guido_format_real_field_centre_t,
                __guido_format_real_field_centre_r,

@@ -30,8 +30,8 @@ var _group_count = _widget_array[__GUIDO_WIDGET.COUNT];
 
 
 //Position widget
-var _widget_w = sprite_get_width(spr_guido_radio);
-var _widget_h = sprite_get_height(spr_guido_radio);
+var _widget_w = sprite_get_width( __guido_format_radio_sprite);
+var _widget_h = sprite_get_height(__guido_format_radio_sprite);
 
 var _l = guido_x;
 var _t = guido_y;
@@ -44,7 +44,7 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 
 
 //Draw
-draw_sprite(spr_guido_radio, ((_group_count == _value)? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
+draw_sprite(__guido_format_radio_sprite, ((_group_count == _value)? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
 
 
 //Update Guido position

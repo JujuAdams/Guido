@@ -31,7 +31,7 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 
 
 //Draw
-__guido_9slice(spr_guido_button, _new_state - GUIDO_STATE.NULL,
+__guido_9slice(__guido_format_button_sprite, _new_state - GUIDO_STATE.NULL,
                __guido_format_button_centre_l,
                __guido_format_button_centre_t,
                __guido_format_button_centre_r,

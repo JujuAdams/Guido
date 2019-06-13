@@ -127,6 +127,14 @@
             }
         },
         {
+            "Key": "38621d75-533c-4c21-83c5-dc7562232b5a",
+            "Value": {
+                "id": "63192bb2-ad3f-45aa-a00e-33cbb574396a",
+                "resourcePath": "sprites\\spr_guido_grid_button\\spr_guido_grid_button.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4a0d5286-813c-4eaf-b913-d5c78ec3d3ee",
             "Value": {
                 "id": "6c14e1ed-5110-486c-a718-a19564d03208",

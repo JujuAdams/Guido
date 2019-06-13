@@ -34,15 +34,15 @@ var _field_string = _widget_array[__GUIDO_WIDGET.FIELD_STRING];
 
 
 //Position widget
-var _widget_w = max(_length, __guido_format_real_field_centre_l + sprite_get_width( spr_guido_toggle) - __guido_format_real_field_centre_r);
-var _widget_h = __guido_format_real_field_centre_t + sprite_get_height(spr_guido_toggle) - __guido_format_real_field_centre_b + string_height(_field_string + " ");
+var _widget_w = max(_length, __guido_format_string_field_centre_l + sprite_get_width( spr_guido_toggle) - __guido_format_string_field_centre_r);
+var _widget_h = __guido_format_string_field_centre_t + sprite_get_height(spr_guido_toggle) - __guido_format_string_field_centre_b + string_height(_field_string + " ");
 
 var _l = guido_x;
 var _t = guido_y;
 var _r = guido_x + _widget_w;
 var _b = guido_y + _widget_h;
-var _text_l = _l + __guido_format_real_field_centre_l;
-var _text_t = _t + __guido_format_real_field_centre_t;
+var _text_l = _l + __guido_format_string_field_centre_l;
+var _text_t = _t + __guido_format_string_field_centre_t;
 
 
 //Handle cursor interaction
@@ -122,11 +122,11 @@ if ((__guido_focus != _widget_name) && _widget_array[__GUIDO_WIDGET.FIELD_FOCUS]
 
 //Draw
 var _force_over = ((_new_state == GUIDO_STATE.NULL) && (__guido_focus == _widget_name));
-__guido_9slice(spr_guido_button, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
-               __guido_format_real_field_centre_l,
-               __guido_format_real_field_centre_t,
-               __guido_format_real_field_centre_r,
-               __guido_format_real_field_centre_b,
+__guido_9slice(__guido_format_string_field_sprite, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
+               __guido_format_string_field_centre_l,
+               __guido_format_string_field_centre_t,
+               __guido_format_string_field_centre_r,
+               __guido_format_string_field_centre_b,
                _l, _t, _r, _b, true);
                
 if (__guido_focus == _widget_name && (_new_state <= GUIDO_STATE.OVER))
@@ -142,7 +142,7 @@ if (__guido_focus == _widget_name && (_new_state <= GUIDO_STATE.OVER))
         draw_rectangle(_text_l + _string_part_width,
                        _text_t + 1,
                        _text_l + _string_part_width + 1,
-                       _b - (sprite_get_height(spr_guido_toggle) - __guido_format_real_field_centre_b),
+                       _b - (sprite_get_height(spr_guido_toggle) - __guido_format_string_field_centre_b),
                        false);
     }
     draw_text(_text_l + _string_part_width, _text_t, string_delete(_field_string, 1, _field_pos));

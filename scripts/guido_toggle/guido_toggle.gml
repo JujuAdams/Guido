@@ -27,8 +27,8 @@ var _old_state = _widget_array[__GUIDO_WIDGET.STATE];
 
 
 var _string = _value? _string_on : _string_off;
-var _widget_w = __guido_format_tab_centre_l + sprite_get_width( spr_guido_toggle) - __guido_format_tab_centre_r + string_width(_string);
-var _widget_h = __guido_format_tab_centre_t + sprite_get_height(spr_guido_toggle) - __guido_format_tab_centre_b + string_height(_string);
+var _widget_w = __guido_format_toggle_centre_l + sprite_get_width( __guido_format_toggle_sprite) - __guido_format_toggle_centre_r + string_width(_string);
+var _widget_h = __guido_format_toggle_centre_t + sprite_get_height(__guido_format_toggle_sprite) - __guido_format_toggle_centre_b + string_height(_string);
 
 var _l = guido_x;
 var _t = guido_y;
@@ -42,23 +42,27 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 
 //Draw
 var _force_over = ((_new_state == GUIDO_STATE.NULL) && _value);
-__guido_9slice(spr_guido_button, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
-               __guido_format_tab_centre_l,
-               __guido_format_tab_centre_t,
-               __guido_format_tab_centre_r,
-               __guido_format_tab_centre_b,
+__guido_9slice(__guido_format_toggle_sprite, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
+               __guido_format_toggle_centre_l,
+               __guido_format_toggle_centre_t,
+               __guido_format_toggle_centre_r,
+               __guido_format_toggle_centre_b,
                _l, _t, _r, _b, true);
 
 if ((_new_state == GUIDO_STATE.OVER) || _force_over)
 {
     var _old_colour = draw_get_colour();
     draw_set_colour(GUIDO_INVERSE_COLOUR);
-    draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
+    draw_text(_l + __guido_format_toggle_centre_l + 1,
+              _t + __guido_format_toggle_centre_t,
+              _string);
     draw_set_colour(_old_colour);
 }
 else
 {
-    draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
+    draw_text(_l + __guido_format_toggle_centre_l + 1,
+              _t + __guido_format_toggle_centre_t,
+              _string);
 }
 
 

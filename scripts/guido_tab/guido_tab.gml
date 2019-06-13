@@ -45,7 +45,7 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 
 //Draw
 var _force_over = ((_new_state == GUIDO_STATE.NULL) && (_group_count == _value));
-__guido_9slice(spr_guido_button, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
+__guido_9slice(__guido_format_tab_sprite, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
                __guido_format_tab_centre_l,
                __guido_format_tab_centre_t,
                __guido_format_tab_centre_r,
@@ -56,12 +56,16 @@ if ((_new_state == GUIDO_STATE.OVER) || _force_over)
 {
     var _old_colour = draw_get_colour();
     draw_set_colour(GUIDO_INVERSE_COLOUR);
-    draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
+    draw_text(_l + __guido_format_tab_centre_l + 1,
+              _t + __guido_format_tab_centre_t,
+              _string);
     draw_set_colour(_old_colour);
 }
 else
 {
-    draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
+    draw_text(_l + __guido_format_tab_centre_l + 1,
+              _t + __guido_format_tab_centre_t,
+              _string);
 }
 
 

@@ -36,8 +36,8 @@ var _new_state = GUIDO_STATE.NULL;
 
 
 //Position widget
-var _widget_w = sprite_get_width(spr_guido_slider);
-var _widget_h = sprite_get_height(spr_guido_slider);
+var _widget_w = sprite_get_width( __guido_format_slider_sprite);
+var _widget_h = sprite_get_height(__guido_format_slider_sprite);
 
 var _min_x = guido_x;
 var _max_x = guido_x + _length - _widget_w;
@@ -90,7 +90,7 @@ draw_line(_min_x, _t, _min_x, _b);
 draw_line(_min_x, 0.5*(_t + _b), _max_x, 0.5*(_t + _b));
 draw_line(_max_x, _t, _max_x, _b);
 
-draw_sprite(spr_guido_slider, _new_state - GUIDO_STATE.NULL, _l, _t);
+draw_sprite(__guido_format_slider_sprite, _new_state - GUIDO_STATE.NULL, _l, _t);
 
 
 //Update Guido position

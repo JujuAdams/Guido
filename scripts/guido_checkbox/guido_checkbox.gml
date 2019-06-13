@@ -28,8 +28,8 @@ var _old_state = _widget_array[__GUIDO_WIDGET.STATE];
 
 
 //Position widget
-var _widget_w = sprite_get_width(spr_guido_checkbox);
-var _widget_h = sprite_get_height(spr_guido_checkbox);
+var _widget_w = sprite_get_width(__guido_format_checkbox_sprite);
+var _widget_h = sprite_get_height(__guido_format_checkbox_sprite);
 
 var _l = guido_x;
 var _t = guido_y;
@@ -42,7 +42,7 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 
 
 //Draw
-draw_sprite(spr_guido_checkbox, (_value? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
+draw_sprite(__guido_format_checkbox_sprite, (_value? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
 
 
 //Update Guido position

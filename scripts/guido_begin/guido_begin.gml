@@ -70,25 +70,50 @@ if (!variable_instance_exists(id, "__guido_initialised"))
     __guido_focus        = undefined;
     __guido_widget_data = [];
     
+    #region Formatting values
+    
+    __guido_format_button_sprite   = spr_guido_button;
     __guido_format_button_centre_l =  4;
     __guido_format_button_centre_t =  4;
     __guido_format_button_centre_r = 59;
     __guido_format_button_centre_b = 59;
     
+    __guido_format_checkbox_sprite = spr_guido_checkbox;
+    
+    __guido_format_toggle_sprite   = spr_guido_toggle;
+    __guido_format_toggle_centre_l =  4;
+    __guido_format_toggle_centre_t =  4;
+    __guido_format_toggle_centre_r = 59;
+    __guido_format_toggle_centre_b = 59;
+    
+    __guido_format_radio_sprite = spr_guido_radio;
+    
+    __guido_format_tab_sprite   = spr_guido_radio;
     __guido_format_tab_centre_l =  4;
     __guido_format_tab_centre_t =  4;
     __guido_format_tab_centre_r = 59;
     __guido_format_tab_centre_b = 59;
     
+    __guido_format_slider_sprite = spr_guido_slider;
+    
+    __guido_format_real_field_sprite   = spr_guido_field;
     __guido_format_real_field_centre_l =  4;
     __guido_format_real_field_centre_t =  4;
     __guido_format_real_field_centre_r = 59;
     __guido_format_real_field_centre_b = 59;
     
+    __guido_format_string_field_sprite   = spr_guido_field;
     __guido_format_string_field_centre_l =  4;
     __guido_format_string_field_centre_t =  4;
     __guido_format_string_field_centre_r = 59;
     __guido_format_string_field_centre_b = 59;
+    
+    __guido_format_grid_button_centre_l =  4;
+    __guido_format_grid_button_centre_t =  4;
+    __guido_format_grid_button_centre_r = 59;
+    __guido_format_grid_button_centre_b = 59;
+    
+    #endregion
 }
 
 __guido_prev_cursor_down = __guido_cursor_down;
