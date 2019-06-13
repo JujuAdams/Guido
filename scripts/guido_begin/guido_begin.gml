@@ -72,6 +72,7 @@ enum __GUIDO_FORMAT
 
 #endregion
 
+//Check if we've initialised Guido for this instance
 if (!variable_instance_exists(id, "__guido_initialised"))
 {
     if (GUIDO_DEBUG) show_debug_message("IM: Initialising for " + string(id) + " (" + object_get_name(object_index) + ")    (v" + __GUIDO_VERSION + ", " + __GUIDO_DATE + ")");
@@ -84,47 +85,58 @@ if (!variable_instance_exists(id, "__guido_initialised"))
     
     #region Formatting values
     
-    __guido_format_min_script = min(guido_button, guido_hyperlink, guido_checkbox, guido_toggle, guido_radio, guido_tab, guido_slider, guido_real_field, guido_string_field, guido_grid, guido_divider);
-    __guido_format_max_script = max(guido_button, guido_hyperlink, guido_checkbox, guido_toggle, guido_radio, guido_tab, guido_slider, guido_real_field, guido_string_field, guido_grid, guido_divider);
+    //Scan over
+    var _script_array = [guido_button, guido_hyperlink, guido_checkbox, guido_toggle, guido_radio, guido_tab, guido_slider, guido_real_field, guido_string_field, guido_grid, guido_divider];
+    __guido_format_min_script = _script_array[0];
+    __guido_format_max_script = _script_array[0];
+    var _i = 1;
+    repeat(array_length_1d(_script_array)-1)
+    {
+        __guido_format_min_script = min(_script_array[_i], __guido_format_min_script);
+        __guido_format_max_script = max(_script_array[_i], __guido_format_max_script);
+        ++_i;
+    }
     __guido_format = array_create(1 + __guido_format_max_script - __guido_format_min_script);
     
-    guido_set_format(guido_button      ,   spr_guido_button  ,   4, 4,   59, 59);
-    guido_set_format(guido_checkbox    ,   spr_guido_checkbox,   0, 0,    0,  0);
-    guido_set_format(guido_toggle      ,   spr_guido_toggle  ,   4, 4,   59, 59);
-    guido_set_format(guido_radio       ,   spr_guido_radio   ,   0, 0,    0,  0);
-    guido_set_format(guido_tab         ,   spr_guido_tab     ,   4, 4,   59, 59);
-    guido_set_format(guido_slider      ,   spr_guido_slider  ,   0, 0,    0,  0);
-    guido_set_format(guido_real_field  ,   spr_guido_field   ,   4, 4,   59, 59);
-    guido_set_format(guido_string_field,   spr_guido_field   ,   4, 4,   59, 59);
-    guido_set_format(guido_grid        ,   spr_guido_grid    ,   4, 4,   59, 59);
-    
     #endregion
+    
+    //Set default values for each widget script
+    guido_set_script_format(guido_button      ,   spr_guido_button  ,   4, 4,   59, 59);
+    guido_set_script_format(guido_checkbox    ,   spr_guido_checkbox                  ); //Not 9-sliced, doesn't use centre LTRB
+    guido_set_script_format(guido_toggle      ,   spr_guido_toggle  ,   4, 4,   59, 59);
+    guido_set_script_format(guido_radio       ,   spr_guido_radio                     ); //Not 9-sliced, doesn't use centre LTRB
+    guido_set_script_format(guido_tab         ,   spr_guido_tab     ,   4, 4,   59, 59);
+    guido_set_script_format(guido_slider      ,   spr_guido_slider                    ); //Not 9-sliced, doesn't use centre LTRB
+    guido_set_script_format(guido_real_field  ,   spr_guido_field   ,   4, 4,   59, 59);
+    guido_set_script_format(guido_string_field,   spr_guido_field   ,   4, 4,   59, 59);
+    guido_set_script_format(guido_grid        ,   spr_guido_grid    ,   2, 2,   61, 61);
 }
-
-__guido_prev_cursor_down = __guido_cursor_down;
 
 __guido_start_pos_x = argument0;
 __guido_start_pos_y = argument1;
 __guido_cursor_x    = argument2;
 __guido_cursor_y    = argument3;
-__guido_cursor_down = argument4;
 
 guido_x = __guido_start_pos_x;
 guido_y = __guido_start_pos_y;
-__guido_line_height = 0;
+
+//Update the cursor's state
+__guido_prev_cursor_down = __guido_cursor_down;
+__guido_cursor_down      = argument4;
+__guido_cursor_pressed   = (!__guido_prev_cursor_down &&  __guido_cursor_down);
+__guido_cursor_released  = ( __guido_prev_cursor_down && !__guido_cursor_down);
+
 
 guido_cursor_over_widget = undefined;
 guido_prev_name  = undefined;
 guido_prev_state = undefined;
 guido_prev_value = undefined;
 
-__guido_auto_widget = 0;
-
+__guido_line_height         =  0;
+__guido_auto_widget         =  0;
 __guido_string_format_total = -1;
 __guido_string_format_dec   = -1;
 
-__guido_cursor_pressed  = (!__guido_prev_cursor_down &&  __guido_cursor_down);
-__guido_cursor_released = ( __guido_prev_cursor_down && !__guido_cursor_down);
 
 
 

@@ -1,16 +1,18 @@
 /// @param script
 /// @param sprite
-/// @param centreL
-/// @param centreT
-/// @param centreR
-/// @param centreB
+/// @param [centreL]
+/// @param [centreT]
+/// @param [centreR]
+/// @param [centreB]
 
-var _script   = argument0;
-var _sprite   = argument1;
-var _centre_l = argument2;
-var _centre_t = argument3;
-var _centre_r = argument4;
-var _centre_b = argument5;
+var _script   = argument[0];
+var _sprite   = argument[1];
+var _centre_l = (argument_count > 2)? argument[2] : 0;
+var _centre_t = (argument_count > 3)? argument[3] : 0;
+var _centre_r = (argument_count > 4)? argument[4] : 0;
+var _centre_b = (argument_count > 5)? argument[5] : 0;
+
+if (is_string(_script)) _script = asset_get_index(_script);
 
 var _array = array_create(__GUIDO_FORMAT.__SIZE);
 _array[@ __GUIDO_FORMAT.SPRITE  ] = _sprite;

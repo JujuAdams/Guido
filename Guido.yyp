@@ -146,7 +146,7 @@
             "Key": "4f43cb1d-d811-4b0c-ad61-5b438355b87b",
             "Value": {
                 "id": "329ae62a-40d9-42a3-a6b0-7e136a3cacd4",
-                "resourcePath": "scripts\\guido_set_format\\guido_set_format.yy",
+                "resourcePath": "scripts\\guido_set_script_format\\guido_set_script_format.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -351,14 +351,6 @@
             }
         },
         {
-            "Key": "8024443a-5306-46b8-b2ed-582830820409",
-            "Value": {
-                "id": "4c8dc789-7b7f-4f03-823b-fa07c8fff7bb",
-                "resourcePath": "scripts\\guido_format_button\\guido_format_button.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "85ac8cda-0d19-4f92-b55d-f04de6a423fe",
             "Value": {
                 "id": "63de7092-7fcd-4ff8-87c8-474ba1c04376",
@@ -420,14 +412,6 @@
                 "id": "d992b151-bef5-439e-a4fa-f50757c34c06",
                 "resourcePath": "views\\a348c3e0-048a-40cf-8926-941e3d9b4161.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "a3c2a910-2bb0-4658-8f47-b797c3a28d13",
-            "Value": {
-                "id": "2c0f983d-2ef3-41ee-b888-2cf67c299d5a",
-                "resourcePath": "scripts\\guido_format_tab\\guido_format_tab.yy",
-                "resourceType": "GMScript"
             }
         },
         {
@@ -611,11 +595,9 @@
         "e45d8a56-45b2-4907-bf61-6778465494c2",
         "1b2d309c-006a-4861-b9fb-5cb6060d09e2",
         "e93ec4b7-e9c5-4071-b0a1-50e39e755255",
+        "4f43cb1d-d811-4b0c-ad61-5b438355b87b",
         "5e2867e7-600b-4f5b-a660-f925a3118aac",
         "03f7159f-683a-4242-b0a4-b2727c066e0f",
-        "4f43cb1d-d811-4b0c-ad61-5b438355b87b",
-        "8024443a-5306-46b8-b2ed-582830820409",
-        "a3c2a910-2bb0-4658-8f47-b797c3a28d13",
         "b55393e0-eb95-4d18-98ec-7a7599e525bc",
         "5a441b5c-b8c6-4091-b715-1e78e09ec0e2",
         "7ef17301-8f5e-4599-b9cb-308c36ce162e",
