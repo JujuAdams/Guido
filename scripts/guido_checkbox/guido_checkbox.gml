@@ -44,14 +44,16 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 //Draw
 draw_sprite(spr_guido_checkbox, (_value? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
 
-guido_x += GUIDO_WIDGET_SEPARATION + _widget_w;
-__guido_line_height = max(__guido_line_height, _widget_h);
+
+//Update Guido position
+guido_spacer(GUIDO_WIDGET_SEPARATION + _widget_w, _widget_h);
+
 
 var _string = _value? _string_on : _string_off;
 if (_string != "") guido_text(_string);
 
 
-//Update IM state
+//Update variable
 if (_new_state == GUIDO_STATE.RELEASED)
 {
     _value = !_value;

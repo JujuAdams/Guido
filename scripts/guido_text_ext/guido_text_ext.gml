@@ -14,7 +14,11 @@ repeat(argument_count - 2)
     ++_i;
 }
 
+
+//Draw
 draw_text_ext(guido_x, guido_y, _string, _sep, _w);
 
-guido_x += GUIDO_WIDGET_SEPARATION + string_width_ext(_string, _sep, _w);
-__guido_line_height = max(__guido_line_height, string_height_ext(_string, _sep, _w));
+
+//Update Guido position
+guido_spacer(GUIDO_WIDGET_SEPARATION + string_width_ext(_string, _sep, _w),
+             string_height_ext(_string, _sep, _w));

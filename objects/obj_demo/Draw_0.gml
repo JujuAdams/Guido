@@ -59,8 +59,7 @@ switch(tab)
         guido_newline();
         
         guido_text("1) Momentary buttons");
-        guido_newline();
-        guido_spacer(40);
+        guido_newline(0, 40);
         guido_button("Example button!");
         guido_spacer(20);
         guido_hyperlink("And hyperlinks too");
@@ -68,8 +67,7 @@ switch(tab)
         guido_newline();
         
         guido_text("2) Toggle buttons");
-        guido_newline();
-        guido_spacer(40);
+        guido_newline(0, 40);
         guido_checkbox("Toggle on :)", "Toggle off :(");
         guido_spacer(20);
         guido_toggle("Toggle on :)", "Toggle off :(");
@@ -77,25 +75,21 @@ switch(tab)
         guido_newline();
         
         guido_text("3) Multiple choice buttons");
-        guido_newline();
-        guido_spacer(40);
+        guido_newline(0, 40);
         guido_radio("Option 1", undefined, "radio group 0");
-        guido_newline();
-        guido_spacer(40);
+        guido_newline(0, 40);
         guido_radio("Option 2", undefined, "radio group 0");
-        guido_newline();
-        guido_spacer(40);
+        guido_newline(0, 40);
         guido_radio("Option 3", undefined, "radio group 0");
         guido_newline();
-        guido_newline();
-        guido_spacer(40);
+        guido_newline(0, 40);
         guido_tab("Option 1", undefined, "radio group 1");
-        guido_newline();
-        guido_spacer(40);
         guido_tab("Option 2", undefined, "radio group 1");
-        guido_newline();
-        guido_spacer(40);
         guido_tab("Option 3", undefined, "radio group 1");
+        guido_newline(0, 40);
+        guido_tab("Option 4", undefined, "radio group 1");
+        guido_tab("Option 5", undefined, "radio group 1");
+        guido_tab("Option 6", undefined, "radio group 1");
         guido_newline();
         guido_newline();
         

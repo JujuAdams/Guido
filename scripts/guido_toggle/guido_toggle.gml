@@ -62,12 +62,11 @@ else
 }
 
 
-
-guido_x += GUIDO_WIDGET_SEPARATION + _widget_w;
-__guido_line_height = max(__guido_line_height, _widget_h);
-
+//Update Guido position
+guido_spacer(GUIDO_WIDGET_SEPARATION + _widget_w, _widget_h);
 
 
+//Update variable
 if (_new_state == GUIDO_STATE.RELEASED)
 {
     _value = !_value;

@@ -65,44 +65,11 @@ else
 }
 
 
-
-//if (_group_count == _value)
-//{
-//    draw_rectangle(_l, _t, _r, _b, false);
-//    draw_rectangle(_l+2, _t+2, _r-2, _b-2, true);
-//    
-//    var _old_colour = draw_get_colour();
-//    draw_set_colour(GUIDO_INVERSE_COLOUR);
-//    draw_rectangle(_l+1, _t+1, _r-1, _b-1, true);
-//    if (_string != "") draw_text(_l + 3, _t + 3, _string);
-//    draw_set_colour(_old_colour);
-//}
-//else
-//{
-//    if (_new_state == GUIDO_STATE.OVER)
-//    {
-//        draw_rectangle(_l, _t, _r, _b, false);
-//    
-//        var _old_colour = draw_get_colour();
-//        draw_set_colour(GUIDO_INVERSE_COLOUR);
-//        draw_rectangle(_l+1, _t+1, _r-1, _b-1, true);
-//        if (_string != "") draw_text(_l + 3, _t + 3, _string);
-//        draw_set_colour(_old_colour);
-//    }
-//    else
-//    {
-//        if (_string != "") draw_text(_l + 3, _t + 3, _string);
-//        draw_rectangle(_l, _t, _r, _b, true);
-//    }
-//}
+//Update Guido position
+guido_spacer(GUIDO_WIDGET_SEPARATION + _widget_w, _widget_h);
 
 
-//Update IM state
-guido_x += GUIDO_WIDGET_SEPARATION + _widget_w;
-__guido_line_height = max(__guido_line_height, _widget_h);
-
-
-//Update widget and group
+//Update variable
 if (_new_state == GUIDO_STATE.RELEASED)
 {
     _widget_array[@ __GUIDO_WIDGET.VALUE] = _group_count;

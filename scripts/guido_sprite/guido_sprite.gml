@@ -16,11 +16,20 @@ var _alpha  = ((argument_count > 6) && (argument[6] != undefined))? argument[6] 
 
 if (!sprite_exists(_sprite)) exit;
 
+
+//Draw
 draw_sprite_ext(_sprite, _image, guido_x + _xscale*sprite_get_xoffset(_sprite), guido_y + _yscale*sprite_get_yoffset(_sprite), _xscale, _yscale, _angle, _colour, _alpha);
 
-guido_x += GUIDO_WIDGET_SEPARATION + _xscale*sprite_get_width(_sprite);
-__guido_line_height = max(__guido_line_height, _yscale*sprite_get_height(_sprite));
 
+//Update Guido position
+guido_spacer(GUIDO_WIDGET_SEPARATION + _xscale*sprite_get_width(_sprite),
+             _yscale*sprite_get_height(_sprite));
+
+
+//Reset draw state
 guido_prev_name  = undefined;
 guido_prev_state = undefined;
 guido_prev_value = undefined;
+
+
+return GUIDO_STATE.NULL;

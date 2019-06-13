@@ -79,9 +79,8 @@ if (_draw_grid)
 }
 
 
-//Update IM state
-guido_x += GUIDO_WIDGET_SEPARATION + _width*_cell_width;
-__guido_line_height = max(__guido_line_height, _height*_cell_height);
+//Update Guido position
+guido_spacer(GUIDO_WIDGET_SEPARATION + _widget_w, _widget_h);
 
 
 //Update widget state
@@ -92,5 +91,6 @@ if (_widget_array[__GUIDO_WIDGET.NEW_STATE] == GUIDO_STATE.NULL) _widget_array[@
 guido_prev_name  = _widget_name;
 guido_prev_state = _new_state;
 guido_prev_value = _value;
+
 
 return _new_state;

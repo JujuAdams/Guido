@@ -46,31 +46,16 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 //Draw
 draw_sprite(spr_guido_radio, ((_group_count == _value)? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
 
-//var _xc     = mean(_l, _r);
-//var _yc     = mean(_t, _b);
-//var _radius = 0.5*(_r - _l);
-//draw_circle(_xc, _yc, _radius, true);
-//
-//if (_group_count == _value)
-//{
-//    draw_circle(_xc, _yc, _radius-2, false);
-//}
-//else if (_new_state == GUIDO_STATE.OVER) 
-//{
-//    draw_circle(_xc, _yc, _radius-2, true);
-//}
 
-
-//Update IM state
-guido_x += GUIDO_WIDGET_SEPARATION + _widget_w;
-__guido_line_height = max(__guido_line_height, _widget_h);
+//Update Guido position
+guido_spacer(GUIDO_WIDGET_SEPARATION + _widget_w, _widget_h);
 
 
 //Draw label
 if (_string != "") guido_text(_string);
 
 
-//Update widget and group
+//Update variable
 if (_new_state == GUIDO_STATE.RELEASED)
 {
     _widget_array[@ __GUIDO_WIDGET.VALUE] = _group_count;

@@ -93,12 +93,11 @@ draw_line(_max_x, _t, _max_x, _b);
 draw_sprite(spr_guido_slider, _new_state - GUIDO_STATE.NULL, _l, _t);
 
 
-//Update IM state
-guido_x = _max_x + GUIDO_WIDGET_SEPARATION;
-__guido_line_height = max(__guido_line_height, _widget_h);
+//Update Guido position
+guido_spacer(_max_x - guido_x + GUIDO_WIDGET_SEPARATION, _widget_h);
 
 
-//Update widget and group
+//Update variable
 if (_new_state == GUIDO_STATE.DOWN)
 {
     _widget_array[@ __GUIDO_WIDGET.VALUE] = _value;
