@@ -23,10 +23,10 @@ guido_newline();
 switch(tab)
 {
     case 0:
-        guido_text_ext("\"Immediate mode\" is a GUI design pattern that's very simple to use for basic GUI layouts. This particular library is inspired by the venerable ImGUI, but heavily modified to suit the programming practices of GameMaker developers. This entire demo is written in a single block of code using straight-forward scripts.", -1, 1000);
+        guido_text_ext(-1, 1000, "\"Immediate mode\" is a GUI design pattern that's very simple to use for basic GUI layouts. This particular library is inspired by the venerable ImGUI, but heavily modified to suit the programming practices of GameMaker developers. This entire demo is written in a single block of code using straight-forward scripts.");
         guido_newline();
         guido_newline();
-        guido_text_ext("This library is designed with debug tools in mind. Its various UI widgets should cover the vast majority of backend tool use cases.", -1, 1000);
+        guido_text_ext(-1, 1000, "This library is designed with debug tools in mind. Its various UI widgets should cover the vast majority of backend tool use cases.");
     break;
     
     case 1:

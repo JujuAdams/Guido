@@ -1,10 +1,18 @@
-/// @param string
-/// @param sep
-/// @param w
+/// @param lineSeparation
+/// @param maxWisth
+/// @param value
+/// @param [value...]
 
-var _string = argument0;
-var _sep    = argument1;
-var _w      = argument2;
+var _sep = argument[0];
+var _w   = argument[1];
+
+var _string = "";
+var _i = 2;
+repeat(argument_count - 2)
+{
+    _string += string(argument[_i]);
+    ++_i;
+}
 
 draw_text_ext(guido_x, guido_y, _string, _sep, _w);
 
