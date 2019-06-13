@@ -8,7 +8,7 @@ repeat(argument_count)
 {
     if (is_real(argument[_i]))
     {
-        _string += guido_string_format(argument[_i]);
+        _string += string_format_guido(argument[_i]);
     }
     else
     {

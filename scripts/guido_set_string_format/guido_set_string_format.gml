@@ -1,5 +1,5 @@
 /// @param total
 /// @param decimalPlaces
 
-__guido_string_format_total = argument0;
-__guido_string_format_dec   = argument1;
+__string_format_guido_total = argument0;
+__string_format_guido_dec   = argument1;

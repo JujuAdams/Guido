@@ -39,7 +39,7 @@ if (_widget_array[__GUIDO_WIDGET.NEW])
     if (__guido_variable_exists(_variable)) _value = __guido_limit_real(__guido_variable_get(_variable), _min, _max, _unit);
     
     _widget_array[@ __GUIDO_WIDGET.VALUE       ] = _value;
-    _widget_array[@ __GUIDO_WIDGET.FIELD_STRING] = guido_string_format(_value);
+    _widget_array[@ __GUIDO_WIDGET.FIELD_STRING] = string_format_guido(_value);
     __guido_variable_set(_variable, _value);
 }
 
@@ -113,7 +113,7 @@ if ((__guido_focus != _widget_name) && _widget_array[__GUIDO_WIDGET.FIELD_FOCUS]
     _widget_array[@ __GUIDO_WIDGET.FIELD_FOCUS] = false;
     _value = real(_field_string);
     _value = __guido_limit_real(_value, _min, _max, _unit);
-    _field_string = guido_string_format(_value);
+    _field_string = string_format_guido(_value);
     __guido_variable_set(_variable, _value);
     
     _widget_array[@ __GUIDO_WIDGET.VALUE       ] = _value;

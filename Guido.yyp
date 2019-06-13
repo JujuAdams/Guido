@@ -34,7 +34,7 @@
             "Key": "03f7159f-683a-4242-b0a4-b2727c066e0f",
             "Value": {
                 "id": "1f19bfbe-13f4-44d1-80cf-477d16d6e4ad",
-                "resourcePath": "scripts\\guido_string_format\\guido_string_format.yy",
+                "resourcePath": "scripts\\string_format_guido\\string_format_guido.yy",
                 "resourceType": "GMScript"
             }
         },

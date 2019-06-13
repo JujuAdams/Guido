@@ -32,7 +32,7 @@ var _widget_array = __guido_widget_find(_widget_name, false);
 if (_widget_array[__GUIDO_WIDGET.NEW])
 {
     var _value = "";
-    if (__guido_variable_exists(_variable)) _value = guido_string_format(__guido_variable_get(_variable));
+    if (__guido_variable_exists(_variable)) _value = string_format_guido(__guido_variable_get(_variable));
     
     _widget_array[@ __GUIDO_WIDGET.VALUE       ] = _value;
     _widget_array[@ __GUIDO_WIDGET.FIELD_STRING] = _value;
