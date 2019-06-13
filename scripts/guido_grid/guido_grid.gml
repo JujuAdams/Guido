@@ -56,26 +56,30 @@ if (point_in_rectangle(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b))
 
 
 //Draw
-if ((_value[0] != undefined) && (_value[1] != undefined))
-{
-    draw_rectangle(_l + _value[0]*_cell_width, _t + _value[1]*_cell_height, _l + (_value[0]+1)*_cell_width - 1, _t + (_value[1]+1)*_cell_height - 1, false);
-}
-
-if (_draw_grid)
+var _y = _t;
+var _j =  0;
+repeat(_height)
 {
     var _x = _l;
-    repeat(_width+1)
+    var _i =  0;
+    repeat(_width)
     {
-        draw_line(_x, _t, _x, _b);
+        var _index = 0;
+        if ((_value[0] != undefined) && (_value[1] != undefined) && (_i == _value[0]) && (_j == _value[1])) _index = _new_state - GUIDO_STATE.NULL;
+        
+        __guido_9slice(__guido_format_grid_button_sprite, _index,
+                       __guido_format_grid_button_centre_l,
+                       __guido_format_grid_button_centre_t,
+                       __guido_format_grid_button_centre_r,
+                       __guido_format_grid_button_centre_b,
+                       _x, _y, _x + _cell_width, _y + _cell_height, true);
+        
         _x += _cell_width;
+        ++_i;
     }
     
-    var _y = _t;
-    repeat(_height+1)
-    {
-        draw_line(_l, _y, _r, _y);
-        _y += _cell_height;
-    }
+    _y += _cell_height;
+    ++_j;
 }
 
 

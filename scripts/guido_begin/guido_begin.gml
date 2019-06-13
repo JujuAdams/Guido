@@ -88,7 +88,7 @@ if (!variable_instance_exists(id, "__guido_initialised"))
     
     __guido_format_radio_sprite = spr_guido_radio;
     
-    __guido_format_tab_sprite   = spr_guido_radio;
+    __guido_format_tab_sprite   = spr_guido_button;
     __guido_format_tab_centre_l =  4;
     __guido_format_tab_centre_t =  4;
     __guido_format_tab_centre_r = 59;
@@ -108,6 +108,7 @@ if (!variable_instance_exists(id, "__guido_initialised"))
     __guido_format_string_field_centre_r = 59;
     __guido_format_string_field_centre_b = 59;
     
+    __guido_format_grid_button_sprite   = spr_guido_grid_button;
     __guido_format_grid_button_centre_l =  4;
     __guido_format_grid_button_centre_t =  4;
     __guido_format_grid_button_centre_r = 59;

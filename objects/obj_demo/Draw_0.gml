@@ -123,7 +123,7 @@ switch(tab)
         
         guido_text("3) Button grids");
         guido_newline(0, 40);
-        guido_grid(11, 9, 16, 12);
+        guido_grid(7, 5, 32, 24);
         guido_newline(0, 132);
         draw_set_halign(fa_center);
         guido_text(guido_prev_value);
