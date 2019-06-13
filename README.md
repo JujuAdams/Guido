@@ -1,4 +1,4 @@
-<h1 align="center">Guido 1.1.0</h1>
+<h1 align="center">Guido 2.0.0</h1>
 <h3 align="left">@jujuadams</h3>
 
 Simple debug-quality immediate mode GUI framework.

@@ -10,7 +10,8 @@
         "e45d8a56-45b2-4907-bf61-6778465494c2",
         "b5382a98-7172-4dc1-ad87-55f5ebc21baf",
         "1b2d309c-006a-4861-b9fb-5cb6060d09e2",
-        "e93ec4b7-e9c5-4071-b0a1-50e39e755255"
+        "e93ec4b7-e9c5-4071-b0a1-50e39e755255",
+        "6c7fb653-e1e3-4e90-9caf-97958fc5f5ba"
     ],
     "filterType": "GMScript",
     "folderName": "Static GUI elements",

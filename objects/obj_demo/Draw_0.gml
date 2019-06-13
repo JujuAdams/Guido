@@ -7,7 +7,7 @@ guido_begin(10, 10, mouse_x, mouse_y, mouse_check_button(mb_left));
 #region Header
 
 draw_set_font(fnt_header);
-guido_text("Immediate Mode v" + __GUIDO_VERSION + "   " + __GUIDO_DATE);
+guido_text("\"Guido\" immediate mode GUI     v" + __GUIDO_VERSION + "     " + __GUIDO_DATE);
 guido_newline();
 if (guido_hyperlink("@jujuadams")) url_open("http://www.twitter.com/JujuAdams");
 guido_newline();

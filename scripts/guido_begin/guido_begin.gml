@@ -32,7 +32,7 @@
 
 #region Internal definitions
 
-#macro __GUIDO_VERSION  "1.1.0"
+#macro __GUIDO_VERSION  "2.0.0"
 #macro __GUIDO_DATE     "2019/06/13"
 
 enum GUIDO_STATE
