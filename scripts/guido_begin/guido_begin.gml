@@ -25,13 +25,13 @@
 #macro GUIDO_DEBUG              false
 #macro GUIDO_INVERSE_COLOUR     c_black
 #macro GUIDO_LINE_MIN_HEIGHT    20
-#macro GUIDO_LINE_SEPARATION     4
+#macro GUIDO_LINE_SEPARATION    8
 #macro GUIDO_WIDGET_SEPARATION  8
 
 #region Internal definitions
 
-#macro __GUIDO_VERSION  "1.0.0"
-#macro __GUIDO_DATE     "2019/06/12"
+#macro __GUIDO_VERSION  "1.1.0"
+#macro __GUIDO_DATE     "2019/06/13"
 
 enum GUIDO_STATE
 {
