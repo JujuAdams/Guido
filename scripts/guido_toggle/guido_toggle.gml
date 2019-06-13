@@ -53,12 +53,12 @@ if ((_new_state == GUIDO_STATE.OVER) || _force_over)
 {
     var _old_colour = draw_get_colour();
     draw_set_colour(GUIDO_INVERSE_COLOUR);
-    if (_string != "") draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
+    draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
     draw_set_colour(_old_colour);
 }
 else
 {
-    if (_string != "") draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
+    draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
 }
 
 

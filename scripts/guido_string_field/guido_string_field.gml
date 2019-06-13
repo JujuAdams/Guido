@@ -34,13 +34,15 @@ var _field_string = _widget_array[__GUIDO_WIDGET.FIELD_STRING];
 
 
 //Position widget
-var _widget_w = _length;
-var _widget_h = string_height(_field_string + " ");
+var _widget_w = max(_length, __guido_format_real_field_centre_l + sprite_get_width( spr_guido_toggle) - __guido_format_real_field_centre_r);
+var _widget_h = __guido_format_real_field_centre_t + sprite_get_height(spr_guido_toggle) - __guido_format_real_field_centre_b + string_height(_field_string + " ");
 
 var _l = guido_x;
 var _t = guido_y;
-var _r = _l + _widget_w;
-var _b = _t + _widget_h;
+var _r = guido_x + _widget_w;
+var _b = guido_y + _widget_h;
+var _text_l = _l + __guido_format_real_field_centre_l;
+var _text_t = _t + __guido_format_real_field_centre_t;
 
 
 //Handle cursor interaction
@@ -119,35 +121,44 @@ if ((__guido_focus != _widget_name) && _widget_array[__GUIDO_WIDGET.FIELD_FOCUS]
 
 
 //Draw
-draw_rectangle(_l, _t, _r, _b, true);
-
-if (__guido_focus == _widget_name)
+var _force_over = ((_new_state == GUIDO_STATE.NULL) && (__guido_focus == _widget_name));
+__guido_9slice(spr_guido_button, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
+               __guido_format_real_field_centre_l,
+               __guido_format_real_field_centre_t,
+               __guido_format_real_field_centre_r,
+               __guido_format_real_field_centre_b,
+               _l, _t, _r, _b, true);
+               
+if (__guido_focus == _widget_name && (_new_state <= GUIDO_STATE.OVER))
 {
-    draw_rectangle(_l+2, _t+2, _r-2, _b-2, false);
-    
     var _old_colour = draw_get_colour();
     draw_set_colour(GUIDO_INVERSE_COLOUR);
     
     var _string_part = string_copy(_field_string, 1, _field_pos);
     var _string_part_width = string_width(_string_part);
-    draw_text(_l+2, _t, _string_part);
-    if ((current_time mod 800) < 400) draw_line(_l+3 + _string_part_width, _t+3, _l+3 + _string_part_width, _b-3);
-    draw_text(_l+2 + _string_part_width, _t, string_delete(_field_string, 1, _field_pos));
+    draw_text(_text_l, _text_t, _string_part);
+    if ((current_time mod 800) < 400)
+    {
+        draw_rectangle(_text_l + _string_part_width,
+                       _text_t + 1,
+                       _text_l + _string_part_width + 1,
+                       _b - (sprite_get_height(spr_guido_toggle) - __guido_format_real_field_centre_b),
+                       false);
+    }
+    draw_text(_text_l + _string_part_width, _text_t, string_delete(_field_string, 1, _field_pos));
     
     draw_set_colour(_old_colour);
 }
 else if (_new_state == GUIDO_STATE.OVER)
 {
-    draw_rectangle(_l+2, _t+2, _r-2, _b-2, false);
-    
     var _old_colour = draw_get_colour();
     draw_set_colour(GUIDO_INVERSE_COLOUR);
-    draw_text(_l+2, _t, _field_string);
+    draw_text(_text_l, _text_t, _field_string);
     draw_set_colour(_old_colour);
 }
 else
 {
-    draw_text(_l+2, _t, _field_string);
+    draw_text(_text_l, _text_t, _field_string);
 }
 
 

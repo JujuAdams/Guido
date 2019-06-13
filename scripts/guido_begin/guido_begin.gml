@@ -79,6 +79,16 @@ if (!variable_instance_exists(id, "__guido_initialised"))
     __guido_format_tab_centre_t =  4;
     __guido_format_tab_centre_r = 59;
     __guido_format_tab_centre_b = 59;
+    
+    __guido_format_real_field_centre_l =  4;
+    __guido_format_real_field_centre_t =  4;
+    __guido_format_real_field_centre_r = 59;
+    __guido_format_real_field_centre_b = 59;
+    
+    __guido_format_string_field_centre_l =  4;
+    __guido_format_string_field_centre_t =  4;
+    __guido_format_string_field_centre_r = 59;
+    __guido_format_string_field_centre_b = 59;
 }
 
 __guido_prev_cursor_down = __guido_cursor_down;
