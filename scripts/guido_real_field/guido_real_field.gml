@@ -76,7 +76,7 @@ if (__guido_focus == _widget_name)
         _field_string = string_delete(_field_string, _field_pos+1, 1);
         _widget_array[@ __GUIDO_WIDGET.FIELD_STRING] = _field_string;
         
-        _field_pos = min(_field_pos + 1, string_length(_field_string));
+        _field_pos = min(_field_pos, string_length(_field_string));
         _widget_array[@ __GUIDO_WIDGET.FIELD_POS] = string_length(_field_string) - _field_pos;
     }
     
@@ -117,9 +117,14 @@ if (__guido_focus == _widget_name)
     
     var _old_colour = draw_get_colour();
     draw_set_colour(GUIDO_INVERSE_COLOUR);
-    draw_set_halign(fa_right);
-    draw_text(_r-2, _t, string_insert(((current_time mod 300) < 200)? "|" : " ", _field_string, _field_pos+1));
-    draw_set_halign(fa_left);
+    
+    var _string_width      = string_width(_field_string);
+    var _string_part       = string_copy(_field_string, 1, _field_pos);
+    var _string_part_width = string_width(_string_part);
+    draw_text(_r-2-_string_width, _t, _string_part);
+    if ((current_time mod 800) < 400) draw_line(_r-2-_string_width+1 + _string_part_width, _t+3, _r-2-_string_width+1 + _string_part_width, _b-3);
+    draw_text(_r-2-_string_width + _string_part_width, _t, string_delete(_field_string, 1, _field_pos));
+    
     draw_set_colour(_old_colour);
 }
 else if (_new_state == GUIDO_STATE.OVER)
