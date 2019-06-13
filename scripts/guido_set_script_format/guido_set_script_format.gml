@@ -1,3 +1,13 @@
+/// Different sprite images are used depending on the state of the widget:
+/// GUIDO_STATE.NULL     = image 0:
+/// GUIDO_STATE.OVER     = image 1:
+/// GUIDO_STATE.PRESSED  = image 2:
+/// GUIDO_STATE.DOWN     = image 3:
+/// GUIDO_STATE.RELEASED = image 4:
+/// 
+/// Some widgets retain focus or can be toggled e.g. guido_radio() or guido_real_field()
+//  When a widget has focus or is toggled on, it'll use image 4 (GUIDO_STATE.RELEASED).
+///
 /// @param script
 /// @param sprite
 /// @param [centreL]
