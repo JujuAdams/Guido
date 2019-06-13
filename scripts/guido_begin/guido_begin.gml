@@ -73,14 +73,14 @@ enum __GUIDO_FORMAT
 #endregion
 
 //Check if we've initialised Guido for this instance
-if (!variable_instance_exists(id, "__guido_initialised"))
+if (!variable_instance_exists(id, "__guido_initialised") || !__guido_initialised)
 {
     if (GUIDO_DEBUG) show_debug_message("IM: Initialising for " + string(id) + " (" + object_get_name(object_index) + ")    (v" + __GUIDO_VERSION + ", " + __GUIDO_DATE + ")");
     
-    __guido_initialised  = true;
+    __guido_initialised = true;
     
-    __guido_cursor_down  = false;
-    __guido_focus        = undefined;
+    __guido_cursor_down = false;
+    __guido_focus       = undefined;
     __guido_widget_data = [];
     
     #region Formatting values
@@ -110,6 +110,8 @@ if (!variable_instance_exists(id, "__guido_initialised"))
     guido_set_script_format(guido_real_field  ,   spr_guido_field   ,   4, 4,   59, 59);
     guido_set_script_format(guido_string_field,   spr_guido_field   ,   4, 4,   59, 59);
     guido_set_script_format(guido_grid        ,   spr_guido_grid    ,   2, 2,   61, 61);
+    
+    guido_set_string_format(-1, -1);
 }
 
 __guido_start_pos_x = argument0;
@@ -126,16 +128,15 @@ __guido_cursor_down      = argument4;
 __guido_cursor_pressed   = (!__guido_prev_cursor_down &&  __guido_cursor_down);
 __guido_cursor_released  = ( __guido_prev_cursor_down && !__guido_cursor_down);
 
-
+//Clear public state variables
 guido_cursor_over_widget = undefined;
 guido_prev_name  = undefined;
 guido_prev_state = undefined;
 guido_prev_value = undefined;
 
-__guido_line_height         =  0;
-__guido_auto_widget         =  0;
-__guido_string_format_total = -1;
-__guido_string_format_dec   = -1;
+//Clear some internal variables too
+__guido_line_height = 0;
+__guido_auto_widget = 0;
 
 
 
