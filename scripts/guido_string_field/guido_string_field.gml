@@ -31,7 +31,6 @@ if (_widget_array[__GUIDO_WIDGET.NEW])
 var _value        = _widget_array[__GUIDO_WIDGET.VALUE       ];
 var _old_state    = _widget_array[__GUIDO_WIDGET.STATE       ];
 var _field_string = _widget_array[__GUIDO_WIDGET.FIELD_STRING];
-var _new_state    = GUIDO_STATE.NULL;
 
 
 //Position widget
@@ -44,24 +43,12 @@ var _r = _l + _widget_w;
 var _b = _t + _widget_h;
 
 
-//Handle cursor and keyboard interaction
-if (point_in_rectangle(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b))
-{
-    if (!is_string(guido_cursor_over_widget))
-    {
-        guido_cursor_over_widget = _widget_name;
-        
-        _new_state = ((_old_state == GUIDO_STATE.PRESSED) || (_old_state == GUIDO_STATE.DOWN))? GUIDO_STATE.DOWN : GUIDO_STATE.OVER;
-        if (__guido_cursor_released && (_old_state == GUIDO_STATE.DOWN)) _new_state = GUIDO_STATE.RELEASED;
-        if (__guido_cursor_pressed  && (_old_state == GUIDO_STATE.OVER)) _new_state = GUIDO_STATE.PRESSED;
-    }
-}
+//Handle cursor interaction
+var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b, _old_state, _widget_name);
+if (_new_state == GUIDO_STATE.RELEASED) _widget_array[@ __GUIDO_WIDGET.FIELD_POS] = 0;
 
-if (_new_state == GUIDO_STATE.RELEASED)
-{
-    _widget_array[@ __GUIDO_WIDGET.FIELD_POS] = 0;
-}
 
+//Handle keyboard input
 if (__guido_focus == _widget_name)
 {
     _widget_array[@ __GUIDO_WIDGET.FIELD_FOCUS] = true;

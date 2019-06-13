@@ -36,8 +36,8 @@ var _new_state = GUIDO_STATE.NULL;
 
 
 //Position widget
-var _widget_w = 24;
-var _widget_h = 24;
+var _widget_w = sprite_get_width(spr_guido_slider);
+var _widget_h = sprite_get_height(spr_guido_slider);
 
 var _min_x = guido_x;
 var _max_x = guido_x + _length - _widget_w;
@@ -90,16 +90,7 @@ draw_line(_min_x, _t, _min_x, _b);
 draw_line(_min_x, 0.5*(_t + _b), _max_x, 0.5*(_t + _b));
 draw_line(_max_x, _t, _max_x, _b);
 
-var _old_colour = draw_get_colour();
-draw_set_colour(GUIDO_INVERSE_COLOUR);
-draw_rectangle(_l, _t, _r, _b, false);
-draw_set_colour(_old_colour);
-draw_rectangle(_l, _t, _r, _b, true);
-
-if (_new_state == GUIDO_STATE.OVER) 
-{
-    draw_rectangle(_l+2, _t+2, _r-2, _b-2, false);
-}
+draw_sprite(spr_guido_slider, _new_state - GUIDO_STATE.NULL, _l, _t);
 
 
 //Update IM state

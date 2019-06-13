@@ -39,7 +39,7 @@ enum GUIDO_STATE
     OVER     = -2,
     PRESSED  = -1,
     DOWN     =  0,
-    RELEASED =  1
+    RELEASED =  1,
 }
 
 enum __GUIDO_WIDGET
@@ -60,12 +60,25 @@ enum __GUIDO_WIDGET
 
 #endregion
 
-if (!variable_instance_exists(id, "__guido_cursor_down"))
+if (!variable_instance_exists(id, "__guido_initialised"))
 {
     if (GUIDO_DEBUG) show_debug_message("IM: Initialising for " + string(id) + " (" + object_get_name(object_index) + ")    (v" + __GUIDO_VERSION + ", " + __GUIDO_DATE + ")");
+    
+    __guido_initialised  = true;
+    
     __guido_cursor_down  = false;
     __guido_focus        = undefined;
     __guido_widget_data = [];
+    
+    __guido_format_button_centre_l =  4;
+    __guido_format_button_centre_t =  4;
+    __guido_format_button_centre_r = 59;
+    __guido_format_button_centre_b = 59;
+    
+    __guido_format_tab_centre_l =  4;
+    __guido_format_tab_centre_t =  4;
+    __guido_format_tab_centre_r = 59;
+    __guido_format_tab_centre_b = 59;
 }
 
 __guido_prev_cursor_down = __guido_cursor_down;

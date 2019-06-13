@@ -9,11 +9,11 @@ if (guido_hyperlink("@jujuadams")) url_open("http://www.twitter.com/JujuAdams");
 guido_newline();
 guido_newline();
 draw_set_font(fnt_tab);
-guido_tab("Welcome", "tab");
+guido_tab("Intro", "tab");
 guido_spacer(20);
 guido_tab("Buttons", "tab");
 guido_spacer(20);
-guido_tab("Other Input", "tab");
+guido_tab("More Input", "tab");
 guido_divider(1000);
 draw_set_font(-1);
 guido_newline();
@@ -23,6 +23,8 @@ guido_newline();
 switch(tab)
 {
     case 0:
+        #region Intro
+        
         guido_text_ext(-1, 1000, "\"Immediate mode\" is a GUI design pattern that's very simple to use for basic GUI layouts. This particular library is inspired by the venerable ImGUI, but heavily modified to suit the programming practices of GameMaker developers. This entire demo is written in a single block of code using straight-forward scripts.");
         guido_newline(20);
         guido_text_ext(-1, 1000, "This library is designed with debug tools in mind. Its various UI widgets should cover the vast majority of backend tool use cases.");
@@ -46,6 +48,7 @@ switch(tab)
         guido_newline();
         guido_text("\"", guido_prev_value, "\"");
         
+        #endregion
     break;
     
     case 1:
@@ -100,7 +103,7 @@ switch(tab)
     break;
     
     case 2:
-        #region Other Input
+        #region More Input
         
         guido_text("There are other GUI widgets on offer too:");
         guido_newline(15);

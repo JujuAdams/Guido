@@ -14,53 +14,40 @@ if (_widget_name == undefined)
 
 var _widget_array = __guido_widget_find(_widget_name, false);
 var _old_state     = _widget_array[__GUIDO_WIDGET.STATE];
-var _new_state     = GUIDO_STATE.NULL;
 
 
 //Position widget
-var _widget_w = 24;
-var _widget_h = 24;
-if (_string != "")
-{
-    var _widget_w = string_width(_string);
-    var _widget_h = string_height(_string);
-}
+var _widget_w = __guido_format_tab_centre_l + sprite_get_width( spr_guido_toggle) - __guido_format_tab_centre_r + string_width(_string);
+var _widget_h = __guido_format_tab_centre_t + sprite_get_height(spr_guido_toggle) - __guido_format_tab_centre_b + string_height(_string);
 
 var _l = guido_x;
 var _t = guido_y;
-var _r = guido_x + _widget_w + 4;
-var _b = guido_y + _widget_h + 4;
+var _r = guido_x + _widget_w;
+var _b = guido_y + _widget_h;
 
 
 //Handle cursor interaction
-if (point_in_rectangle(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b))
-{
-    if (!is_string(guido_cursor_over_widget))
-    {
-        guido_cursor_over_widget = _widget_name;
-        
-        _new_state = ((_old_state == GUIDO_STATE.PRESSED) || (_old_state == GUIDO_STATE.DOWN))? GUIDO_STATE.DOWN : GUIDO_STATE.OVER;
-        if (__guido_cursor_released && (_old_state == GUIDO_STATE.DOWN)) _new_state = GUIDO_STATE.RELEASED;
-        if (__guido_cursor_pressed  && (_old_state == GUIDO_STATE.OVER)) _new_state = GUIDO_STATE.PRESSED;
-    }
-}
+var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b, _old_state, _widget_name);
 
 
 //Draw
+__guido_9slice(spr_guido_button, _new_state - GUIDO_STATE.NULL,
+               __guido_format_button_centre_l,
+               __guido_format_button_centre_t,
+               __guido_format_button_centre_r,
+               __guido_format_button_centre_b,
+               _l, _t, _r, _b, true);
+
 if (_new_state == GUIDO_STATE.OVER)
 {
-    draw_rectangle(_l, _t, _r, _b, false);
-    
     var _old_colour = draw_get_colour();
     draw_set_colour(GUIDO_INVERSE_COLOUR);
-    draw_rectangle(_l+1, _t+1, _r-1, _b-1, true);
-    if (_string != "") draw_text(guido_x + 2, guido_y + 2, _string);
+    draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
     draw_set_colour(_old_colour);
 }
 else
 {
-    if (_string != "") draw_text(guido_x + 2, guido_y + 2, _string);
-    draw_rectangle(_l, _t, _r, _b, true);
+    draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
 }
 
 

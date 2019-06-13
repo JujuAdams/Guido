@@ -25,12 +25,11 @@ if (_widget_array[__GUIDO_WIDGET.NEW])
 
 var _value     = _widget_array[__GUIDO_WIDGET.VALUE];
 var _old_state = _widget_array[__GUIDO_WIDGET.STATE];
-var _new_state = GUIDO_STATE.NULL;
 
 
 //Position widget
-var _widget_w = 24;
-var _widget_h = 24;
+var _widget_w = sprite_get_width(spr_guido_checkbox);
+var _widget_h = sprite_get_height(spr_guido_checkbox);
 
 var _l = guido_x;
 var _t = guido_y;
@@ -39,38 +38,11 @@ var _b = guido_y + _widget_h;
 
 
 //Handle cursor interaction
-if (point_in_rectangle(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b))
-{
-    if (!is_string(guido_cursor_over_widget))
-    {
-        guido_cursor_over_widget = _widget_name;
-        
-        _new_state = ((_old_state == GUIDO_STATE.PRESSED) || (_old_state == GUIDO_STATE.DOWN))? GUIDO_STATE.DOWN : GUIDO_STATE.OVER;
-        if (__guido_cursor_released && (_old_state == GUIDO_STATE.DOWN)) _new_state = GUIDO_STATE.RELEASED;
-        if (__guido_cursor_pressed  && (_old_state == GUIDO_STATE.OVER)) _new_state = GUIDO_STATE.PRESSED;
-    }
-}
+var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b, _old_state, _widget_name);
 
 
 //Draw
-draw_rectangle(_l, _t, _r, _b, true);
-
-if (_value)
-{
-    draw_rectangle(_l+2, _t+2, _r-2, _b-2, false);
-    
-    if (_new_state == GUIDO_STATE.OVER)
-    {
-        var _old_colour = draw_get_colour();
-        draw_set_colour(GUIDO_INVERSE_COLOUR);
-        draw_rectangle(_l+3, _t+3, _r-3, _b-3, true);
-        draw_set_colour(_old_colour);
-    }
-}
-else if (_new_state == GUIDO_STATE.OVER) 
-{
-    draw_rectangle(_l+2, _t+2, _r-2, _b-2, true);
-}
+draw_sprite(spr_guido_checkbox, (_value? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
 
 guido_x += GUIDO_WIDGET_SEPARATION + _widget_w;
 __guido_line_height = max(__guido_line_height, _widget_h);

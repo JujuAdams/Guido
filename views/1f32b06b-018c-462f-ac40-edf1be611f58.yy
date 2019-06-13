@@ -18,10 +18,12 @@
         "7054d2a8-54d2-47d2-99ae-7db4da0787f4",
         "b622ab1a-8f19-4766-92df-9d38f81580ac",
         "171fedf8-3c84-4101-8a73-6b37230d47fd",
-        "b5382a98-7172-4dc1-ad87-55f5ebc21baf"
+        "b5382a98-7172-4dc1-ad87-55f5ebc21baf",
+        "1b2d309c-006a-4861-b9fb-5cb6060d09e2",
+        "e93ec4b7-e9c5-4071-b0a1-50e39e755255"
     ],
     "filterType": "GMScript",
-    "folderName": "Elements",
+    "folderName": "Widgets",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

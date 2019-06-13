@@ -21,8 +21,7 @@ if (_widget_name == undefined)
 }
 
 var _widget_array = __guido_widget_find(_widget_name, false);
-var _old_state     = _widget_array[__GUIDO_WIDGET.STATE];
-var _new_state     = GUIDO_STATE.NULL;
+var _old_state    = _widget_array[__GUIDO_WIDGET.STATE];
 
 
 //Position widget
@@ -41,17 +40,7 @@ var _b = guido_y + _widget_h;
 
 
 //Handle cursor interaction
-if (point_in_rectangle(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b))
-{
-    if (!is_string(guido_cursor_over_widget))
-    {
-        guido_cursor_over_widget = _widget_name;
-        
-        _new_state = ((_old_state == GUIDO_STATE.PRESSED) || (_old_state == GUIDO_STATE.DOWN))? GUIDO_STATE.DOWN : GUIDO_STATE.OVER;
-        if (__guido_cursor_released && (_old_state == GUIDO_STATE.DOWN)) _new_state = GUIDO_STATE.RELEASED;
-        if (__guido_cursor_pressed  && (_old_state == GUIDO_STATE.OVER)) _new_state = GUIDO_STATE.PRESSED;
-    }
-}
+var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b, _old_state, _widget_name);
 
 
 //Draw
