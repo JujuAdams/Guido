@@ -1,4 +1,5 @@
 tab = 0;
+counter = 0;
 
 instance_variable = true;
 slider = 10.6;

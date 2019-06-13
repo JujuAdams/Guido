@@ -124,6 +124,7 @@ if (__guido_focus == _widget_name)
 if ((__guido_focus != _widget_name) && _widget_array[__GUIDO_WIDGET.FIELD_FOCUS])
 {
     _value = _field_string;
+    _widget_array[@ __GUIDO_WIDGET.VALUE       ] = _value;
     _widget_array[@ __GUIDO_WIDGET.FIELD_FOCUS ] = false;
     _widget_array[@ __GUIDO_WIDGET.FIELD_STRING] = _field_string;
     __guido_variable_set(_variable, _value);
