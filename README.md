@@ -21,3 +21,5 @@ Guido can also natively display:
 2) Wrapped text (using draw_text_ext)
 3) Sprites
 4) Surfaces
+
+<p align="center"><img src="https://raw.githubusercontent.com/JujuAdams/Guido/master/PREVIEW.png" style="display:block; margin:auto; width:300px"></p>
