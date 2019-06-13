@@ -1,6 +1,6 @@
-draw_set_colour($CCEBFF);
+draw_set_colour(palette[0]);
 draw_set_font(fnt_body);
-guido_set_negative_colour($12123D);
+guido_set_negative_colour(palette[2]);
 
 guido_begin(10, 10, mouse_x, mouse_y, mouse_check_button(mb_left));
 
@@ -77,7 +77,9 @@ switch(tab)
         
         guido_text("2) Toggle buttons");
         guido_newline(0, 40);
+        guido_set_negative_colour(palette[1]);
         guido_checkbox("Toggle on :)", "Toggle off :(");
+        guido_set_negative_colour(palette[2]);
         guido_spacer(20);
         guido_toggle("Toggle on :)", "Toggle off :(");
         guido_newline();
@@ -85,11 +87,13 @@ switch(tab)
         
         guido_text("3) Multiple choice buttons");
         guido_newline(0, 40);
+        guido_set_negative_colour(palette[1]);
         guido_radio("Option 1", undefined, "radio group 0");
         guido_newline(0, 40);
         guido_radio("Option 2", undefined, "radio group 0");
         guido_newline(0, 40);
         guido_radio("Option 3", undefined, "radio group 0");
+        guido_set_negative_colour(palette[2]);
         guido_newline();
         guido_newline(0, 40);
         guido_tab("Option 1", undefined, "radio group 1");
@@ -133,7 +137,7 @@ switch(tab)
         guido_text("3) Button grids");
         guido_newline(0, 40);
         guido_grid(7, 5, 32, 24);
-        guido_newline(0, 132);
+        guido_newline(0, 158);
         draw_set_halign(fa_center);
         guido_text(guido_prev_value);
         draw_set_halign(fa_left);

@@ -54,7 +54,20 @@ guido_spacer(GUIDO_WIDGET_SEPARATION + _format_sprite_w, _format_sprite_h);
 
 
 var _string = _value? _string_on : _string_off;
-if (_string != "") guido_text(_string);
+if (_string != "") 
+{
+    if (_value)
+    {
+        guido_text(_string);
+    }
+    else
+    {
+        var _old_colour = draw_get_colour();
+        draw_set_colour(__guido_negative_colour);
+        guido_text(_string);
+        draw_set_colour(_old_colour);
+    }
+}
 
 
 //Update variable

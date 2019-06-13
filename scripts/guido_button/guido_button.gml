@@ -47,16 +47,16 @@ guido_draw_9slice(_format_sprite, _new_state - GUIDO_STATE.NULL,
                   _format_centre_r, _format_centre_b,
                   _l, _t, _r, _b, true, c_white, 1.0);
 
-if (_new_state == GUIDO_STATE.OVER)
+if ((_new_state == GUIDO_STATE.OVER) || (_new_state == GUIDO_STATE.DOWN))
+{
+    draw_text(_l + _format_centre_l + 1, _t + _format_centre_t, _string);
+}
+else
 {
     var _old_colour = draw_get_colour();
     draw_set_colour(__guido_negative_colour);
     draw_text(_l + _format_centre_l + 1, _t + _format_centre_t, _string);
     draw_set_colour(_old_colour);
-}
-else
-{
-    draw_text(_l + _format_centre_l + 1, _t + _format_centre_t, _string);
 }
 
 

@@ -40,8 +40,8 @@ var _old_state = _widget_array[__GUIDO_WIDGET.STATE];
 
 //Position widget
 var _string = _value? _string_on : _string_off;
-var _widget_w = _format_centre_l + _format_sprite_w - _format_centre_r + string_width(_string);
-var _widget_h = _format_centre_t + _format_sprite_h - _format_centre_b + string_height(_string);
+var _widget_w = _format_centre_l + _format_sprite_w - _format_centre_r + max(string_width( _string_on), string_width( _string_off));
+var _widget_h = _format_centre_t + _format_sprite_h - _format_centre_b + max(string_height(_string_on), string_height(_string_off));
 
 var _l = guido_x;
 var _t = guido_y;
@@ -54,13 +54,21 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 
 
 //Draw
-var _force_over = ((_new_state == GUIDO_STATE.NULL) && _value);
-guido_draw_9slice(_format_sprite, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
+var _on = _value;
+if ((_new_state == GUIDO_STATE.DOWN) || (_new_state == GUIDO_STATE.RELEASED)) _on = !_on;
+
+guido_draw_9slice(_format_sprite, (_on? GUIDO_STATE.DOWN : GUIDO_STATE.NULL) - GUIDO_STATE.NULL,
                   _format_centre_l, _format_centre_t,
                   _format_centre_r, _format_centre_b,
                   _l, _t, _r, _b, true, c_white, 1.0);
 
-if ((_new_state == GUIDO_STATE.OVER) || _force_over)
+if (_value)
+{
+    draw_text(_l + _format_centre_l + 1,
+              _t + _format_centre_t,
+              _string);
+}
+else
 {
     var _old_colour = draw_get_colour();
     draw_set_colour(__guido_negative_colour);
@@ -68,12 +76,6 @@ if ((_new_state == GUIDO_STATE.OVER) || _force_over)
               _t + _format_centre_t,
               _string);
     draw_set_colour(_old_colour);
-}
-else
-{
-    draw_text(_l + _format_centre_l + 1,
-              _t + _format_centre_t,
-              _string);
 }
 
 
