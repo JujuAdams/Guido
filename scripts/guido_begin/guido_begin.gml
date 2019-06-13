@@ -101,15 +101,15 @@ if (!variable_instance_exists(id, "__guido_initialised") || !__guido_initialised
     #endregion
     
     //Set default values for each widget script
-    guido_set_script_format(guido_button      ,   spr_guido_button  ,   4, 4,   59, 59);
-    guido_set_script_format(guido_checkbox    ,   spr_guido_checkbox                  ); //Not 9-sliced, doesn't use centre LTRB
-    guido_set_script_format(guido_toggle      ,   spr_guido_toggle  ,   4, 4,   59, 59);
-    guido_set_script_format(guido_radio       ,   spr_guido_radio                     ); //Not 9-sliced, doesn't use centre LTRB
-    guido_set_script_format(guido_tab         ,   spr_guido_tab     ,   4, 4,   59, 59);
-    guido_set_script_format(guido_slider      ,   spr_guido_slider                    ); //Not 9-sliced, doesn't use centre LTRB
-    guido_set_script_format(guido_real_field  ,   spr_guido_field   ,   4, 4,   59, 59);
-    guido_set_script_format(guido_string_field,   spr_guido_field   ,   4, 4,   59, 59);
-    guido_set_script_format(guido_grid        ,   spr_guido_grid    ,   2, 2,   61, 61);
+    guido_set_skin(guido_button      ,   spr_guido_button  ,   4, 4,   59, 59);
+    guido_set_skin(guido_checkbox    ,   spr_guido_checkbox                  ); //Not 9-sliced, doesn't use centre LTRB
+    guido_set_skin(guido_toggle      ,   spr_guido_toggle  ,   4, 4,   59, 59);
+    guido_set_skin(guido_radio       ,   spr_guido_radio                     ); //Not 9-sliced, doesn't use centre LTRB
+    guido_set_skin(guido_tab         ,   spr_guido_tab     ,   4, 4,   59, 59);
+    guido_set_skin(guido_slider      ,   spr_guido_slider                    ); //Not 9-sliced, doesn't use centre LTRB
+    guido_set_skin(guido_real_field  ,   spr_guido_field   ,   4, 4,   59, 59);
+    guido_set_skin(guido_string_field,   spr_guido_field   ,   4, 4,   59, 59);
+    guido_set_skin(guido_grid        ,   spr_guido_grid    ,   2, 2,   61, 61);
     
     guido_set_string_format(-1, -1);
 }

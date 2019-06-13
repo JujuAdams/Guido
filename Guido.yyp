@@ -146,7 +146,7 @@
             "Key": "4f43cb1d-d811-4b0c-ad61-5b438355b87b",
             "Value": {
                 "id": "329ae62a-40d9-42a3-a6b0-7e136a3cacd4",
-                "resourcePath": "scripts\\guido_set_script_format\\guido_set_script_format.yy",
+                "resourcePath": "scripts\\guido_set_skin\\guido_set_skin.yy",
                 "resourceType": "GMScript"
             }
         },
