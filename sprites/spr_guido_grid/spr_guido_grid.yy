@@ -2,7 +2,7 @@
     "id": "38621d75-533c-4c21-83c5-dc7562232b5a",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "spr_guido_grid_button",
+    "name": "spr_guido_grid",
     "For3D": false,
     "HTile": false,
     "VTile": false,

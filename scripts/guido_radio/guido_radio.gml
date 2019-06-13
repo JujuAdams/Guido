@@ -7,6 +7,13 @@ var _variable     = ((argument_count > 1) && is_string(argument[1]))? argument[1
 var _widget_name = ((argument_count > 2) && is_string(argument[2]))? argument[2] : undefined;
 
 
+//Get formatting data
+var _format_array    = __guido_format[guido_radio - __guido_format_min_script];
+var _format_sprite   = _format_array[__GUIDO_FORMAT.SPRITE  ];
+var _format_sprite_w = _format_array[__GUIDO_FORMAT.SPRITE_W];
+var _format_sprite_h = _format_array[__GUIDO_FORMAT.SPRITE_H];
+
+
 //Find widget data
 if (!is_string(_widget_name)) _widget_name = _variable;
 if (_widget_name == undefined)
@@ -30,13 +37,10 @@ var _group_count = _widget_array[__GUIDO_WIDGET.COUNT];
 
 
 //Position widget
-var _widget_w = sprite_get_width( __guido_format_radio_sprite);
-var _widget_h = sprite_get_height(__guido_format_radio_sprite);
-
 var _l = guido_x;
 var _t = guido_y;
-var _r = guido_x + _widget_w;
-var _b = guido_y + _widget_h;
+var _r = guido_x + _format_sprite_w;
+var _b = guido_y + _format_sprite_h;
 
 
 //Handle cursor interaction
@@ -44,11 +48,11 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 
 
 //Draw
-draw_sprite(__guido_format_radio_sprite, ((_group_count == _value)? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
+draw_sprite(_format_sprite, ((_group_count == _value)? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
 
 
 //Update Guido position
-guido_spacer(GUIDO_WIDGET_SEPARATION + _widget_w, _widget_h);
+guido_spacer(GUIDO_WIDGET_SEPARATION + _format_sprite_w, _format_sprite_h);
 
 
 //Draw label

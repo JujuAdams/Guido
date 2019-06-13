@@ -5,6 +5,17 @@ var _string       = argument[0];
 var _widget_name = (argument_count > 1)? argument[1] : undefined;
 
 
+//Get formatting data
+var _format_array    = __guido_format[guido_button - __guido_format_min_script];
+var _format_sprite   = _format_array[__GUIDO_FORMAT.SPRITE  ];
+var _format_sprite_w = _format_array[__GUIDO_FORMAT.SPRITE_W];
+var _format_sprite_h = _format_array[__GUIDO_FORMAT.SPRITE_H];
+var _format_centre_l = _format_array[__GUIDO_FORMAT.CENTRE_L];
+var _format_centre_t = _format_array[__GUIDO_FORMAT.CENTRE_T];
+var _format_centre_r = _format_array[__GUIDO_FORMAT.CENTRE_R];
+var _format_centre_b = _format_array[__GUIDO_FORMAT.CENTRE_B];
+
+
 //Get widget data
 if (_widget_name == undefined)
 {
@@ -17,8 +28,8 @@ var _old_state     = _widget_array[__GUIDO_WIDGET.STATE];
 
 
 //Position widget
-var _widget_w = __guido_format_tab_centre_l + sprite_get_width( spr_guido_toggle) - __guido_format_tab_centre_r + string_width(_string);
-var _widget_h = __guido_format_tab_centre_t + sprite_get_height(spr_guido_toggle) - __guido_format_tab_centre_b + string_height(_string);
+var _widget_w = _format_centre_l + _format_sprite_w - _format_centre_r + string_width(_string);
+var _widget_h = _format_centre_t + _format_sprite_h - _format_centre_b + string_height(_string);
 
 var _l = guido_x;
 var _t = guido_y;
@@ -31,23 +42,21 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 
 
 //Draw
-__guido_9slice(__guido_format_button_sprite, _new_state - GUIDO_STATE.NULL,
-               __guido_format_button_centre_l,
-               __guido_format_button_centre_t,
-               __guido_format_button_centre_r,
-               __guido_format_button_centre_b,
+__guido_9slice(_format_sprite, _new_state - GUIDO_STATE.NULL,
+               _format_centre_l, _format_centre_t,
+               _format_centre_r, _format_centre_b,
                _l, _t, _r, _b, true);
 
 if (_new_state == GUIDO_STATE.OVER)
 {
     var _old_colour = draw_get_colour();
     draw_set_colour(GUIDO_INVERSE_COLOUR);
-    draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
+    draw_text(_l + _format_centre_l + 1, _t + _format_centre_t, _string);
     draw_set_colour(_old_colour);
 }
 else
 {
-    draw_text(_l + __guido_format_tab_centre_l + 1, _t + __guido_format_tab_centre_t, _string);
+    draw_text(_l + _format_centre_l + 1, _t + _format_centre_t, _string);
 }
 
 

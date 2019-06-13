@@ -58,6 +58,18 @@ enum __GUIDO_WIDGET
     __SIZE
 }
 
+enum __GUIDO_FORMAT
+{
+    SPRITE,
+    SPRITE_W,
+    SPRITE_H,
+    CENTRE_L,
+    CENTRE_T,
+    CENTRE_R,
+    CENTRE_B,
+    __SIZE
+}
+
 #endregion
 
 if (!variable_instance_exists(id, "__guido_initialised"))
@@ -72,47 +84,19 @@ if (!variable_instance_exists(id, "__guido_initialised"))
     
     #region Formatting values
     
-    __guido_format_button_sprite   = spr_guido_button;
-    __guido_format_button_centre_l =  4;
-    __guido_format_button_centre_t =  4;
-    __guido_format_button_centre_r = 59;
-    __guido_format_button_centre_b = 59;
+    __guido_format_min_script = min(guido_button, guido_hyperlink, guido_checkbox, guido_toggle, guido_radio, guido_tab, guido_slider, guido_real_field, guido_string_field, guido_grid, guido_divider);
+    __guido_format_max_script = max(guido_button, guido_hyperlink, guido_checkbox, guido_toggle, guido_radio, guido_tab, guido_slider, guido_real_field, guido_string_field, guido_grid, guido_divider);
+    __guido_format = array_create(1 + __guido_format_max_script - __guido_format_min_script);
     
-    __guido_format_checkbox_sprite = spr_guido_checkbox;
-    
-    __guido_format_toggle_sprite   = spr_guido_toggle;
-    __guido_format_toggle_centre_l =  4;
-    __guido_format_toggle_centre_t =  4;
-    __guido_format_toggle_centre_r = 59;
-    __guido_format_toggle_centre_b = 59;
-    
-    __guido_format_radio_sprite = spr_guido_radio;
-    
-    __guido_format_tab_sprite   = spr_guido_button;
-    __guido_format_tab_centre_l =  4;
-    __guido_format_tab_centre_t =  4;
-    __guido_format_tab_centre_r = 59;
-    __guido_format_tab_centre_b = 59;
-    
-    __guido_format_slider_sprite = spr_guido_slider;
-    
-    __guido_format_real_field_sprite   = spr_guido_field;
-    __guido_format_real_field_centre_l =  4;
-    __guido_format_real_field_centre_t =  4;
-    __guido_format_real_field_centre_r = 59;
-    __guido_format_real_field_centre_b = 59;
-    
-    __guido_format_string_field_sprite   = spr_guido_field;
-    __guido_format_string_field_centre_l =  4;
-    __guido_format_string_field_centre_t =  4;
-    __guido_format_string_field_centre_r = 59;
-    __guido_format_string_field_centre_b = 59;
-    
-    __guido_format_grid_button_sprite   = spr_guido_grid_button;
-    __guido_format_grid_button_centre_l =  4;
-    __guido_format_grid_button_centre_t =  4;
-    __guido_format_grid_button_centre_r = 59;
-    __guido_format_grid_button_centre_b = 59;
+    guido_set_format(guido_button      ,   spr_guido_button  ,   4, 4,   59, 59);
+    guido_set_format(guido_checkbox    ,   spr_guido_checkbox,   0, 0,    0,  0);
+    guido_set_format(guido_toggle      ,   spr_guido_toggle  ,   4, 4,   59, 59);
+    guido_set_format(guido_radio       ,   spr_guido_radio   ,   0, 0,    0,  0);
+    guido_set_format(guido_tab         ,   spr_guido_tab     ,   4, 4,   59, 59);
+    guido_set_format(guido_slider      ,   spr_guido_slider  ,   0, 0,    0,  0);
+    guido_set_format(guido_real_field  ,   spr_guido_field   ,   4, 4,   59, 59);
+    guido_set_format(guido_string_field,   spr_guido_field   ,   4, 4,   59, 59);
+    guido_set_format(guido_grid        ,   spr_guido_grid    ,   4, 4,   59, 59);
     
     #endregion
 }

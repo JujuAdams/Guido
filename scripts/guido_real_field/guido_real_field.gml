@@ -5,12 +5,23 @@
 /// @param [variableName]
 /// @param [widgetName]
 
-var _min          = argument[0];
-var _max          = argument[1];
-var _unit         = argument[2];
-var _length       = argument[3];
-var _variable     = ((argument_count > 4) && is_string(argument[4]))? argument[4] : undefined;
+var _min         = argument[0];
+var _max         = argument[1];
+var _unit        = argument[2];
+var _length      = argument[3];
+var _variable    = ((argument_count > 4) && is_string(argument[4]))? argument[4] : undefined;
 var _widget_name = ((argument_count > 5) && is_string(argument[5]))? argument[5] : undefined;
+
+
+//Get formatting data
+var _format_array    = __guido_format[guido_real_field - __guido_format_min_script];
+var _format_sprite   = _format_array[__GUIDO_FORMAT.SPRITE  ];
+var _format_sprite_w = _format_array[__GUIDO_FORMAT.SPRITE_W];
+var _format_sprite_h = _format_array[__GUIDO_FORMAT.SPRITE_H];
+var _format_centre_l = _format_array[__GUIDO_FORMAT.CENTRE_L];
+var _format_centre_t = _format_array[__GUIDO_FORMAT.CENTRE_T];
+var _format_centre_r = _format_array[__GUIDO_FORMAT.CENTRE_R];
+var _format_centre_b = _format_array[__GUIDO_FORMAT.CENTRE_B];
 
 
 //Find widget data
@@ -38,15 +49,15 @@ var _field_string = _widget_array[__GUIDO_WIDGET.FIELD_STRING];
 
 
 //Position widget
-var _widget_w = max(_length, __guido_format_real_field_centre_l + sprite_get_width(__guido_format_real_field_sprite) - __guido_format_real_field_centre_r);
-var _widget_h = __guido_format_real_field_centre_t + sprite_get_height(__guido_format_real_field_sprite) - __guido_format_real_field_centre_b + string_height(_field_string + " ");
+var _widget_w = max(_length, _format_centre_l + (_format_sprite_w - _format_centre_r));
+var _widget_h = _format_centre_t + (_format_sprite_h - _format_centre_b) + string_height(_field_string + " ");
 
 var _l = guido_x;
 var _t = guido_y;
 var _r = guido_x + _widget_w;
 var _b = guido_y + _widget_h;
-var _text_l = _l + __guido_format_real_field_centre_l;
-var _text_t = _t + __guido_format_real_field_centre_t;
+var _text_l = _l + _format_centre_l;
+var _text_t = _t + _format_centre_t;
 
 
 //Handle cursor interaction
@@ -112,11 +123,9 @@ if ((__guido_focus != _widget_name) && _widget_array[__GUIDO_WIDGET.FIELD_FOCUS]
 
 //Draw
 var _force_over = ((_new_state == GUIDO_STATE.NULL) && (__guido_focus == _widget_name));
-__guido_9slice(__guido_format_real_field_sprite, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
-               __guido_format_real_field_centre_l,
-               __guido_format_real_field_centre_t,
-               __guido_format_real_field_centre_r,
-               __guido_format_real_field_centre_b,
+__guido_9slice(_format_sprite, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
+               _format_centre_l, _format_centre_t,
+               _format_centre_r, _format_centre_b,
                _l, _t, _r, _b, true);
                
 if (__guido_focus == _widget_name && (_new_state <= GUIDO_STATE.OVER))
@@ -132,7 +141,7 @@ if (__guido_focus == _widget_name && (_new_state <= GUIDO_STATE.OVER))
         draw_rectangle(_text_l + _string_part_width,
                        _text_t + 1,
                        _text_l + _string_part_width + 1,
-                       _b - (sprite_get_height(spr_guido_toggle) - __guido_format_real_field_centre_b),
+                       _b - (_format_sprite_h - _format_centre_b),
                        false);
     }
     draw_text(_text_l + _string_part_width, _text_t, string_delete(_field_string, 1, _field_pos));

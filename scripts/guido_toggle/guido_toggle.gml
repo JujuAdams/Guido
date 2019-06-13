@@ -8,6 +8,19 @@ var _string_off   = ((argument_count > 1) && (argument[1] != undefined))? argume
 var _variable     = ((argument_count > 2) && is_string(argument[2])    )? argument[2] : undefined;
 var _widget_name = ((argument_count > 3) && is_string(argument[3])    )? argument[3] : undefined;
 
+
+//Get formatting data
+var _format_array    = __guido_format[guido_toggle - __guido_format_min_script];
+var _format_sprite   = _format_array[__GUIDO_FORMAT.SPRITE  ];
+var _format_sprite_w = _format_array[__GUIDO_FORMAT.SPRITE_W];
+var _format_sprite_h = _format_array[__GUIDO_FORMAT.SPRITE_H];
+var _format_centre_l = _format_array[__GUIDO_FORMAT.CENTRE_L];
+var _format_centre_t = _format_array[__GUIDO_FORMAT.CENTRE_T];
+var _format_centre_r = _format_array[__GUIDO_FORMAT.CENTRE_R];
+var _format_centre_b = _format_array[__GUIDO_FORMAT.CENTRE_B];
+
+
+//Get widget data
 if (!is_string(_widget_name)) _widget_name = _variable;
 if (_widget_name == undefined)
 {
@@ -25,10 +38,10 @@ var _value     = _widget_array[__GUIDO_WIDGET.VALUE];
 var _old_state = _widget_array[__GUIDO_WIDGET.STATE];
 
 
-
+//Position widget
 var _string = _value? _string_on : _string_off;
-var _widget_w = __guido_format_toggle_centre_l + sprite_get_width( __guido_format_toggle_sprite) - __guido_format_toggle_centre_r + string_width(_string);
-var _widget_h = __guido_format_toggle_centre_t + sprite_get_height(__guido_format_toggle_sprite) - __guido_format_toggle_centre_b + string_height(_string);
+var _widget_w = _format_centre_l + _format_sprite_w - _format_centre_r + string_width(_string);
+var _widget_h = _format_centre_t + _format_sprite_h - _format_centre_b + string_height(_string);
 
 var _l = guido_x;
 var _t = guido_y;
@@ -42,26 +55,24 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 
 //Draw
 var _force_over = ((_new_state == GUIDO_STATE.NULL) && _value);
-__guido_9slice(__guido_format_toggle_sprite, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
-               __guido_format_toggle_centre_l,
-               __guido_format_toggle_centre_t,
-               __guido_format_toggle_centre_r,
-               __guido_format_toggle_centre_b,
+__guido_9slice(_format_sprite, (_force_over? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL,
+               _format_centre_l, _format_centre_t,
+               _format_centre_r, _format_centre_b,
                _l, _t, _r, _b, true);
 
 if ((_new_state == GUIDO_STATE.OVER) || _force_over)
 {
     var _old_colour = draw_get_colour();
     draw_set_colour(GUIDO_INVERSE_COLOUR);
-    draw_text(_l + __guido_format_toggle_centre_l + 1,
-              _t + __guido_format_toggle_centre_t,
+    draw_text(_l + _format_centre_l + 1,
+              _t + _format_centre_t,
               _string);
     draw_set_colour(_old_colour);
 }
 else
 {
-    draw_text(_l + __guido_format_toggle_centre_l + 1,
-              _t + __guido_format_toggle_centre_t,
+    draw_text(_l + _format_centre_l + 1,
+              _t + _format_centre_t,
               _string);
 }
 

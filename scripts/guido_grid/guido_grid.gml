@@ -6,13 +6,22 @@
 /// @param [variableName]
 /// @param [widgetName]
 
-var _width        = argument[0];
-var _height       = argument[1];
-var _cell_width   = argument[2];
-var _cell_height  = argument[3];
-var _draw_grid    = ((argument_count > 4) && (is_real(argument[4]) || is_bool(argument[4])))? argument[4] : true;
-var _variable     = ((argument_count > 5) && is_string(argument[5]))? argument[5] : undefined;
+var _width       = argument[0];
+var _height      = argument[1];
+var _cell_width  = argument[2];
+var _cell_height = argument[3];
+var _draw_grid   = ((argument_count > 4) && (is_real(argument[4]) || is_bool(argument[4])))? argument[4] : true;
+var _variable    = ((argument_count > 5) && is_string(argument[5]))? argument[5] : undefined;
 var _widget_name = ((argument_count > 6) && is_string(argument[6]))? argument[6] : undefined;
+
+
+//Get formatting data
+var _format_array    = __guido_format[guido_grid - __guido_format_min_script];
+var _format_sprite   = _format_array[__GUIDO_FORMAT.SPRITE  ];
+var _format_centre_l = _format_array[__GUIDO_FORMAT.CENTRE_L];
+var _format_centre_t = _format_array[__GUIDO_FORMAT.CENTRE_T];
+var _format_centre_r = _format_array[__GUIDO_FORMAT.CENTRE_R];
+var _format_centre_b = _format_array[__GUIDO_FORMAT.CENTRE_B];
 
 
 //Get widget data
@@ -56,30 +65,31 @@ if (point_in_rectangle(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b))
 
 
 //Draw
-var _y = _t;
-var _j =  0;
-repeat(_height)
+if (_draw_grid)
 {
-    var _x = _l;
-    var _i =  0;
-    repeat(_width)
+    var _y = _t;
+    var _j =  0;
+    repeat(_height)
     {
-        var _index = 0;
-        if ((_value[0] != undefined) && (_value[1] != undefined) && (_i == _value[0]) && (_j == _value[1])) _index = _new_state - GUIDO_STATE.NULL;
+        var _x = _l;
+        var _i =  0;
+        repeat(_width)
+        {
+            var _index = 0;
+            if ((_value[0] != undefined) && (_value[1] != undefined) && (_i == _value[0]) && (_j == _value[1])) _index = _new_state - GUIDO_STATE.NULL;
+            
+            __guido_9slice(_format_sprite, _index,
+                           _format_centre_l, _format_centre_t,
+                           _format_centre_r, _format_centre_b,
+                           _x, _y, _x + _cell_width, _y + _cell_height, true);
+            
+            _x += _cell_width;
+            ++_i;
+        }
         
-        __guido_9slice(__guido_format_grid_button_sprite, _index,
-                       __guido_format_grid_button_centre_l,
-                       __guido_format_grid_button_centre_t,
-                       __guido_format_grid_button_centre_r,
-                       __guido_format_grid_button_centre_b,
-                       _x, _y, _x + _cell_width, _y + _cell_height, true);
-        
-        _x += _cell_width;
-        ++_i;
+        _y += _cell_height;
+        ++_j;
     }
-    
-    _y += _cell_height;
-    ++_j;
 }
 
 

@@ -5,12 +5,19 @@
 /// @param [variableName]
 /// @param [widgetName]
 
-var _min          = argument[0];
-var _max          = argument[1];
-var _unit         = argument[2];
-var _length       = argument[3];
-var _variable     = ((argument_count > 4) && is_string(argument[4]))? argument[4] : undefined;
+var _min         = argument[0];
+var _max         = argument[1];
+var _unit        = argument[2];
+var _length      = argument[3];
+var _variable    = ((argument_count > 4) && is_string(argument[4]))? argument[4] : undefined;
 var _widget_name = ((argument_count > 5) && is_string(argument[5]))? argument[5] : undefined;
+
+
+//Get formatting data
+var _format_array    = __guido_format[guido_slider - __guido_format_min_script];
+var _format_sprite   = _format_array[__GUIDO_FORMAT.SPRITE  ];
+var _format_sprite_w = _format_array[__GUIDO_FORMAT.SPRITE_W];
+var _format_sprite_h = _format_array[__GUIDO_FORMAT.SPRITE_H];
 
 
 //Find widget data
@@ -36,8 +43,8 @@ var _new_state = GUIDO_STATE.NULL;
 
 
 //Position widget
-var _widget_w = sprite_get_width( __guido_format_slider_sprite);
-var _widget_h = sprite_get_height(__guido_format_slider_sprite);
+var _widget_w = _format_sprite_w;
+var _widget_h = _format_sprite_h;
 
 var _min_x = guido_x;
 var _max_x = guido_x + _length - _widget_w;
@@ -90,7 +97,7 @@ draw_line(_min_x, _t, _min_x, _b);
 draw_line(_min_x, 0.5*(_t + _b), _max_x, 0.5*(_t + _b));
 draw_line(_max_x, _t, _max_x, _b);
 
-draw_sprite(__guido_format_slider_sprite, _new_state - GUIDO_STATE.NULL, _l, _t);
+draw_sprite(_format_sprite, _new_state - GUIDO_STATE.NULL, _l, _t);
 
 
 //Update Guido position
