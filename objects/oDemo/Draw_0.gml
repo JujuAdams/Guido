@@ -26,7 +26,7 @@ switch(tab)
         guido_text_ext("\"Immediate mode\" is a GUI design pattern that's very simple to use for basic GUI layouts. This particular library is inspired by the venerable ImGUI, but heavily modified to suit the programming practices of GameMaker developers. This entire demo is written in a single block of code using straight-forward scripts.", -1, 1000);
         guido_newline();
         guido_newline();
-        guido_text_ext("This library is designed with debug tools in mind. Its various UI widgets (also called \"widgets\") should cover the vast majority of backend tool use cases.", -1, 1000);
+        guido_text_ext("This library is designed with debug tools in mind. Its various UI widgets should cover the vast majority of backend tool use cases.", -1, 1000);
     break;
     
     case 1:
@@ -95,7 +95,7 @@ switch(tab)
         guido_newline();
         guido_spacer(40);
         guido_slider(7, 42, 3, 200);
-        guido_text("Slider value = ", guido_prev_value);
+        guido_text("Slider value = ", guido_prev_value, " (7 -> 42, steps of 3)");
         guido_newline();
         guido_newline();
         
@@ -103,6 +103,7 @@ switch(tab)
         guido_newline();
         guido_spacer(40);
         guido_real_field(20, 30, 0, 150);
+        guido_text("(20 -> 30)");
         guido_newline();
         guido_spacer(40);
         guido_string_field(150);
@@ -113,6 +114,11 @@ switch(tab)
         guido_newline();
         guido_spacer(40);
         guido_grid(11, 9, 16, 12);
+        guido_newline();
+        guido_spacer(132);
+        draw_set_halign(fa_center);
+        guido_text(guido_prev_value);
+        draw_set_halign(fa_left);
         
         #endregion
     break;
