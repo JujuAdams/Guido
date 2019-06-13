@@ -1,3 +1,6 @@
+draw_set_colour($CCEBFF);
+draw_set_font(fnt_body);
+
 guido_begin(10, 10, mouse_x, mouse_y, mouse_check_button(mb_left));
 
 #region Header
@@ -9,13 +12,18 @@ if (guido_hyperlink("@jujuadams")) url_open("http://www.twitter.com/JujuAdams");
 guido_newline();
 guido_newline();
 draw_set_font(fnt_tab);
-guido_tab("Intro", "tab");
+guido_spacer(10);
+guido_tab(" Intro ", "tab");
 guido_spacer(20);
-guido_tab("Buttons", "tab");
+guido_tab(" Buttons ", "tab");
 guido_spacer(20);
-guido_tab("More Input", "tab");
-guido_divider(1000);
-draw_set_font(-1);
+guido_tab(" More Input ", "tab");
+
+guido_draw_9slice(spr_window_background, 0,   4, 4,   59, 59,
+                  guido_xstart, guido_y + guido_line_height, room_width - guido_xstart, room_height - guido_ystart,
+                  true, c_white, 0.4);
+
+draw_set_font(fnt_body);
 guido_newline();
 
 #endregion
@@ -28,7 +36,7 @@ switch(tab)
         guido_text_ext(-1, 1000, "\"Immediate mode\" is a GUI design pattern that's very simple to use for basic GUI layouts. This particular library is inspired by the venerable ImGUI, but heavily modified to suit the programming practices of GameMaker developers. This entire demo is written in a single block of code using straight-forward scripts.");
         guido_newline(20);
         guido_text_ext(-1, 1000, "This library is designed with debug tools in mind. Its various UI widgets should cover the vast majority of backend tool use cases.");
-        guido_newline(20);
+        guido_divider(1000);
         guido_text_ext(-1, 1000, "Guido's structure allows you to lay out UI components as you would text on a page. Each component is a single script call, and each script call returns a \"state\" that can be used to check for user interaction.");
         guido_newline();
         if (guido_button("Click me!")) counter++;

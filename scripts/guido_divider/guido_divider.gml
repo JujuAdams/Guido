@@ -1,8 +1,8 @@
 /// @param [width]
 
-var _width = ((argument_count > 0) && is_real(argument[0]))? argument[0] : (guido_x - __guido_start_pos_x);
+var _width = ((argument_count > 0) && is_real(argument[0]))? argument[0] : (guido_x - guido_xstart);
 
 guido_newline();
-draw_line(__guido_start_pos_x, guido_y + GUIDO_LINE_MIN_HEIGHT-2, __guido_start_pos_x + _width, guido_y + GUIDO_LINE_MIN_HEIGHT-2);
-draw_line(__guido_start_pos_x, guido_y + GUIDO_LINE_MIN_HEIGHT  , __guido_start_pos_x + _width, guido_y + GUIDO_LINE_MIN_HEIGHT  );
+draw_line(guido_xstart, guido_y + (GUIDO_LINE_MIN_HEIGHT div 2)-2, guido_xstart + _width, guido_y + (GUIDO_LINE_MIN_HEIGHT div 2)-2);
+draw_line(guido_xstart, guido_y + (GUIDO_LINE_MIN_HEIGHT div 2)  , guido_xstart + _width, guido_y + (GUIDO_LINE_MIN_HEIGHT div 2)  );
 guido_newline();

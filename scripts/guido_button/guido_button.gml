@@ -42,10 +42,10 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 
 
 //Draw
-__guido_9slice(_format_sprite, _new_state - GUIDO_STATE.NULL,
-               _format_centre_l, _format_centre_t,
-               _format_centre_r, _format_centre_b,
-               _l, _t, _r, _b, true);
+guido_draw_9slice(_format_sprite, _new_state - GUIDO_STATE.NULL,
+                  _format_centre_l, _format_centre_t,
+                  _format_centre_r, _format_centre_b,
+                  _l, _t, _r, _b, true, c_white, 1.0);
 
 if (_new_state == GUIDO_STATE.OVER)
 {

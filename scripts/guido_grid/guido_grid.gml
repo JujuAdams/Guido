@@ -78,10 +78,10 @@ if (_draw_grid)
             var _index = 0;
             if ((_value[0] != undefined) && (_value[1] != undefined) && (_i == _value[0]) && (_j == _value[1])) _index = _new_state - GUIDO_STATE.NULL;
             
-            __guido_9slice(_format_sprite, _index,
-                           _format_centre_l, _format_centre_t,
-                           _format_centre_r, _format_centre_b,
-                           _x, _y, _x + _cell_width, _y + _cell_height, true);
+            guido_draw_9slice(_format_sprite, _index,
+                              _format_centre_l, _format_centre_t,
+                              _format_centre_r, _format_centre_b,
+                              _x, _y, _x + _cell_width, _y + _cell_height, true, c_white, 1.0);
             
             _x += _cell_width;
             ++_i;

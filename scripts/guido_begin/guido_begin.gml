@@ -8,6 +8,9 @@
 //
 //  guido_x                   {real}    Current draw position
 //  guido_y                   {real}    
+//  guido_xstart              {real}    Starting position
+//  guido_ystart              {real}    
+//  guido_line_height         {real}    Current height of this line of GUI elements
 //  guido_cursor_over_widget  {bool}    What widget the cursor is over (<undefined> if over no widget)
 //  guido_prev_name           {string}  Name of the last widget processed
 //  guido_prev_state          {real}    State of the last widget processed (see below)
@@ -114,13 +117,13 @@ if (!variable_instance_exists(id, "__guido_initialised") || !__guido_initialised
     guido_set_string_format(-1, -1);
 }
 
-__guido_start_pos_x = argument0;
-__guido_start_pos_y = argument1;
-__guido_cursor_x    = argument2;
-__guido_cursor_y    = argument3;
+guido_xstart     = argument0;
+guido_ystart     = argument1;
+__guido_cursor_x = argument2;
+__guido_cursor_y = argument3;
 
-guido_x = __guido_start_pos_x;
-guido_y = __guido_start_pos_y;
+guido_x = guido_xstart;
+guido_y = guido_ystart;
 
 //Update the cursor's state
 __guido_prev_cursor_down = __guido_cursor_down;
@@ -129,13 +132,13 @@ __guido_cursor_pressed   = (!__guido_prev_cursor_down &&  __guido_cursor_down);
 __guido_cursor_released  = ( __guido_prev_cursor_down && !__guido_cursor_down);
 
 //Clear public state variables
+guido_line_height        = 0;
 guido_cursor_over_widget = undefined;
-guido_prev_name  = undefined;
-guido_prev_state = undefined;
-guido_prev_value = undefined;
+guido_prev_name          = undefined;
+guido_prev_state         = undefined;
+guido_prev_value         = undefined;
 
 //Clear some internal variables too
-__guido_line_height = 0;
 __guido_auto_widget = 0;
 
 
