@@ -12,6 +12,17 @@ if (is_string(_variable))
     }
     else
     {
-        variable_instance_set(id, _variable, _value);
+        var _pos = string_pos(".", _variable);
+        
+        if (_pos > 0)
+        {
+            var _object   = string_copy(_variable, 1, _pos-1);
+            var _variable = string_delete(_variable, 1, _pos);
+            variable_instance_set(asset_get_index(_object).id, _variable, _value);
+        }
+        else
+        {
+            variable_instance_set(id, _variable, _value);
+        }
     }
 }

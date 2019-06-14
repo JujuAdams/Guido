@@ -10,8 +10,19 @@ if (is_string(_variable))
     }
     else
     {
-        return variable_instance_exists(id, _variable);
+        var _pos = string_pos(".", _variable);
+        
+        if (_pos > 0)
+        {
+            var _object   = string_copy(_variable, 1, _pos-1);
+            var _variable = string_delete(_variable, 1, _pos);
+            return variable_instance_exists(asset_get_index(_object).id, _variable);
+        }
+        else
+        {
+            return variable_instance_exists(id, _variable);
+        }
     }
 }
 
-return undefined;
+return false;
