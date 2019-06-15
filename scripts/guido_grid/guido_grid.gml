@@ -64,7 +64,7 @@ if (point_in_rectangle(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b))
 }
 
 
-//Draw
+//Draw (if necessary)
 if (_draw_grid)
 {
     var _y = _t;
@@ -107,4 +107,5 @@ guido_prev_state = _new_state;
 guido_prev_value = _value;
 
 
+//Return state
 return _new_state;
