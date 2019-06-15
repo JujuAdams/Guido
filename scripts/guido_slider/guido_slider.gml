@@ -74,6 +74,8 @@ if (point_in_rectangle(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b))
     }
 }
 
+
+//Update slider value based on mouse position
 if (__guido_cursor_down && (_old_state == GUIDO_STATE.DOWN))
 {
     _new_state = GUIDO_STATE.DOWN;
@@ -91,12 +93,14 @@ _l = floor(_l);
 _r = floor(_r);
 
 
-//Draw
+//Draw slot
 _max_x += _widget_w;
 draw_line(_min_x-1, _t, _min_x-1, _b-1);
 draw_line(_min_x-1, (_t + _b) div 2, _max_x, (_t + _b) div 2);
 draw_line(_max_x, _t, _max_x, _b-1);
 
+
+//Draw button
 draw_sprite(_format_sprite, _new_state - GUIDO_STATE.NULL, _l, _t);
 
 
@@ -121,4 +125,6 @@ guido_prev_name  = _widget_name;
 guido_prev_state = _new_state;
 guido_prev_value = _value;
 
+
+//Return state
 return _new_state;

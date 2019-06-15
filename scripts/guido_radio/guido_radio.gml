@@ -90,4 +90,6 @@ guido_prev_name  = _widget_name;
 guido_prev_state = _new_state;
 guido_prev_value = _value;
 
+
+//Return state
 return _new_state;
