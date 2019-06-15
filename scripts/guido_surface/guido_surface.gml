@@ -28,4 +28,5 @@ guido_prev_state = GUIDO_STATE.NULL;
 guido_prev_value = undefined;
 
 
+//Return a NULL state because this element is non-interactive
 return GUIDO_STATE.NULL;
