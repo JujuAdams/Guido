@@ -24,7 +24,7 @@ if (_widget_name == undefined)
 {
     show_error("Tabs must be given either a variable or a widget name.\n ", false);
     guido_prev_name  = undefined;
-    guido_prev_state = undefined;
+    guido_prev_state = GUIDO_STATE.NULL;
     guido_prev_value = undefined;
     return GUIDO_STATE.NULL;
 }

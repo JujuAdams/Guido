@@ -30,7 +30,7 @@ guido_spacer(GUIDO_WIDGET_SEPARATION + _xscale*sprite_get_width(_sprite),
 
 //Reset public state
 guido_prev_name  = undefined;
-guido_prev_state = undefined;
+guido_prev_state = GUIDO_STATE.NULL;
 guido_prev_value = undefined;
 
 

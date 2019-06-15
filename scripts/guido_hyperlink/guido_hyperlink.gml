@@ -7,7 +7,7 @@ var _widget_name = (argument_count > 1)? argument[1] : undefined;
 if (_string == "")
 {
     guido_prev_name  = undefined;
-    guido_prev_state = undefined;
+    guido_prev_state = GUIDO_STATE.NULL;
     guido_prev_value = undefined;
     return undefined;
 }
