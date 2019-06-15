@@ -61,7 +61,7 @@ else
 }
 
 
-//Update Guido position
+//Update draw position
 guido_spacer(GUIDO_WIDGET_SEPARATION + _widget_w, _widget_h);
 
 

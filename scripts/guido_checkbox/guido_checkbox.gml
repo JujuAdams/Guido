@@ -49,7 +49,7 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 draw_sprite(_format_sprite, (_value? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
 
 
-//Update Guido position
+//Update draw position
 guido_spacer(GUIDO_WIDGET_SEPARATION + _format_sprite_w, _format_sprite_h);
 
 

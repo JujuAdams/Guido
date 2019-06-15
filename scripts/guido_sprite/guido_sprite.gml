@@ -14,6 +14,8 @@ var _angle  = ((argument_count > 4) && (argument[4] != undefined))? argument[4] 
 var _colour = ((argument_count > 5) && (argument[5] != undefined))? argument[5] : c_white;
 var _alpha  = ((argument_count > 6) && (argument[6] != undefined))? argument[6] : 1;
 
+
+//Don't draw anything if we can't find this sprite
 if (!sprite_exists(_sprite)) exit;
 
 
@@ -21,15 +23,16 @@ if (!sprite_exists(_sprite)) exit;
 draw_sprite_ext(_sprite, _image, guido_x + _xscale*sprite_get_xoffset(_sprite), guido_y + _yscale*sprite_get_yoffset(_sprite), _xscale, _yscale, _angle, _colour, _alpha);
 
 
-//Update Guido position
+//Update draw position
 guido_spacer(GUIDO_WIDGET_SEPARATION + _xscale*sprite_get_width(_sprite),
              _yscale*sprite_get_height(_sprite));
 
 
-//Reset draw state
+//Reset public state
 guido_prev_name  = undefined;
 guido_prev_state = undefined;
 guido_prev_value = undefined;
 
 
+//Return a NULL state because this element is non-interactive
 return GUIDO_STATE.NULL;

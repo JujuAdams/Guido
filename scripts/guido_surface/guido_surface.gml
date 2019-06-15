@@ -17,12 +17,12 @@ if (!surface_exists(_surface)) exit;
 draw_surface_ext(_surface, guido_x, guido_y, _xscale, _yscale, 0, _colour, _alpha);
 
 
-//Update Guido position
+//Update draw position
 guido_spacer(GUIDO_WIDGET_SEPARATION + _xscale*surface_get_width(_surface),
              _yscale*surface_get_height(_surface));
 
 
-//Reset draw state
+//Reset public state
 guido_prev_name  = undefined;
 guido_prev_state = undefined;
 guido_prev_value = undefined;

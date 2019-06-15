@@ -78,7 +78,7 @@ else
 }
 
 
-//Update Guido position
+//Update draw position
 guido_spacer(GUIDO_WIDGET_SEPARATION + _widget_w, _widget_h);
 
 
@@ -95,7 +95,7 @@ if (_widget_array[__GUIDO_WIDGET.NEW_STATE] == GUIDO_STATE.NULL) _widget_array[@
 _widget_array[@ __GUIDO_WIDGET.COUNT]++;
 
 
-//Reset draw state
+//Reset public state
 guido_prev_name  = _widget_name;
 guido_prev_state = _new_state;
 guido_prev_value = _value;

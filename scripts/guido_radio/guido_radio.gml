@@ -51,7 +51,7 @@ var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t,
 draw_sprite(_format_sprite, ((_group_count == _value)? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
 
 
-//Update Guido position
+//Update draw position
 guido_spacer(GUIDO_WIDGET_SEPARATION + _format_sprite_w, _format_sprite_h);
 
 
@@ -85,7 +85,7 @@ if (_widget_array[__GUIDO_WIDGET.NEW_STATE] == GUIDO_STATE.NULL) _widget_array[@
 _widget_array[@ __GUIDO_WIDGET.COUNT]++;
 
 
-//Reset draw state
+//Reset public state
 guido_prev_name  = _widget_name;
 guido_prev_state = _new_state;
 guido_prev_value = _value;

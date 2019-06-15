@@ -100,7 +100,7 @@ draw_line(_max_x, _t, _max_x, _b-1);
 draw_sprite(_format_sprite, _new_state - GUIDO_STATE.NULL, _l, _t);
 
 
-//Update Guido position
+//Update draw position
 guido_spacer(_max_x - guido_x + GUIDO_WIDGET_SEPARATION, _widget_h);
 
 
@@ -116,7 +116,7 @@ if (_new_state == GUIDO_STATE.DOWN)
 if (_widget_array[__GUIDO_WIDGET.NEW_STATE] == GUIDO_STATE.NULL) _widget_array[@ __GUIDO_WIDGET.NEW_STATE] = _new_state;
 
 
-//Reset draw state
+//Reset public state
 guido_prev_name  = _widget_name;
 guido_prev_state = _new_state;
 guido_prev_value = _value;

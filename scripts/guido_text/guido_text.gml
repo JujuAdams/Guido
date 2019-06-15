@@ -1,8 +1,8 @@
 /// @param value
 /// @param [value...]
 
+//Build a string from our arguments
 var _string = "";
-
 var _i = 0;
 repeat(argument_count)
 {
@@ -23,5 +23,9 @@ repeat(argument_count)
 draw_text(guido_x, guido_y, _string);
 
 
-//Update Guido position
+//Update draw position
 guido_spacer(GUIDO_WIDGET_SEPARATION + string_width(_string), string_height(_string));
+
+
+//Return a NULL state because this element is non-interactive
+return GUIDO_STATE.NULL;
