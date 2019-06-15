@@ -1,9 +1,9 @@
-/// @param label
+/// @param string
 /// @param [variableName]
 /// @param [widgetName]
 
-var _string       = argument[0];
-var _variable     = ((argument_count > 1) && is_string(argument[1]))? argument[1] : undefined;
+var _string      = argument[0];
+var _variable    = ((argument_count > 1) && is_string(argument[1]))? argument[1] : undefined;
 var _widget_name = ((argument_count > 2) && is_string(argument[2]))? argument[2] : undefined;
 
 
