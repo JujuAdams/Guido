@@ -1,11 +1,11 @@
-/// @param [labelOn]
-/// @param [labelOff]
+/// @param [stringOn]
+/// @param [stringOff]
 /// @param [variableName]
 /// @param [widgetName]
 
-var _string_on    = ((argument_count > 0) && is_string(argument[0]))? argument[0] : "";
-var _string_off   = ((argument_count > 1) && is_string(argument[1]))? argument[1] : _string_on;
-var _variable     = ((argument_count > 2) && is_string(argument[2]))? argument[2] : undefined;
+var _string_on   = ((argument_count > 0) && is_string(argument[0]))? argument[0] : "";
+var _string_off  = ((argument_count > 1) && is_string(argument[1]))? argument[1] : _string_on;
+var _variable    = ((argument_count > 2) && is_string(argument[2]))? argument[2] : undefined;
 var _widget_name = ((argument_count > 3) && is_string(argument[3]))? argument[3] : undefined;
 
 
@@ -45,7 +45,7 @@ var _b = guido_y + _format_sprite_h;
 var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b, _old_state, _widget_name);
 
 
-//Draw
+//Draw checkbox
 draw_sprite(_format_sprite, (_value? GUIDO_STATE.RELEASED : _new_state) - GUIDO_STATE.NULL, _l, _t);
 
 
@@ -53,6 +53,7 @@ draw_sprite(_format_sprite, (_value? GUIDO_STATE.RELEASED : _new_state) - GUIDO_
 guido_spacer(GUIDO_WIDGET_SEPARATION + _format_sprite_w, _format_sprite_h);
 
 
+//Draw string
 var _string = _value? _string_on : _string_off;
 if (_string != "") 
 {
@@ -88,4 +89,6 @@ guido_prev_name  = _widget_name;
 guido_prev_state = _new_state;
 guido_prev_value = _value;
 
+
+//Return state
 return _new_state;
