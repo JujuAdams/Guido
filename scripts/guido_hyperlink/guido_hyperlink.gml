@@ -4,12 +4,14 @@
 var _string       = argument[0];
 var _widget_name = (argument_count > 1)? argument[1] : undefined;
 
+
+//If the string is empty, early-out with some default values
 if (_string == "")
 {
     guido_prev_name  = undefined;
     guido_prev_state = GUIDO_STATE.NULL;
     guido_prev_value = undefined;
-    return undefined;
+    return GUIDO_STATE.NULL;
 }
 
 
@@ -25,13 +27,8 @@ var _old_state    = _widget_array[__GUIDO_WIDGET.STATE];
 
 
 //Position widget
-var _widget_w = 24;
-var _widget_h = 24;
-if (_string != "")
-{
-    var _widget_w = string_width(_string);
-    var _widget_h = string_height(_string);
-}
+var _widget_w = string_width(_string);
+var _widget_h = string_height(_string);
 
 var _l = guido_x;
 var _t = guido_y;
@@ -74,4 +71,6 @@ guido_prev_name  = _widget_name;
 guido_prev_state = _new_state;
 guido_prev_value = undefined;
 
+
+//Return state
 return _new_state;
