@@ -1,11 +1,11 @@
-/// @param textOn
-/// @param textOff
+/// @param stringOn
+/// @param stringOff
 /// @param [variableName]
 /// @param [widgetName]
 
-var _string_on    = argument[0];
-var _string_off   = ((argument_count > 1) && (argument[1] != undefined))? argument[1] : _string_on;
-var _variable     = ((argument_count > 2) && is_string(argument[2])    )? argument[2] : undefined;
+var _string_on   = argument[0];
+var _string_off  = ((argument_count > 1) && (argument[1] != undefined))? argument[1] : _string_on;
+var _variable    = ((argument_count > 2) && is_string(argument[2])    )? argument[2] : undefined;
 var _widget_name = ((argument_count > 3) && is_string(argument[3])    )? argument[3] : undefined;
 
 
@@ -53,7 +53,7 @@ var _b = guido_y + _widget_h;
 var _new_state = __guido_cursor_over(__guido_cursor_x, __guido_cursor_y, _l, _t, _r, _b, _old_state, _widget_name);
 
 
-//Draw
+//Draw button
 var _on = _value;
 if ((_new_state == GUIDO_STATE.DOWN) || (_new_state == GUIDO_STATE.RELEASED)) _on = !_on;
 
@@ -62,6 +62,8 @@ guido_draw_9slice(_format_sprite, (_on? GUIDO_STATE.DOWN : GUIDO_STATE.NULL) - G
                   _format_centre_r, _format_centre_b,
                   _l, _t, _r, _b, true, c_white, 1.0);
 
+
+//Draw string
 if (_value)
 {
     draw_text(_l + _format_centre_l + 1,
@@ -101,4 +103,6 @@ guido_prev_name  = _widget_name;
 guido_prev_state = _new_state;
 guido_prev_value = _value;
 
+
+//Return state
 return _new_state;
